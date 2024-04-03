@@ -1,0 +1,185 @@
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 2-CLA\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 3-CLA\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 4-CLA\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\DotSpatial.Projections.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\DotSpatial.Projections.Forms.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\DotSpatial.Projections.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\DotSpatial.Projections.Forms.pdb
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\cs\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\de\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\el\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ja-JP\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\lt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\nl\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\pt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\ro\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\th\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\vi-VN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\12-Simulation of my project for multi algoritm\Step_5\Code 2011\ERSC -3- CLA - 2 - After Change 5-CLA\ERSC\bin\Release\zh-CN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.Forms.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.pdb
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.Forms.pdb
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\cs\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\de\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\el\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ja-JP\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\lt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\nl\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\pt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ro\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\th\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\vi-VN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\zh-CN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\13-Payan Name\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.config
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.application
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.pdb
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.pdb
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.Forms.pdb
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\cs\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\de\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\el\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ja-JP\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\lt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\nl\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\pt\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ro\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\th\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\vi-VN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\zh-CN\DotSpatial.Projections.Forms.resources.dll
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.application
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.config
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.pdb
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe.manifest
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.application
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.exe
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ERSC.pdb
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.pdb
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\DotSpatial.Projections.Forms.pdb
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\cs\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\de\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\el\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ja-JP\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\lt\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\nl\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\pt\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\ro\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\th\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\vi-VN\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\bin\Release\zh-CN\DotSpatial.Projections.Forms.resources.dll
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ResolveAssemblyReference.cache
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Form1.resources
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.Properties.Resources.resources
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.read.1.tlog
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\GenerateResource.write.1.tlog
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.exe.manifest
+E:\2- Arshad\TERM_3\Project\Start Project\19-Backup-Email\Code Project\Code\Code CLA\ERSC -3- CLA - 2 - After Change 5-CLA -Best 3\ERSC\obj\x86\Release\ERSC.application
