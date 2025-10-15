@@ -994,10 +994,7 @@ namespace ERSC
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
                 //
-                //Search search = new Search();
-                //search.Left = orderdPointInNorthWest[i - 1].Left;
-                //search.Top = orderdPointInNorthWest[i - 1].Top;
-                //search.PointID = orderdPointInNorthWest[i - 1].ID;
+              
                 //
                 searchs.Add(search);
             }
@@ -1017,11 +1014,7 @@ namespace ERSC
                 search.Container = Unit.GetUnit(search.Left, search.Top);
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
-                //
-                //Search search = new Search();
-                //search.Left = orderdPointInNorthEast[i - 1].Left;
-                //search.Top = orderdPointInNorthEast[i - 1].Top;
-                //search.PointID = orderdPointInNorthEast[i - 1].ID;
+                
                 //
                 searchs.Add(search);
             }
@@ -1042,11 +1035,7 @@ namespace ERSC
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
                 //
-                //Search search = new Search();
-                //search.Left = orderdPointInSouthWest[i - 1].Left;
-                //search.Top = orderdPointInSouthWest[i - 1].Top;
-                //search.PointID = orderdPointInSouthWest[i - 1].ID;
-                //
+                
                 searchs.Add(search);
             }
 
@@ -1292,41 +1281,7 @@ namespace ERSC
             db.SubmitChanges();
         }
         //**********************//
-        //void DrawUnit()
-        //{
-        //    System.Drawing.Pen myPen;
-        //    myPen = new System.Drawing.Pen(System.Drawing.Color.Black, 2);
-        //    //
-        //    Bitmap bmOrginal = new Bitmap(panel1.BackgroundImage);
-        //    System.Drawing.Graphics formGraphics = System.Drawing.Graphics.FromImage(bmOrginal);
-        //    //
-        //    formGraphics.DrawLine(myPen, Map.EndX / 2, 0, Map.EndX / 2, Map.EndY);
-        //    formGraphics.DrawLine(myPen, 0, Map.EndY / 2, Map.EndX, Map.EndY / 2);
-        //    //
-        //    string direct = Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString()+@"\Resources\BackgroundCityWithUnite.png";
-        //    bmOrginal.Save(direct, System.Drawing.Imaging.ImageFormat.Png);
-        //    //
-        //    Image i = (Image)bmOrginal;
-        //    panel1.BackgroundImage=i;          
-        //    //
-        //    myPen.Dispose();
-        //    formGraphics.Dispose();
-        //}
-
-        //void DrawPoint(DomainObject.Point p)
-        //{
-        //    Graphics gr = panel1.CreateGraphics();
-        //    gr.DrawEllipse(new Pen(Brushes.Black, 2), p.Left, p.Top, 7, 7);
-        //    gr.Dispose();
-        //}
-
-        //void DrawRescue(DomainObject.Rescue p)
-        //{
-        //    Graphics gr = panel1.CreateGraphics();
-        //    gr.FillEllipse(Brushes.Green, p.Left, p.Top, 9, 9);
-        //    gr.Dispose();
-        //}
-
+        
         double GetDistance(int x1, int x2, int y1, int y2)
         {
             //int temp = ((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1));
@@ -1800,10 +1755,6 @@ namespace ERSC
                     else
                         lblSearch.BringToFront();
 
-                    ////
-                    //System.Threading.Thread.Sleep(int.Parse(nudSearch.Value.ToString()) * 20);
-                    //totalTimeSleep += (int.Parse(nudSearch.Value.ToString()) * 20);
-
                     //
                     System.Drawing.Point MyPoint = new System.Drawing.Point(newCordinationX, newCordinationY);
                     DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
@@ -1823,51 +1774,8 @@ namespace ERSC
                     }
                 }
 
-                //if (points.Select(q => Enumerable.Range(lblSearch.Location.X - 10, 20).Contains(q.Left) && Enumerable.Range(lblSearch.Location.Y - 10, 20).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
-                //{
-                //    if (Enumerable.Range(lblSearch.Location.X - 10, 20).Contains(selectedPoint.Left) && Enumerable.Range(lblSearch.Location.Y - 10, 20).Contains(selectedPoint.Top))
-                //    if (lblSearch.InvokeRequired)
-                //        lblSearch.BeginInvoke((MethodInvoker)delegate { lblSearch.Location = new System.Drawing.Point(lblSearch.Location.X + 10, lblSearch.Location.Y + 10); });
-                //    else
-                //        lblSearch.Location = new System.Drawing.Point(lblSearch.Location.X + 10, lblSearch.Location.Y + 10);
-                //}
-                
-                //lblPoint.BackColor = Color.Green;
                 totalDistanceSearch += GetDistance(pointTop, searchTop, pointLeft, searchLeft);
-                
-                //
-                #region Best Performance
-                //if (panel1.InvokeRequired == false)
-                //{
-                //Draw 
-                //System.Drawing.Pen myPen;
-                //myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
-                //System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
-                //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-                //pointInNorthWest[0].Do();
-
-                ////Clean
-                //myPen.Color = Color.White;
-                //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-                //formGraphics.Dispose();
-                //myPen.Dispose();
-                //}
-                //else
-                //{
-                //    DomainObject.Point p = pointInNorthWest[0];
-                //    DoRescuInvoker invoker = new DoRescuInvoker(DoRescuInvoke);
-                //    this.Invoke(invoker, new object[] { rescLeft, rescTop, pointLeft, pointTop, p });
-                //}
-
-                //var lbl = panel1.Controls.Find(pointInNorthWest[0].ID, true).ToList().FirstOrDefault();
-                //if (lbl != null || lbl.Name != "")
-                //{
-                //    lbl.BackColor = Color.Navy;
-                //}
-                //
-                #endregion
+              
                 //
                 selectedSearch.ListPoint.Add(selectedPoint);
                 //***** Do Search
@@ -2097,52 +2005,7 @@ namespace ERSC
         public void ShowChartProbabilityForSelectedSearch(int counter, Dictionary<string, double> dicOfProbabilityRs,int searchIdForChart)
         {
             int k = 0;
-            //if (counter == 0)
-            //{
-                //Series seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series { };
-                //listSeries.Clear();
-                //System.Drawing.Color color = new System.Drawing.Color();
-                //for (int j = 0; j < dicOfProbabilityRs.Count(); j++)
-                //{
-                //    switch (j)
-                //    {
-                //        case 0: color = System.Drawing.Color.Red;
-                //            break;
-                //        case 1: color = System.Drawing.Color.Blue;
-                //            break;
-                //        case 2: color = System.Drawing.Color.Green;
-                //            break;
-                //        case 3: color = System.Drawing.Color.Yellow;
-                //            break;
-                //        case 4: color = System.Drawing.Color.Purple;
-                //            break;
-                //        case 5: color = System.Drawing.Color.Brown;
-                //            break;
-                //        default: color = System.Drawing.Color.Black;
-                //            break;
-                //    }
-                    //seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series
-                    //{
-                    //    Name = "seriesPropability" + j,
-                    //    Color = color,
-                    //    //Color = System.Drawing.Color.Green,
-                    //    IsVisibleInLegend = false,
-                    //    IsXValueIndexed = true,
-                    //    ChartType = SeriesChartType.Line
-                    //};
-                    //listSeries.Add(seriesPropability);
-                //}
-                //if (chartProbability.InvokeRequired)
-                //    chartProbability.BeginInvoke((MethodInvoker)delegate
-                //    {
-                //        this.chartProbability.Series.Clear();
-                //        foreach (var item in listSeries)
-                //        {
-                //            //item.Points.Clear();
-                //            this.chartProbability.Series.Add(item);
-                //        }
-                //    });
-            //}
+            
             k = 0;
             if (chartProbability.InvokeRequired)
                 chartProbability.BeginInvoke((MethodInvoker)delegate
@@ -2862,45 +2725,30 @@ namespace ERSC
         //***************//
         public double ComputeRewardForPoint(DomainObject.Point point)
         {
-            //double reward = point.Priority * 100 + (int)point.RescueLevel * 10 + point.TimeToBeDone;
-            //double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 1000;
-            //double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 43;
             double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 70;
             return reward;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
         public double ComputeRewardForPoint(TbPoint point)
         {
-            //double reward = point.Priority * 100 + (int)point.RescueLevel * 10 + point.TimeToBeDone;
-            //double reward = (int)point.Point_RescueLevel * 10 + point.Point_TimeToBeDone * 1000;
             double reward = (int)point.Point_RescueLevel * 10 + point.Point_TimeToBeDone * 43;
             return reward;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
         public double ComputeCostRescueForPoint(DomainObject.Point point,Rescue rescue)
         {
-            //int timeByDistance = 0;
-            //double cost = timeByDistance + (int)point.RescueLevel * 10 + 10 / point.Priority + point.TimeToBeDone * 1000 + rescue.Tiredness * 10;
-            //double cost = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top) * 10;
+            
             double cost = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top) / 5; //****** [Time=Distance/Speed 5(m/s)]
             return cost;
-            //Random r = new Random();
-            //return r.Next(5, 20);
+            
         }
 
         public double ComputeCostRescueForPoint(TbPoint point, TbRescue rescue)
         {
-            //int timeByDistance = 0;
-            //double cost = timeByDistance + (int)point.RescueLevel * 10 + 10 / point.Priority + point.TimeToBeDone * 1000 + rescue.Tiredness * 10;
-            //double cost = GetDistance(point.Point_LeftCoordinate, rescue.Rescue_LeftCoordinate, point.Point_TopCoordinate, rescue.Rescue_TopCoordinate) * 10;
+            
             double cost = GetDistance(point.Point_LeftCoordinate, rescue.Rescue_LeftCoordinate, point.Point_TopCoordinate, rescue.Rescue_TopCoordinate) /5;
             return cost;
-            //Random r = new Random();
-            //return r.Next(5, 20);
+            
         }
 
         public double ComputeDistanceRescueForPoint(DomainObject.Point point, Rescue rescue)
@@ -2977,22 +2825,6 @@ namespace ERSC
                 //**********************************//
                 if (search.IntID == searchIdForChart)
                 {
-                    //if (counter == 0)
-                    //{
-                    //    if (chartProbability.InvokeRequired)
-                    //        chartProbability.BeginInvoke((MethodInvoker)delegate
-                    //        {
-                    //            chartProbability.Series["seriesPropability0"].ChartType = SeriesChartType.Bar;
-                    //            //chartProbability.ChartAreas[0].AxisX.IsStartedFromZero = true;
-                    //        });
-                    //    else
-                    //    {
-                    //        chartProbability.Series["seriesPropability0"].ChartType = SeriesChartType.Spline;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //}
                     ShowChartProbabilityForSelectedSearch(counter, dicOfProbabilityRs, searchIdForChart);
                 }
                 //***********//
@@ -3109,12 +2941,7 @@ namespace ERSC
                 //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))
+                    
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID)) //.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))
                     {
                         b = 1;
@@ -3154,17 +2981,7 @@ namespace ERSC
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
                         requestedThisSectionCountThreadInNorthWest++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
+                        
                         lock (syncLockMiddleInNorthWest)
                         {
                             currentThisSectionCountThreadInNorthWest++;
@@ -3217,15 +3034,7 @@ namespace ERSC
                         //
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-                            //
-                            //
+                            
                             foreach (var sID in dicSID.Keys)
                             {
                                 using (var dbSelect = new DataClasses1DataContext())
@@ -3240,12 +3049,7 @@ namespace ERSC
 
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
 
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInNorthWest(selectedPoint, winRescueID) || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
-                                //***********//
+                               
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInNorthWest(selectedPoint, winRescueID))
@@ -3311,21 +3115,11 @@ namespace ERSC
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -3360,14 +3154,7 @@ namespace ERSC
 
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                       
                     }
                 }
 
@@ -3415,11 +3202,7 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInNorthWest);
                 }
                 Monitor.PulseAll(syncLockAfterEndInNorthWest);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInNorthWest++;
-                //}
+               
                 requestedCountThreadInNorthWest = requestedCountThreadInNorthWestCopy;
             }
             currentCountThreadInNorthWestAfterEnd = 0;
@@ -3578,12 +3361,7 @@ namespace ERSC
                 //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                    
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -3609,10 +3387,7 @@ namespace ERSC
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
+                        
                     }
                 }
                 else
@@ -3621,17 +3396,7 @@ namespace ERSC
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
                         requestedThisSectionCountThreadInNorthEast++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
+                        
                         lock (syncLockMiddleInNorthEast)
                         {
                             currentThisSectionCountThreadInNorthEast++;
@@ -3683,14 +3448,6 @@ namespace ERSC
                         //
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-
                             //
                             foreach (var sID in dicSID.Keys)
                             {
@@ -3706,12 +3463,7 @@ namespace ERSC
 
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
 
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInNorthEast(selectedPoint, winRescueID) || dicIsGivedBestSelectInNorthEast.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
-                                //***********//
+                               
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInNorthEast(selectedPoint, winRescueID))
@@ -3742,10 +3494,7 @@ namespace ERSC
                             //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
+                                
                                 Random r = new Random();
                                 double y = r.NextDouble();
                                 if (y <= 0.5)//0.9//0.5//0.15
@@ -3774,21 +3523,11 @@ namespace ERSC
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -3822,14 +3561,7 @@ namespace ERSC
 
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInNorthEast.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                       
                     }
                 }
                 dicOfProbabilityRs = newDicOfProbabilityRs;
@@ -3877,11 +3609,7 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInNorthEast);
                 }
                 Monitor.PulseAll(syncLockAfterEndInNorthEast);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInNorthEast++;
-                //}
+                
                 requestedCountThreadInNorthEast = requestedCountThreadInNorthEastCopy;
             }
             currentCountThreadInNorthEastAfterEnd = 0;
@@ -3903,17 +3631,7 @@ namespace ERSC
                 efficiencyBusyRescue += (double)busyNorthEastRs / countCurrentTask;
             }
             numBusyRescue++;
-            //int rescuesNorthEast = rescues.Where(p => p.Container.Equals(UnitType.NorthEast)).Count();
-            //int pointsNorthEast = points.Where(p => p.Container.Equals(UnitType.NorthEast) && p.EndRescueDoing.Equals(false)).Count();
-            //lock (this)
-            //{
-            //    if (pointsNorthEast > rescuesNorthEast)
-            //        efficiencyBusyRescue += (double)busyNorthEastRs / rescuesNorthEast;
-            //    else
-            //        efficiencyBusyRescue += (double)busyNorthEastRs / pointsNorthEast;
-            //    numBusyRescue++;
-            //}
-            //
+            
             rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
             dicIsGivedBestSelectInNorthEast.Clear();
             ////delete from sql
@@ -4053,11 +3771,7 @@ namespace ERSC
                 //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(search.ID)).Value)
+                    
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -4096,17 +3810,7 @@ namespace ERSC
                     {
                         requestedThisSectionCountThreadInSouthWest++;
 
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
+                       
                         lock (syncLockMiddleInSouthWest)
                         {
                             currentThisSectionCountThreadInSouthWest++;
@@ -4159,14 +3863,7 @@ namespace ERSC
                         //
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-
+                            
                             //
                             foreach (var sID in dicSID.Keys)
                             {
@@ -4182,12 +3879,7 @@ namespace ERSC
 
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
 
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInSouthWest(selectedPoint, winRescueID) || dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
-                                ////***********//
+                               
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInSouthWest(selectedPoint, winRescueID))
@@ -4218,10 +3910,7 @@ namespace ERSC
                             //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
+                                
                                 Random r = new Random();
                                 double y = r.NextDouble();
                                 if (y <= 0.5)//0.9//0.5//0.15
@@ -4250,21 +3939,11 @@ namespace ERSC
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                           
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -4274,10 +3953,7 @@ namespace ERSC
                             }
                             else
                             {
-                                //b = -1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = false;
+                                
                                 Random r = new Random();
                                 double y = r.NextDouble();
                                 if (y <= 0.15)//0.2
@@ -4298,14 +3974,7 @@ namespace ERSC
 
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                       
                     }
                 }
                 dicOfProbabilityRs = newDicOfProbabilityRs;
@@ -4353,11 +4022,7 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInSouthWest);
                 }
                 Monitor.PulseAll(syncLockAfterEndInSouthWest);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInSouthWest++;
-                //}
+                
                 requestedCountThreadInSouthWest = requestedCountThreadInSouthWestCopy;
             }
             currentCountThreadInSouthWestAfterEnd = 0;
@@ -4517,12 +4182,7 @@ namespace ERSC
                 //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                   
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -4548,10 +4208,7 @@ namespace ERSC
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
+                       
 
                     }
                 }
@@ -4561,17 +4218,7 @@ namespace ERSC
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
                         requestedThisSectionCountThreadInSouthEast++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
+                        
                         lock (syncLockMiddleInSouthEast)
                         {
                             currentThisSectionCountThreadInSouthEast++;
@@ -4623,13 +4270,7 @@ namespace ERSC
                         //
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
+
 
                             //
                             foreach (var sID in dicSID.Keys)
@@ -4645,13 +4286,7 @@ namespace ERSC
                                 }
 
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInSouthEast(selectedPoint, winRescueID) || dicIsGivedBestSelectInSouthEast.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //***********//
-
+                               
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInSouthEast(selectedPoint, winRescueID))
@@ -4715,21 +4350,11 @@ namespace ERSC
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -4763,14 +4388,7 @@ namespace ERSC
 
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInSouthEast.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                       
                     }
                 }
                 dicOfProbabilityRs = newDicOfProbabilityRs;
@@ -4886,10 +4504,7 @@ namespace ERSC
             double probability = 0;
             foreach (var prob in dicOfProbabilityRs)
             {
-                //if (prob.Key.Equals(winRescueID))
-                //    newDicOfProbabilityRs.Add(winRescueID, winRescueProbability + x * b * (1 - winRescueProbability));
-                //else
-                //    newDicOfProbabilityRs.Add(prob.Key, dicOfProbabilityRs[prob.Key] - x * b * (dicOfProbabilityRs[prob.Key]));
+                
                 if (!probability.Equals(0) || !probability.Equals(1))
                 {
                     if (prob.Key.Equals(winRescueID))
@@ -4915,10 +4530,7 @@ namespace ERSC
             int r = dicOfProbabilityRs.Count();
             foreach (var prob in dicOfProbabilityRs)
             {
-                //if (prob.Key.Equals(winRescueID))
-                //    newDicOfProbabilityRs.Add(winRescueID, winRescueProbability + x * b * (1 - winRescueProbability));
-                //else
-                //    newDicOfProbabilityRs.Add(prob.Key, dicOfProbabilityRs[prob.Key] - x * b * (dicOfProbabilityRs[prob.Key]));
+                
                 if (!probability.Equals(0) || !probability.Equals(1))
                 {
                     if (prob.Key.Equals(winRescueID))
@@ -5042,20 +4654,7 @@ namespace ERSC
         {
             lock (selectedRescue)
             {
-                //foreach (var point in selectedRescue.ListPoint.Keys)
-                //{  
-                //    point.StartRescueDoing = true;
-                //    point.RTeamID = selectedRescue.ID;
-                //    point.DoRescue();
-                //    //
-                //    foreach (var newPoint in points.Where(p => p.ParentID.Equals(point.ID)).ToList())
-                //    {
-                //        newPoint.StartRescueDoing = true;
-                //        newPoint.RTeamID = selectedRescue.ID;
-                //        newPoint.DoRescue();
-                //    }
-                //    //
-                //}
+               
 
                 selectedRescue.State = Rescue.RescueStateType.Busy;
                 selectedRescue.IsDoing = true;
@@ -5389,14 +4988,7 @@ namespace ERSC
                 else
                     lblRescue.BringToFront();
 
-                //
-                //foreach (var newPoint in newPoints.Where(p => p.ParentID.Equals(selectedPoint.ID)).ToList())
-                //{
-                //    newPoint.StartRescueDoing = true;
-                //    newPoint.RTeamID = selectedRescue.ID;
-                //    newPoint.DoRescue();
-                //}
-                //
+            
 
                 //***** Do Rescue
                 selectedPoint.DoRescue();
@@ -5504,10 +5096,6 @@ namespace ERSC
                 //
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
                     {
                         //if (orderdPointInNorthWest.Count != 0)
@@ -5540,10 +5128,6 @@ namespace ERSC
                 //
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInNorthEast.Any(p => p.StartSearchDoing.Equals(false)))
                     {
                         //if (orderdPointInNorthWest.Count != 0)
@@ -5576,10 +5160,6 @@ namespace ERSC
                 //
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInSouthWest.Any(p => p.StartSearchDoing.Equals(false)))
                     {
                         //if (orderdPointInNorthWest.Count != 0)
@@ -5634,26 +5214,7 @@ namespace ERSC
             return null;
         }
         //***********************************************//
-        #region Best Performance
-        //private void DoRescuInvoke(int rescTop, int rescLeft, int pointTop, int pointLeft, DomainObject.Point point)
-        //{
-        //    System.Drawing.Pen myPen;
-        //    myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
-        //    System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
-        //    formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-        //    point.DoSearch();
-
-        //    //Clean
-        //    myPen.Color = Color.White;
-        //    formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-        //    formGraphics.Dispose();
-        //    myPen.Dispose();
-        //}
-
-        //delegate void DoRescuInvoker(int rescTop, int rescLeft, int pointTop, int pointLeft, DomainObject.Point point);
-        #endregion
+        
 
         private void btnStop_Click(object sender, EventArgs e)
         {
