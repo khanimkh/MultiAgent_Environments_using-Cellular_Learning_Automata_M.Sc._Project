@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERSC.DomainObject
 {
+    // Enum representing the unit (region) types in the map
     public enum UnitType
     {
         NorthWest,
@@ -15,8 +16,10 @@ namespace ERSC.DomainObject
         None
     };
 
+    // Represents unit (region) logic and counters for search/rescue operations
     public class Unit
     {
+        // Determines the unit type based on x and y coordinates
         public static UnitType GetUnit(int x, int y)
         {
             if (x >= Map.StartX && x <= Map.EndX / 2)
@@ -44,6 +47,7 @@ namespace ERSC.DomainObject
             return UnitType.None;
         }
 
+        // Search team counters for each unit
         public static int NorthWestSearchCount
         {
             get;
@@ -68,6 +72,7 @@ namespace ERSC.DomainObject
             set;
         }
 
+        // Rescue team counters for each unit
         public static int NorthWestRescueCount
         {
             get;
@@ -92,7 +97,4 @@ namespace ERSC.DomainObject
             set;
         }
     }
-
-        
-   
 }

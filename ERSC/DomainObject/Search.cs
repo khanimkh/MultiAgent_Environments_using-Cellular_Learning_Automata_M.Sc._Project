@@ -7,23 +7,26 @@ using System.Windows.Forms;
 
 namespace ERSC.DomainObject
 {
+    // Represents a search team or agent in the environment
     public class Search
     {
+        // Enum representing the state of a search team
         public enum SearchStateType
         {
             Ready,
             Busy
         };
 
+        // Constructor initializes a new search agent with default properties
         public Search()
         {
-            //this.BackColor = Color.Blue;
-            //this.Image = Properties.Resources.PersonSearch;
+            // Set default image and size for the search agent
             this.Image = Properties.Resources.Search_Blue;
             this.Width = 10;
             this.Height = 10;
         }
 
+        // Converts an integer to a SearchStateType enum value
         public static SearchStateType GetSearchState(int n)
         {
             switch (n)
@@ -36,6 +39,7 @@ namespace ERSC.DomainObject
             return SearchStateType.Ready;
         }
 
+        // Unique identifier for the search agent
         string _ID;
         public string ID
         {
@@ -46,213 +50,129 @@ namespace ERSC.DomainObject
             }
         }
 
+        // Integer identifier for the search agent
         public int IntID
         {
             get;
             set;
         }
 
+        // Creates and returns a Label representing the search agent for UI display
         public Label GetShape()
         {
-            //
             Label lbl = new Label();
             lbl.Name = string.Format("search_{0}", Guid.NewGuid().ToString());
             this.ID = lbl.Name;
             lbl.Text = "";
             lbl.BackColor = this.BackColor;
-            //
             lbl.Visible = true;
             lbl.Show();
             lbl.Size = new Size(this.Width, this.Height);
             lbl.AutoSize = false;
-            //
             lbl.Image = this.Image;
             lbl.Width = this.Width;
             lbl.Height = this.Height;
             lbl.Location = new System.Drawing.Point(Left, Top);
-            //
             this.Container = Unit.GetUnit(Left, Top);
             return lbl;
         }
 
+        // The unit container type for this search agent
         public UnitType Container
         {
             get;
             set;
         }
 
+        // Background color for the search agent (not always used)
         private Color BackColor
         {
             get;
             set;
         }
 
+        // Image representing the search agent in the UI
         private Image Image
         {
             get;
             set;
         }
 
+        // Width of the search agent's UI representation
         private int Width
         {
             get;
             set;
         }
 
+        // Height of the search agent's UI representation
         private int Height
         {
             get;
             set;
         }
 
+        // Y coordinate of the search agent
         public int Top
         {
             get;
             set;
         }
 
+        // X coordinate of the search agent
         public int Left
         {
             get;
             set;
         }
 
+        // Projected Y coordinate (for mapping/projection)
         public double TopProjection
         {
             get;
             set;
         }
 
+        // Projected X coordinate (for mapping/projection)
         public double LeftProjection
         {
             get;
             set;
         }
 
+        // Indicates if the search agent is currently performing a task
         public bool IsDoing
         {
             get;
             set;
         }
-        
+
+        // ID of the point currently assigned to the search agent
         public string PointID
         {
             get;
             set;
         }
 
+        // Current state of the search agent
         public SearchStateType State
         {
             get;
             set;
         }
 
+        // Probabilities for competitor search teams
         public IDictionary<string,double> CompetitorProbabilites
         {
             get;
             set;
         }
 
+        // List of points assigned to this search agent
         public List<DomainObject.Point> ListPoint
         {
             get;
             set;
         }
-
-        //public void Do(DomainObject.Point selectedPoint)
-        //{
-        //    this.IsDoing = true;
-        //    selectedPoint.StartSearchDoing = true;
-        //    selectedPoint.STeamID = this.ID;
-        //    //int searchTop, searchLeft, pointTop, pointLeft;
-        //    //searchTop = this.Top;
-        //    //searchLeft = this.Left;
-        //    //pointTop = selectedPoint.Top;
-        //    //pointLeft = selectedPoint.Left;
-
-        //    //System.Drawing.Pen myPen;
-        //    //myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
-        //    //System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
-        //    //formGraphics.DrawLine(myPen, searchLeft, searchTop, pointLeft, pointTop);
-
-        //    //selectedPoint.Do();
-
-        //    ////Clean
-        //    //myPen.Color = Color.Green;
-        //    //formGraphics.DrawLine(myPen, searchLeft, searchTop, pointLeft, pointTop);
-
-        //    //formGraphics.Dispose();
-        //    //myPen.Dispose();
-        //    //
-        //    #region Best Performance
-        //    //if (panel1.InvokeRequired == false)
-        //    //{
-        //    //Draw 
-        //    //System.Drawing.Pen myPen;
-        //    //myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
-        //    //System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
-        //    //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-        //    //pointInNorthWest[0].Do();
-
-        //    ////Clean
-        //    //myPen.Color = Color.White;
-        //    //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-        //    //formGraphics.Dispose();
-        //    //myPen.Dispose();
-        //    //}
-        //    //else
-        //    //{
-        //    //    DomainObject.Point p = pointInNorthWest[0];
-        //    //    DoRescuInvoker invoker = new DoRescuInvoker(DoRescuInvoke);
-        //    //    this.Invoke(invoker, new object[] { rescLeft, rescTop, pointLeft, pointTop, p });
-        //    //}
-
-        //    //var lbl = panel1.Controls.Find(pointInNorthWest[0].ID, true).ToList().FirstOrDefault();
-        //    //if (lbl != null || lbl.Name != "")
-        //    //{
-        //    //    lbl.BackColor = Color.Navy;
-        //    //}
-        //    //
-        //    #endregion
-        //    //
-        //    //if (orderdPoints.Remove(selectedPoint))
-        //    //{
-        //    DomainObject.Point nextPoint = SelectNextPointForSearchInNorthWest(this);
-        //    if (nextPoint != null)
-        //    {
-        //        Do(nextPoint);
-        //    }
-        //    //}
-        //    //else
-        //    //{
-        //    //}
-        //    //
-        //    this.IsDoing = false;
-        //}
-
-        //public DomainObject.Point SelectNextPointForSearchInNorthWest(Search search)
-        //{
-        //    List<DomainObject.Point> orderdPointInNorthWest = ERSC.Form1.points.Where(p => p.Container == UnitType.NorthWest && p.EndSearchDoing == false && p.StartSearchDoing == false).ToList();
-
-        //    foreach (var item in orderdPointInNorthWest)
-        //    {
-        //        item.Distance = GetDistance(item.Left, search.Left, item.Top, search.Top);
-        //    }
-        //    orderdPointInNorthWest = orderdPointInNorthWest.OrderBy(p => p.Distance).ToList();
-
-        //    if (orderdPointInNorthWest.Count != 0)
-        //        return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-        //    else
-        //        return null;
-        //}
-
-        //int GetDistance(int x1, int x2, int y1, int y2)
-        //{
-        //    int temp = ((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1));
-        //    return (int)Math.Sqrt(temp);
-        //}
-
     }
 }

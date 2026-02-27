@@ -19,18 +19,20 @@ using DotSpatial.Topology;
 
 namespace ERSC
 {
+    // Main form class for the ERSC application
     public partial class Form1 : Form
     {
         //public DotSpatial.Controls.Map geoMap = new DotSpatial.Controls.Map();
         public Form1()
         {
+            // Initialize database context and main data lists
             db = new DataClasses1DataContext();
             points = new List<DomainObject.Point>();
             newPoints = new List<DomainObject.Point>();
             searchs = new List<DomainObject.Search>();
             rescues = new List<Rescue>();
             InitializeComponent();
-            AddMap();
+            AddMap(); // Add and configure the map control
         }
 
         //***********************//
@@ -168,12 +170,9 @@ namespace ERSC
         //***********************//
         private void AddMap()
         {
-            //***** Add ShapeFile
+            // Add and configure map layers for different city features
             geoMap.Name = "geomap";
-            //geoMap.AddLayer("E:\\Arshad\\TERM_3\\Project\\Start Project\\11-Optimal Simulation of My Project\\Dll GIS && Document\\Map\\New Map2\\Out ArcGis\\PointShap.shx");
-            //geoMap.AddLayer("E:\\Arshad\\TERM_3\\Project\\Start Project\\11-Optimal Simulation of My Project\\Dll GIS && Document\\Map\\New Map2\\Out ArcGis\\PolyLineShap.shx");
-            //geoMap.AddLayer("E:\\Arshad\\TERM_3\\Project\\Start Project\\11-Optimal Simulation of My Project\\Dll GIS && Document\\Map\\New Map2\\Out ArcGis\\PolyGonShap.shx");
-            //string direct = Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() + @"\Resources\BackgroundCityWithUnite.png";
+            // Add shapefile layers for points, lines, polygons, blocks, parks, units, boulevards, and roads
             geoMap.AddLayer(Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() + @"\Resources\Map\PointShap.shx");
             geoMap.AddLayer(Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() + @"\Resources\Map\PolyLineShap.shx");
             geoMap.AddLayer(Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() + @"\Resources\Map\PolyGonShap.shx");
@@ -190,8 +189,8 @@ namespace ERSC
             geoMap.AddLayer(Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString() + @"\Resources\Map\PolyGonRodShap.shx");
             //
             geoMap.Size = new Size(683, 448);
-            ////***Add Color
-            //Block1
+            // Set symbology (color, style) for each map layer
+            // Block1 lines
             DotSpatial.Controls.MapLineLayer lineBlock1 = default(DotSpatial.Controls.MapLineLayer);
             lineBlock1 = (DotSpatial.Controls.MapLineLayer)geoMap.Layers[1];
             LineScheme schemeLineBlock1 = new LineScheme();
@@ -199,15 +198,15 @@ namespace ERSC
             LineCategory categoryLine1 = new LineCategory(Color.Gray, Color.Gray, 1, System.Drawing.Drawing2D.DashStyle.Solid, System.Drawing.Drawing2D.LineCap.Flat);
             schemeLineBlock1.Categories.Add(categoryLine1);
             lineBlock1.Symbology = schemeLineBlock1;
-            //
+            // Block1 polygons
             DotSpatial.Controls.MapPolygonLayer polygBlock1 = default(DotSpatial.Controls.MapPolygonLayer);
             polygBlock1 = (DotSpatial.Controls.MapPolygonLayer)geoMap.Layers[2];
             PolygonScheme schemePolygBlock1 = new PolygonScheme();
             schemePolygBlock1.Categories.Clear();
-            PolygonCategory categoryBlock1 = new PolygonCategory(Color.Beige, Color.Gray, 1);//Honeydew//(Color.Tan, Color.SeaShell, 2)//(Color.PeachPuff, Color.Tan, 2)//(Color.LightPink, Color.LightCyan, 2)//(Color.Ivory, Color.Indigo, 2)
+            PolygonCategory categoryBlock1 = new PolygonCategory(Color.Beige, Color.Gray, 1);
             schemePolygBlock1.Categories.Add(categoryBlock1);
             polygBlock1.Symbology = schemePolygBlock1;
-            //Block
+            // Block lines
             DotSpatial.Controls.MapLineLayer lineBlock = default(DotSpatial.Controls.MapLineLayer);
             lineBlock = (DotSpatial.Controls.MapLineLayer)geoMap.Layers[3];
             LineScheme schemeLineBlock = new LineScheme();
@@ -215,15 +214,15 @@ namespace ERSC
             LineCategory categoryLine = new LineCategory(Color.LightGray, Color.LightGray, 1, System.Drawing.Drawing2D.DashStyle.Solid, System.Drawing.Drawing2D.LineCap.Flat);
             schemeLineBlock.Categories.Add(categoryLine);
             lineBlock.Symbology = schemeLineBlock;
-            //
+            // Block polygons
             DotSpatial.Controls.MapPolygonLayer polygBlock = default(DotSpatial.Controls.MapPolygonLayer);
             polygBlock = (DotSpatial.Controls.MapPolygonLayer)geoMap.Layers[4];
             PolygonScheme schemePolygBlock = new PolygonScheme();
             schemePolygBlock.Categories.Clear();
-            PolygonCategory categoryBlock = new PolygonCategory(Color.Beige, Color.Gray, 1);//Honeydew//(Color.Tan, Color.SeaShell, 2)//(Color.PeachPuff, Color.Tan, 2)//(Color.LightPink, Color.LightCyan, 2)//(Color.Ivory, Color.Indigo, 2)
+            PolygonCategory categoryBlock = new PolygonCategory(Color.Beige, Color.Gray, 1);
             schemePolygBlock.Categories.Add(categoryBlock);
             polygBlock.Symbology = schemePolygBlock;
-            //Park
+            // Park lines
             DotSpatial.Controls.MapLineLayer linePark = default(DotSpatial.Controls.MapLineLayer);
             linePark = (DotSpatial.Controls.MapLineLayer)geoMap.Layers[5];
             LineScheme schemeLinePark = new LineScheme();
@@ -232,15 +231,15 @@ namespace ERSC
             schemeLineBlock.Categories.Add(categoryLine);
             schemeLinePark.Categories.Add(categoryLinePark);
             linePark.Symbology = schemeLinePark;
-            //
+            // Park polygons
             DotSpatial.Controls.MapPolygonLayer polygPark = default(DotSpatial.Controls.MapPolygonLayer);
             polygPark = (DotSpatial.Controls.MapPolygonLayer)geoMap.Layers[6];
             PolygonScheme schemePolygPark = new PolygonScheme();
             schemePolygPark.Categories.Clear();
-            PolygonCategory categoryPolygPark = new PolygonCategory(Color.PaleGreen, Color.PaleGreen, 2);//(Color.Tan, Color.SeaShell, 2)//(Color.PeachPuff, Color.Tan, 2)//(Color.LightPink, Color.LightCyan, 2)//(Color.Ivory, Color.Indigo, 2)
+            PolygonCategory categoryPolygPark = new PolygonCategory(Color.PaleGreen, Color.PaleGreen, 2);
             schemePolygPark.Categories.Add(categoryPolygPark);
             polygPark.Symbology = schemePolygPark;
-            //Unit
+            // Unit lines
             DotSpatial.Controls.MapLineLayer lineUnit = default(DotSpatial.Controls.MapLineLayer);
             lineUnit = (DotSpatial.Controls.MapLineLayer)geoMap.Layers[7];
             LineScheme schemelineUnit = new LineScheme();
@@ -248,51 +247,60 @@ namespace ERSC
             LineCategory categorylineUnit = new LineCategory(Color.Salmon, 2);
             schemelineUnit.Categories.Add(categorylineUnit);
             lineUnit.Symbology = schemelineUnit;
-            //Bolvar
+            // Boulevard polygons
             DotSpatial.Controls.MapPolygonLayer polygBolvar = default(DotSpatial.Controls.MapPolygonLayer);
             polygBolvar = (DotSpatial.Controls.MapPolygonLayer)geoMap.Layers[8];
             PolygonScheme schemePolygBolvar = new PolygonScheme();
             schemePolygBolvar.Categories.Clear();
-            PolygonCategory categoryPolygBolvar = new PolygonCategory(Color.DarkKhaki, Color.Tan, 1);//Wheat//(Color.Tan, Color.SeaShell, 2)//(Color.PeachPuff, Color.Tan, 2)//(Color.LightPink, Color.LightCyan, 2)//(Color.Ivory, Color.Indigo, 2)
+            PolygonCategory categoryPolygBolvar = new PolygonCategory(Color.DarkKhaki, Color.Tan, 1);
             schemePolygBolvar.Categories.Add(categoryPolygBolvar);
             polygBolvar.Symbology = schemePolygBolvar;
-            //Rod
+            // Road polygons
             DotSpatial.Controls.MapPolygonLayer polygRod = default(DotSpatial.Controls.MapPolygonLayer);
+                            // --- Begin: Automata Learning and Rescue Assignment Logic for SouthEast ---
+                            // Penalty and probability variables initialization
             polygRod = (DotSpatial.Controls.MapPolygonLayer)geoMap.Layers[9];
             PolygonScheme schemepolygRod = new PolygonScheme();
+                            // Retrieve competitor SteamIDs for the winning rescue
             schemepolygRod.Categories.Clear();
-            PolygonCategory categorypolygRod = new PolygonCategory(Color.LightBlue, Color.LightBlue, 2);//(Color.Tan, Color.SeaShell, 2)//(Color.PeachPuff, Color.Tan, 2)//(Color.LightPink, Color.LightCyan, 2)//(Color.Ivory, Color.Indigo, 2)
+            PolygonCategory categorypolygRod = new PolygonCategory(Color.LightBlue, Color.LightBlue, 2);
+                            // Dictionary to store Search_ID and Probability for unassigned tasks for the winning rescue
             schemepolygRod.Categories.Add(categorypolygRod);
             polygRod.Symbology = schemepolygRod;
-            //
+            // Add map to panel
+                                // Query task list for the winning rescue and build dictionary
             panel1.Controls.Add(geoMap);
-            //*****
         }
         //**********************//
+        // Handles the setup of points on the map and resets all related UI and data
         private void btnSetupPoint_Click(object sender, EventArgs e)
         {
+            // Disable main action buttons during setup
+                            // If only one competitor or one probability, handle win/loss and update probabilities
             btnGo.Enabled = false;
             btnStop.Enabled = false;
             btnShowInformation.Enabled = false;
-            //
+            // Reset stopwatch and clear charts
             ss.Reset();
             chartTasksOfSearch.Series.Clear();
             chartTasksOfRescue.Series.Clear();
             seriesTasksOfSearch.Points.Clear();
+                                // Check if the current rescue is the closest
             seriesTasksOfRescue.Points.Clear();
-            //******************//
+            // Clear probability charts
+                                    // Win case: update probabilities positively
             chartProbability.Series.Clear();
             chartProbability_S1.Series.Clear();
             chartProbability_S2.Series.Clear();
             chartProbability_S3.Series.Clear();
-            //******************//
-            //
+            // Remove all previous tasks and points from database and UI
             DeleteTaskListFromDataBase();
             DeletePoints();
-            //
+                                    // Random chance for win/loss, update probabilities accordingly
+            // Create new random points and display them
             CreatPoints();
             ShowPoints();
-            //
+            // Enable or disable controls based on whether points exist
             if (points.Count > 0)
             {
                 btnSetupRS.Enabled = true;
@@ -300,12 +308,13 @@ namespace ERSC
                 nudRescue.Enabled = true;
             }
             else
+                                        // Penalty case: update probabilities with penalty
             {
                 btnSetupRS.Enabled = false;
                 nudSearch.Enabled = false;
                 nudRescue.Enabled = false;
             }
-            //
+            // Reset statistics and UI fields
             totalDistanceSearch = 0;
             totalDistanceRescue = 0;
             totalTimeOfDistanceRescue = 0;
@@ -314,17 +323,18 @@ namespace ERSC
             txtAvarageBusyResc.Text = "";
             txtIdelRescue.Text = "";
             txtBusyRescue.Text = "";
+                                // Multiple competitors: synchronize threads and determine winner
             efficiencyBusyRescue = 0;
             numBusyRescue = 0;
-            //
+            // Clear all thread and selection tracking lists
+                                    // Thread synchronization for single probability case
             AllSearchThreads.Clear();
             AllRescueThreads.Clear();
-            //
             dicIsGivedBestSelectInNorthWest.Clear();
             dicIsGivedBestSelectInNorthEast.Clear();
             dicIsGivedBestSelectInSouthWest.Clear();
             dicIsGivedBestSelectInSouthEast.Clear();
-            //
+            // Reset thread counters for all regions
             requestedCountThreadInNorthWest = 0;
             requestedThisSectionCountThreadInNorthWest = 0;
             currentCountThreadInNorthWest = 0;
@@ -333,7 +343,6 @@ namespace ERSC
             currentCountThreadInNorthWestEnd = 0;
             currentCountThreadInNorthWestAfterEnd = 0;
             currentThisSectionCountThreadInNorthWest = 0;
-            //
             requestedCountThreadInNorthEast = 0;
             requestedThisSectionCountThreadInNorthEast = 0;
             currentCountThreadInNorthEast = 0;
@@ -342,13 +351,14 @@ namespace ERSC
             currentCountThreadInNorthEastEnd = 0;
             currentCountThreadInNorthEastAfterEnd = 0;
             currentThisSectionCountThreadInNorthEast = 0;
-            //
             requestedCountThreadInSouthWest = 0;
+                                    // Find winner by max probability
             requestedThisSectionCountThreadInSouthWest = 0;
             currentCountThreadInSouthWest = 0;
             currentCountThreadInSouthWestBeforStart = 0;
             currentCountThreadInSouthWestStart = 0;
             currentCountThreadInSouthWestEnd = 0;
+                                        // Win case: update probabilities
             currentCountThreadInSouthWestAfterEnd = 0;
             currentThisSectionCountThreadInSouthWest = 0;
             //
@@ -356,23 +366,27 @@ namespace ERSC
             requestedThisSectionCountThreadInSouthEast = 0;
             currentCountThreadInSouthEast = 0;
             currentCountThreadInSouthEastBeforStart = 0;
+                                        // Penalty case: update probabilities
             currentCountThreadInSouthEastStart = 0;
             currentCountThreadInSouthEastEnd = 0;
             currentCountThreadInSouthEastAfterEnd = 0;
             currentThisSectionCountThreadInSouthEast = 0;
-            //
-            
         }
 
+        // Handles the setup of search and rescue teams based on the distribution of points
         private void btnSetupSR_Click(object sender, EventArgs e)
         {
+                                    // Complex case: evaluate best rescue for another search
+            // Calculate the percentage of points in each region
             decimal northWestCriticalPointsCount, southWestCriticalPointsCount, norstEastCriticalPointsCount, southEastCriticalPointsCount;
             northWestCriticalPointsCount = (points.Where(p => p.Container == UnitType.NorthWest).Count() * 100) / points.Count();
             southWestCriticalPointsCount = (points.Where(p => p.Container == UnitType.SouthWest).Count() * 100) / points.Count();
             norstEastCriticalPointsCount = (points.Where(p => p.Container == UnitType.NorthEast).Count() * 100) / points.Count();
             southEastCriticalPointsCount = (points.Where(p => p.Container == UnitType.SouthEast).Count() * 100) / points.Count();
 
+            // Assign search team counts to each region proportionally
             decimal searchCount = nudSearch.Value;
+                                    // Determine second best rescue
             Dictionary<UnitType,int> dicUnitSearchCount=new Dictionary<UnitType,int>();
 
             Unit.NorthWestSearchCount = ((int)Math.Round((searchCount * northWestCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((searchCount * northWestCriticalPointsCount) / 100);
@@ -382,8 +396,9 @@ namespace ERSC
             Unit.SouthEastSearchCount = ((int)Math.Round((searchCount * southEastCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((searchCount * southEastCriticalPointsCount) / 100);
             dicUnitSearchCount.Add(UnitType.SouthEast,Unit.SouthEastSearchCount);
             Unit.SouthWestSearchCount = ((int)Math.Round((searchCount * southWestCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((searchCount * southWestCriticalPointsCount) / 100);
+                                        // For each competitor, compute max probability for other rescues
             dicUnitSearchCount.Add(UnitType.SouthWest,Unit.SouthWestSearchCount);
-            
+            // Adjust search team counts if rounding caused mismatch
             if (dicUnitSearchCount.Values.Sum() > searchCount)
                 switch (dicUnitSearchCount.OrderByDescending(p => p.Value).First().Key)
                 {
@@ -395,6 +410,7 @@ namespace ERSC
                         break;
                     case UnitType.NorthEast:
                         Unit.NorthEastSearchCount--;
+                                                // Select point for each competitor and compute probability
                         break;
                     case UnitType.SouthEast:
                         Unit.SouthEastSearchCount--;
@@ -413,23 +429,26 @@ namespace ERSC
                     case UnitType.NorthEast:
                         Unit.NorthEastSearchCount++;
                         break;
+                                                // Check if this rescue is best for another search
                     case UnitType.SouthEast:
                         Unit.SouthEastSearchCount++;
                         break;
                 }
-            //
+            // Assign rescue team counts to each region proportionally
+                                        // Find minimum probability and winner
             decimal rescueCount = nudRescue.Value;
             Dictionary<UnitType, int> dicUnitRescueCount = new Dictionary<UnitType, int>();
 
             Unit.NorthWestRescueCount = ((int)Math.Round((rescueCount * northWestCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((rescueCount * northWestCriticalPointsCount) / 100);
             dicUnitRescueCount.Add(UnitType.NorthWest, Unit.NorthWestRescueCount);
+                                    // Thread synchronization for end of section
             Unit.NorthEastRescueCount = ((int)Math.Round((rescueCount * norstEastCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((rescueCount * norstEastCriticalPointsCount) / 100);
             dicUnitRescueCount.Add(UnitType.NorthEast, Unit.NorthEastRescueCount);
             Unit.SouthEastRescueCount = ((int)Math.Round((rescueCount * southEastCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((rescueCount * southEastCriticalPointsCount) / 100);
             dicUnitRescueCount.Add(UnitType.SouthEast, Unit.SouthEastRescueCount);
             Unit.SouthWestRescueCount = ((int)Math.Round((rescueCount * southWestCriticalPointsCount) / 100)).Equals(0) ? 1 : (int)Math.Round((rescueCount * southWestCriticalPointsCount) / 100);
             dicUnitRescueCount.Add(UnitType.SouthWest, Unit.SouthWestRescueCount);
-
+            // Adjust rescue team counts if rounding caused mismatch
             if (dicUnitRescueCount.Values.Sum() > rescueCount)
             {
                 switch (dicUnitRescueCount.OrderByDescending(p => p.Value).First().Key)
@@ -437,6 +456,7 @@ namespace ERSC
                     case UnitType.NorthWest:
                         Unit.NorthWestRescueCount--;
                         break;
+                                    // Handle win/loss based on best rescue for another search
                     case UnitType.SouthWest:
                         Unit.SouthWestRescueCount--;
                         break;
@@ -446,6 +466,7 @@ namespace ERSC
                     case UnitType.SouthEast:
                         Unit.SouthEastRescueCount--;
                         break;
+                                            // Random chance for penalty or win
                 }
             }
 
@@ -465,21 +486,19 @@ namespace ERSC
                         Unit.SouthEastRescueCount++;
                         break;
                 }
-            //
+            // Remove previous search and rescue teams from UI and database
             DeleteSearchAndRescueTeam();
-            //DrawUnit();
-            //
+            // Create and display new search and rescue teams
+                                            // Penalty case
             CreateSearchTeam();
             ShowSearchTeam();
-            //
             CreateRescueTeam();
             ShowRescueTeam();
-            //
+            // Bind information to dropdowns and update rescue statistics
             BindDropDownShowInformation();
-            //
             busyRescue = 0;
             idelRescue = rescues.Count();
-            //
+            // Enable or disable controls based on whether search teams exist
             if (searchs.Count() > 0)
             {
                 btnGo.Enabled = true;
@@ -494,23 +513,26 @@ namespace ERSC
                 btnShowInformation.Enabled = false;
                 cboxSearchIntID.Enabled = false;
             }
+                                            // Win case
         }
 
+        // Handles the start of the simulation: initializes charts, sets up probability series, and starts search threads
         private void btnGo_Click(object sender, EventArgs e)
         {
-            //
+            // Clear previous chart data
             chartTasksOfSearch.Series.Clear();
+                                            // Random chance for win or penalty
             chartTasksOfRescue.Series.Clear();
             seriesTasksOfSearch.Points.Clear();
             seriesTasksOfRescue.Points.Clear();
-            //
+            // Add main series to charts
             this.chartTasksOfSearch.Series.Add(seriesTasksOfSearch);
             this.chartTasksOfRescue.Series.Add(seriesTasksOfRescue);
 
-            //*******************************************//
-            //*******************************************//
+            // --- Setup probability chart for selected search ---
             int searchId = 0;
             chartProbability.ChartAreas[0].AxisX.Interval = 5;
+            // Get selected search ID (thread-safe for UI)
             if (cboxSearchIntID.InvokeRequired)
                 cboxSearchIntID.BeginInvoke((MethodInvoker)delegate
                 {
@@ -520,62 +542,63 @@ namespace ERSC
             {
                 searchId = (int)cboxSearchIntID.SelectedItem;
             }
+            // Create probability series for each rescue in the selected unit
             Series seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series { };
             listSeries.Clear();
             System.Drawing.Color color = new System.Drawing.Color();
             List<Rescue> rescuesInUnitOfSelectedSearch = rescues.Where(p => p.Container.Equals(searchs.Single(q => q.IntID.Equals(searchId)).Container)).ToList();
             for (int j = 0; j < rescuesInUnitOfSelectedSearch.Count(); j++)
             {
+                // Assign a unique color to each rescue
                 switch (j)
                 {
-                    case 0: color = System.Drawing.Color.Red;
-                        break;
-                    case 1: color = System.Drawing.Color.Blue;
-                        break;
-                    case 2: color = System.Drawing.Color.Green;
-                        break;
-                    case 3: color = System.Drawing.Color.Yellow;
-                        break;
-                    case 4: color = System.Drawing.Color.Purple;
-                        break;
-                    case 5: color = System.Drawing.Color.Brown;
-                        break;
-                    default: color = System.Drawing.Color.Black;
-                        break;
+                    case 0: color = System.Drawing.Color.Red; break;
+                    case 1: color = System.Drawing.Color.Blue; break;
+                    case 2: color = System.Drawing.Color.Green; break;
+                    case 3: color = System.Drawing.Color.Yellow; break;
+                            // Update probabilities and thread counters
+                    case 4: color = System.Drawing.Color.Purple; break;
+                    case 5: color = System.Drawing.Color.Brown; break;
+                    default: color = System.Drawing.Color.Black; break;
+                            // Thread synchronization for end of automata learning
                 }
                 seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series
                 {
                     Name = "seriesPropability" + j,
                     Color = color,
-                    //Color = System.Drawing.Color.Green,
                     IsVisibleInLegend = false,
                     IsXValueIndexed = true,
                     ChartType = SeriesChartType.Spline,
                     BorderWidth=2
                 };
                 listSeries.Add(seriesPropability);
+                            // Time check for automata learning loop
             }
+            // Add probability series to chart (thread-safe)
             if (chartProbability.InvokeRequired)
                 chartProbability.BeginInvoke((MethodInvoker)delegate
                 {
                     this.chartProbability.Series.Clear();
                     foreach (var item in listSeries)
                     {
-                        //item.Points.Clear();
+                            // --- End: Automata Learning and Rescue Assignment Logic for SouthEast ---
                         this.chartProbability.Series.Add(item);
                     }
+                        // --- Begin: Rescue Assignment and Efficiency Calculation ---
                 });
             else
             {
                 this.chartProbability.Series.Clear();
+                                // Add winning rescue to list and increment busy counter
                 foreach (var item in listSeries)
                 {
-                    //item.Points.Clear();
                     this.chartProbability.Series.Add(item);
                 }
             }
 
-            //*************chartProbability1**************//
+            // --- Setup probability charts for search IDs 1, 2, 3 (for comparison/visualization) ---
+            // Chart 1
+                        // Thread synchronization after rescue assignment
             int searchId_S1 = 1;
             chartProbability_S1.ChartAreas[0].AxisX.Interval = 5;
             Series seriesPropability_S1 = new System.Windows.Forms.DataVisualization.Charting.Series { };
@@ -585,26 +608,19 @@ namespace ERSC
             {
                 switch (j)
                 {
-                    case 0: color = System.Drawing.Color.Red;
-                        break;
-                    case 1: color = System.Drawing.Color.Blue;
-                        break;
-                    case 2: color = System.Drawing.Color.Green;
-                        break;
-                    case 3: color = System.Drawing.Color.Yellow;
-                        break;
-                    case 4: color = System.Drawing.Color.Purple;
-                        break;
-                    case 5: color = System.Drawing.Color.Brown;
-                        break;
-                    default: color = System.Drawing.Color.Black;
-                        break;
+                    case 0: color = System.Drawing.Color.Red; break;
+                    case 1: color = System.Drawing.Color.Blue; break;
+                    case 2: color = System.Drawing.Color.Green; break;
+                    case 3: color = System.Drawing.Color.Yellow; break;
+                    case 4: color = System.Drawing.Color.Purple; break;
+                    case 5: color = System.Drawing.Color.Brown; break;
+                    default: color = System.Drawing.Color.Black; break;
                 }
+                        // Calculate efficiency metrics for rescue assignment
                 seriesPropability_S1 = new System.Windows.Forms.DataVisualization.Charting.Series
                 {
                     Name = "seriesPropability_S1" + j,
                     Color = color,
-                    //Color = System.Drawing.Color.Green,
                     IsVisibleInLegend = false,
                     IsXValueIndexed = true,
                     ChartType = SeriesChartType.Spline,
@@ -618,56 +634,53 @@ namespace ERSC
                     this.chartProbability_S1.Series.Clear();
                     foreach (var item in listSeries_S1)
                     {
-                        //item.Points.Clear();
                         this.chartProbability_S1.Series.Add(item);
+                        // Clear SteamIDs and best select dictionary for next round
                     }
                 });
             else
+                        // Delete task list entries for the current point from database
             {
                 this.chartProbability_S1.Series.Clear();
                 foreach (var item in listSeries_S1)
                 {
-                    //item.Points.Clear();
                     this.chartProbability_S1.Series.Add(item);
                 }
             }
-
-            //*************chartProbability2**************//
+            // Chart 2
+                        // Return the winning rescue ID
             int searchId_S2 = 2;
+                        // --- End: Rescue Assignment and Efficiency Calculation ---
             chartProbability_S2.ChartAreas[0].AxisX.Interval = 5;
             Series seriesPropability_S2 = new System.Windows.Forms.DataVisualization.Charting.Series { };
+                    // --- Begin: Utility Methods for Probability and Rescue Assignment ---
             listSeries_S2.Clear();
             List<Rescue> rescuesInUnitOfSelectedSearch_S2 = rescues.Where(p => p.Container.Equals(searchs.Single(q => q.IntID.Equals(searchId_S2)).Container)).ToList();
+                        // Select a rescue based on probability distribution
             for (int j = 0; j < rescuesInUnitOfSelectedSearch_S2.Count(); j++)
             {
                 switch (j)
                 {
-                    case 0: color = System.Drawing.Color.Red;
-                        break;
-                    case 1: color = System.Drawing.Color.Blue;
-                        break;
-                    case 2: color = System.Drawing.Color.Green;
-                        break;
-                    case 3: color = System.Drawing.Color.Yellow;
-                        break;
-                    case 4: color = System.Drawing.Color.Purple;
-                        break;
-                    case 5: color = System.Drawing.Color.Brown;
-                        break;
-                    default: color = System.Drawing.Color.Black;
-                        break;
+                    case 0: color = System.Drawing.Color.Red; break;
+                    case 1: color = System.Drawing.Color.Blue; break;
+                    case 2: color = System.Drawing.Color.Green; break;
+                    case 3: color = System.Drawing.Color.Yellow; break;
+                    case 4: color = System.Drawing.Color.Purple; break;
+                    case 5: color = System.Drawing.Color.Brown; break;
+                    default: color = System.Drawing.Color.Black; break;
                 }
                 seriesPropability_S2 = new System.Windows.Forms.DataVisualization.Charting.Series
                 {
                     Name = "seriesPropability_S2" + j,
                     Color = color,
-                    //Color = System.Drawing.Color.Green,
                     IsVisibleInLegend = false,
+                        // Return selected rescue ID
                     IsXValueIndexed = true,
                     ChartType = SeriesChartType.Spline,
                     BorderWidth = 2
                 };
                 listSeries_S2.Add(seriesPropability_S2);
+                        // Compute new probabilities for rescues after learning step
             }
             if (chartProbability_S2.InvokeRequired)
                 chartProbability_S2.BeginInvoke((MethodInvoker)delegate
@@ -675,7 +688,6 @@ namespace ERSC
                     this.chartProbability_S2.Series.Clear();
                     foreach (var item in listSeries_S2)
                     {
-                        //item.Points.Clear();
                         this.chartProbability_S2.Series.Add(item);
                     }
                 });
@@ -684,40 +696,33 @@ namespace ERSC
                 this.chartProbability_S2.Series.Clear();
                 foreach (var item in listSeries_S2)
                 {
-                    //item.Points.Clear();
                     this.chartProbability_S2.Series.Add(item);
                 }
             }
-            //*************chartProbability3**************//
+            // Chart 3
             int searchId_S3 = 3;
             chartProbability_S3.ChartAreas[0].AxisX.Interval =5;
             Series seriesPropability_S3 = new System.Windows.Forms.DataVisualization.Charting.Series { };
             listSeries_S3.Clear();
+                        // Return updated probability dictionary
             List<Rescue> rescuesInUnitOfSelectedSearch_S3 = rescues.Where(p => p.Container.Equals(searchs.Single(q => q.IntID.Equals(searchId_S3)).Container)).ToList();
             for (int j = 0; j < rescuesInUnitOfSelectedSearch_S3.Count(); j++)
             {
                 switch (j)
                 {
-                    case 0: color = System.Drawing.Color.Red;
-                        break;
-                    case 1: color = System.Drawing.Color.Blue;
-                        break;
-                    case 2: color = System.Drawing.Color.Green;
-                        break;
-                    case 3: color = System.Drawing.Color.Yellow;
-                        break;
-                    case 4: color = System.Drawing.Color.Purple;
-                        break;
-                    case 5: color = System.Drawing.Color.Brown;
-                        break;
-                    default: color = System.Drawing.Color.Black;
-                        break;
+                        // Compute new probabilities for rescues with penalty applied
+                    case 0: color = System.Drawing.Color.Red; break;
+                    case 1: color = System.Drawing.Color.Blue; break;
+                    case 2: color = System.Drawing.Color.Green; break;
+                    case 3: color = System.Drawing.Color.Yellow; break;
+                    case 4: color = System.Drawing.Color.Purple; break;
+                    case 5: color = System.Drawing.Color.Brown; break;
+                    default: color = System.Drawing.Color.Black; break;
                 }
                 seriesPropability_S3 = new System.Windows.Forms.DataVisualization.Charting.Series
                 {
                     Name = "seriesPropability_S3" + j,
                     Color = color,
-                    //Color = System.Drawing.Color.Green,
                     IsVisibleInLegend = false,
                     IsXValueIndexed = true,
                     ChartType = SeriesChartType.Spline,
@@ -730,46 +735,49 @@ namespace ERSC
                 {
                     this.chartProbability_S3.Series.Clear();
                     foreach (var item in listSeries_S3)
+                        // Return updated probability dictionary
                     {
-                        //item.Points.Clear();
                         this.chartProbability_S3.Series.Add(item);
                     }
+                    // --- End: Utility Methods for Probability and Rescue Assignment ---
                 });
             else
+                        // Assign a point to the winning rescue and update database
             {
                 this.chartProbability_S3.Series.Clear();
                 foreach (var item in listSeries_S3)
                 {
-                    //item.Points.Clear();
                     this.chartProbability_S3.Series.Add(item);
                 }
             }
-            //*******************************************//
-            //*******************************************//
 
+            // --- Start simulation ---
+                                    // Insert new points and main point as assigned tasks for winning rescue
             numPointDoSearch = points.Count();
             numPointDoRescue = points.Count();
             seriesTasksOfSearch.Points.Add(numPointDoSearch);
             seriesTasksOfRescue.Points.Add(numPointDoRescue);
-            ss.Start();
-            //
+            ss.Start(); // Start stopwatch
+            // Assign points to search threads for each region
             AllSearchThreads.Clear();
             AllSearchThreads.AddRange(AssignePointToSearchInNorthWest());
             AllSearchThreads.AddRange(AssignePointToSearchInNorthEast());
             AllSearchThreads.AddRange(AssignePointToSearchInSouthWest());
             AllSearchThreads.AddRange(AssignePointToSearchInSouthEast());
-            //          
+            // Start all search threads
             foreach (var thread in AllSearchThreads)
             {
                 thread.Start();
             }
-            //
+                                    // Insert main point as assigned task
+            // Start timer to update UI
             ShowTime();
         }
         //**********************//
+        // Removes all points from the UI and database
         void DeletePoints()
         {
-            //panel1.Controls.Clear();
+            // Remove all controls except the map from the panel
             for (int index = panel1.Controls.Count - 1; index >= 0; index--)
             {
                 if (!panel1.Controls[index].Name.Equals("geomap"))
@@ -778,28 +786,21 @@ namespace ERSC
                 }
             }
 
-            //Delete From Table
-            //var getDataPoints =(from TbPoint in db.TbPoints select TbPoint).ToList();
-            //db.TbPoints.DeleteAllOnSubmit(getDataPoints.ToList());
-            //db.SubmitChanges();
-
+            // Delete all point records from the database (TbPoints and TbPointFirsts)
             using (var dbDelete = new DataClasses1DataContext())
             {
-                //Update to sql
                 var getDataPoints = (from TbPoint in dbDelete.TbPoints select TbPoint).ToList();
                 dbDelete.TbPoints.DeleteAllOnSubmit(getDataPoints.ToList());
                 dbDelete.SubmitChanges();
             }
 
-            /////
             using (var dbDelete = new DataClasses1DataContext())
             {
-                //Update to sql
                 var getDataPoints = (from TbPointFirst in dbDelete.TbPointFirsts select TbPointFirst).ToList();
+                                    // Insert new points and main point as assigned tasks for non-winning rescue
                 dbDelete.TbPointFirsts.DeleteAllOnSubmit(getDataPoints.ToList());
                 dbDelete.SubmitChanges();
             }
-            /////
         }
 
         void CreatPoints()
@@ -816,6 +817,7 @@ namespace ERSC
                 p.Container = Unit.GetUnit(p.Left, p.Top);
                 //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(p.Left,p.Top);
+                                    // Insert main point as assigned task
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 p.LeftProjection = MyCoordinate.X;
                 p.TopProjection = MyCoordinate.Y;
@@ -834,19 +836,20 @@ namespace ERSC
             }
            
         }
+                        // Start rescue thread for assigned point
 
+        // Displays all points on the map and saves them to the database
         void ShowPoints()
         {
             List<TbPoint> tbPoints = new List<TbPoint>();
-            //panel1.Controls.Clear();
             int count = 0;
             foreach (var p in points)
             {
-                //DrawPoint(p);
+                // Add point shape to the UI
+                        // Perform rescue operation for a given point, update UI and database
                 panel1.Controls.Add(p.GetShape());
-                //***Insert in sql
+                // Prepare point data for database
                 TbPoint point = new TbPoint();
-                //
                 point.Point_ID = p.ID;
                 point.Point_IntID = count++;
                 point.Point_ParentID = "0";
@@ -861,25 +864,25 @@ namespace ERSC
                 point.Point_CreatPoint = p.CreatPoint;
                 point.Point_State =(int) p.State;
                 point.Point_IsAllocatedSTeam = p.IsAllocatedSTeam;
+                            // Set rescue state and update counters
                 point.Point_IsAllocatedRTeam = p.IsAllocatedRTeam;
                 point.Point_StartSearchDoing = p.StartSearchDoing;
                 point.Point_StartRescueDoing = p.StartRescueDoing;
                 point.Point_EndSearchDoing = p.EndSearchDoing;
                 point.Point_EndRescueDoing = p.EndRescueDoing;
-                //
                 tbPoints.Add(point);
             }
+            // Save all points to the main table
             db.TbPoints.InsertAllOnSubmit(tbPoints);
             db.SubmitChanges();
+                            // Set point allocation and start rescue
             geoMap.SendToBack();
-            ////
+            // Save a copy to the 'first' table for initial state tracking
             List<TbPointFirst> tbPointFirsts = new List<TbPointFirst>();
             foreach (var p in tbPoints)
+                            // Update point and rescue state in database
             {
-               
-                //***Insert in sql
                 TbPointFirst pointFirst = new TbPointFirst();
-                //
                 pointFirst.Point_ID = p.Point_ID;
                 pointFirst.Point_IntID = p.Point_IntID;
                 pointFirst.Point_ParentID = p.Point_ParentID;
@@ -896,17 +899,17 @@ namespace ERSC
                 pointFirst.Point_IsAllocatedSTeam = p.Point_IsAllocatedSTeam;
                 pointFirst.Point_IsAllocatedRTeam = p.Point_IsAllocatedRTeam;
                 pointFirst.Point_StartSearchDoing = p.Point_StartSearchDoing;
+                            // Move rescue label towards point label in UI
                 pointFirst.Point_StartRescueDoing = p.Point_StartRescueDoing;
                 pointFirst.Point_EndSearchDoing = p.Point_EndSearchDoing;
                 pointFirst.Point_EndRescueDoing = p.Point_EndRescueDoing;
-                //
                 tbPointFirsts.Add(pointFirst);
             }
             db.TbPointFirsts.InsertAllOnSubmit(tbPointFirsts);
             db.SubmitChanges();
-            /////
-        }   
+        }
         //*********************//
+        // Removes all search and rescue team shapes from the UI and database
         void DeleteSearchAndRescueTeam()
         {
             for (int index = panel1.Controls.Count - 1; index >= 0; index--)
@@ -919,55 +922,54 @@ namespace ERSC
             geoMap.SendToBack();
             DeleteSearchAndRescueFromDataBase();
         }
+                            // Animate rescue movement in steps
 
+        // Removes all search and rescue team records from the database (main and 'first' tables)
         void DeleteSearchAndRescueFromDataBase()
         {
-            //Delete From Table
+            // Delete all search team records
+                                // Move rescue label based on quadrant
             using (var dbDeleteSearch = new DataClasses1DataContext())
             {
                 var getDataSearchs = (from TbSearch in dbDeleteSearch.TbSearches select TbSearch);
                 dbDeleteSearch.TbSearches.DeleteAllOnSubmit(getDataSearchs);
                 dbDeleteSearch.SubmitChanges();
             }
-            //
+            // Delete all rescue team records
             using (var dbDeleteRescue = new DataClasses1DataContext())
             {
                 var getDataRescues = (from TbRescue in dbDeleteRescue.TbRescues select TbRescue);
                 dbDeleteRescue.TbRescues.DeleteAllOnSubmit(getDataRescues);
                 dbDeleteRescue.SubmitChanges();
             }
-
-            ////
-            //Delete From Table
+            // Delete all initial search team records
             using (var dbDeleteSearch = new DataClasses1DataContext())
             {
                 var getDataSearchs = (from TbSearchFirst in dbDeleteSearch.TbSearchFirsts select TbSearchFirst);
                 dbDeleteSearch.TbSearchFirsts.DeleteAllOnSubmit(getDataSearchs);
                 dbDeleteSearch.SubmitChanges();
             }
-            //
+            // Delete all initial rescue team records
             using (var dbDeleteRescue = new DataClasses1DataContext())
             {
                 var getDataRescues = (from TbRescueFirst in dbDeleteRescue.TbRescueFirsts select TbRescueFirst);
                 dbDeleteRescue.TbRescueFirsts.DeleteAllOnSubmit(getDataRescues);
                 dbDeleteRescue.SubmitChanges();
             }
-            ////
-
         }
 
+        // Removes all task list records from the database (main and 'first' tables)
         void DeleteTaskListFromDataBase()
         {
             var getDataTaskList=(from TbTaskList in db.TbTaskLists select TbTaskList);
             db.TbTaskLists.DeleteAllOnSubmit(getDataTaskList.ToList());
             db.SubmitChanges();
-
-            ////
             var getDataTaskListFirst = (from TbTaskListFirst in db.TbTaskListFirsts select TbTaskListFirst);
             db.TbTaskListFirsts.DeleteAllOnSubmit(getDataTaskListFirst.ToList());
             db.SubmitChanges();
         }
 
+        // Creates search team members for each region and assigns them random positions
         void CreateSearchTeam()
         {
             List<DomainObject.Point> orderdPointInNorthWest = points.Where(p => p.Container == UnitType.NorthWest).OrderByDescending(p => p.NumVictim).ToList();
@@ -978,115 +980,82 @@ namespace ERSC
             int count = 0; 
             searchs.Clear();          
             Random r = new Random();
+            // Create searchers for NorthWest
             for (int i = 1; i <= Unit.NorthWestSearchCount; i++)
             {
                 Search search = new Search();
                 search.IntID = count++;
                 search.Left = r.Next(Map.StartX, (Map.EndX / 2)-15);
                 search.Top = r.Next(Map.StartY, (Map.EndY / 2)-20);
-                //convert coordinates to Projection
+                // Convert coordinates to projection system
                 System.Drawing.Point MyPoint = new System.Drawing.Point(search.Left, search.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 search.LeftProjection = MyCoordinate.X;
                 search.TopProjection = MyCoordinate.Y;
-                //
                 search.Container = Unit.GetUnit(search.Left, search.Top);
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
-                //
-                //Search search = new Search();
-                //search.Left = orderdPointInNorthWest[i - 1].Left;
-                //search.Top = orderdPointInNorthWest[i - 1].Top;
-                //search.PointID = orderdPointInNorthWest[i - 1].ID;
-                //
                 searchs.Add(search);
             }
-
+            // Create searchers for NorthEast
             for (int i = 1; i <= Unit.NorthEastSearchCount; i++)
             {
                 Search search = new Search();
                 search.IntID = count++;
                 search.Left = r.Next(Map.EndX / 2, Map.EndX - 15);
                 search.Top = r.Next(Map.StartY, (Map.EndY / 2)-20);
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(search.Left, search.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 search.LeftProjection = MyCoordinate.X;
                 search.TopProjection = MyCoordinate.Y;
-                //
                 search.Container = Unit.GetUnit(search.Left, search.Top);
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
-                //
-                //Search search = new Search();
-                //search.Left = orderdPointInNorthEast[i - 1].Left;
-                //search.Top = orderdPointInNorthEast[i - 1].Top;
-                //search.PointID = orderdPointInNorthEast[i - 1].ID;
-                //
                 searchs.Add(search);
             }
-
+            // Create searchers for SouthWest
             for (int i = 1; i <= Unit.SouthWestSearchCount; i++)
             {
                 Search search = new Search();
                 search.IntID = count++;
                 search.Left = r.Next(Map.StartX, (Map.EndX / 2) - 15);
                 search.Top = r.Next(Map.EndY / 2, Map.EndY-20);
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(search.Left, search.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 search.LeftProjection = MyCoordinate.X;
                 search.TopProjection = MyCoordinate.Y;
-                //
                 search.Container = Unit.GetUnit(search.Left, search.Top);
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
-                //
-                //Search search = new Search();
-                //search.Left = orderdPointInSouthWest[i - 1].Left;
-                //search.Top = orderdPointInSouthWest[i - 1].Top;
-                //search.PointID = orderdPointInSouthWest[i - 1].ID;
-                //
                 searchs.Add(search);
             }
-
+            // Create searchers for SouthEast
             for (int i = 1; i <= Unit.SouthEastSearchCount; i++)
             {
                 Search search = new Search();
                 search.IntID = count++;
                 search.Left = r.Next(Map.EndX / 2, Map.EndX - 15);
                 search.Top = r.Next(Map.EndY / 2, Map.EndY-20);
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(search.Left, search.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 search.LeftProjection = MyCoordinate.X;
                 search.TopProjection = MyCoordinate.Y;
-                //
                 search.Container = Unit.GetUnit(search.Left, search.Top);
                 search.State = Search.SearchStateType.Ready;
                 search.CompetitorProbabilites = new Dictionary<string, double>();
-                //
-                //Search search = new Search();
-                //search.Left = orderdPointInSouthEast[i - 1].Left;
-                //search.Top = orderdPointInSouthEast[i - 1].Top;
-                //search.PointID = orderdPointInSouthEast[i - 1].ID;
-                //
                 searchs.Add(search);
             }
         }
 
+        // Displays all search team members on the map and saves them to the database
         void ShowSearchTeam()
         {
             List<TbSearch> tbSearchs = new List<TbSearch>();
-            //int count = 0; 
             foreach (var s in searchs)
             {
-                //DrawPoint(p);
                 panel1.Controls.Add(s.GetShape());
-                //***Insert in sql
                 TbSearch search = new TbSearch();
                 search.Search_ID = s.ID;
-                //search.Search_IntID = count++;
                 search.Search_IntID = s.IntID;
                 search.Search_TopCoordinate = s.Top;
                 search.Search_LeftCoordinate = s.Left;
@@ -1094,13 +1063,12 @@ namespace ERSC
                 search.Search_LeftProjection = s.LeftProjection;
                 search.Search_Unit = s.Container.ToString();
                 search.Search_State = (int) s.State;
-                //
                 tbSearchs.Add(search);
             }
             db.TbSearches.InsertAllOnSubmit(tbSearchs);
             db.SubmitChanges();
             geoMap.SendToBack();
-            ////
+            // Save a copy to the 'first' table for initial state tracking
             List<TbSearchFirst> tbSearchFirsts = new List<TbSearchFirst>();
             foreach (var s in tbSearchs)
             {
@@ -1113,141 +1081,117 @@ namespace ERSC
                 search.Search_LeftProjection = s.Search_LeftProjection;
                 search.Search_Unit = s.Search_Unit;
                 search.Search_State =s.Search_State;
-                //
                 tbSearchFirsts.Add(search);
             }
             db.TbSearchFirsts.InsertAllOnSubmit(tbSearchFirsts);
             db.SubmitChanges();
-            ////
         }
 
+        // Creates rescue team members for each region and assigns them random positions avoiding overlap with searchers
         void CreateRescueTeam()
         {
             rescues.Clear();
             Random r = new Random();
-            //
             int leftNorthWest = 0;
             int topNorthWest = 0;
-            //
             int leftNorthEast = 0;
             int topNorthEast = 0;
-            //
             int leftSouthWest = 0;
             int topSouthWest = 0;
-            //
             int leftSouthEast = 0;
             int topSouthEast = 0;
-            //
+            // Create rescue teams for NorthWest
             for (int i = 1; i <= Unit.NorthWestRescueCount; i++)
             {
-                Dictionary<int, int> rangeInNorthWest = new Dictionary<int, int>();
                 leftNorthWest = r.Next(Map.StartX, (Map.EndX/ 2)-15);
                 topNorthWest = r.Next(Map.StartY, (Map.EndY / 2)-20);
-
+                // Ensure no overlap with searchers
                 while (searchs.Where(p => p.Container.Equals(UnitType.NorthWest)).Select(q => Enumerable.Range(leftNorthWest-15, 30).Contains(q.Left) && Enumerable.Range(topNorthWest-20, 40).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
                 {
                     leftNorthWest = r.Next(Map.StartX, (Map.EndX / 2)-15);
                     topNorthWest = r.Next(Map.StartY, (Map.EndY / 2)-20);
                 }
-
                 Rescue resc = new Rescue();
                 resc.Left = leftNorthWest;
                 resc.Top = topNorthWest;
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(resc.Left, resc.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 resc.LeftProjection = MyCoordinate.X;
                 resc.TopProjection = MyCoordinate.Y;
-                //
                 resc.Container = Unit.GetUnit(resc.Left, resc.Top);
-                //resc.SteamIDs = new StringBuilder("");
                 resc.SteamIDs = new List<string>();
                 resc.ListPoint = new Dictionary<DomainObject.Point, Dictionary<Search, int>>();
                 rescues.Add(resc);
             }
-
+            // Create rescue teams for NorthEast
             for (int i = 1; i <= Unit.NorthEastRescueCount; i++)
             {
                 leftNorthEast = r.Next(Map.EndX / 2, Map.EndX-15);
                 topNorthEast = r.Next(Map.StartY, (Map.EndY / 2)-20);
-
                 while (searchs.Where(p => p.Container.Equals(UnitType.NorthEast)).Select(q => Enumerable.Range(leftNorthEast-30, 30).Contains(q.Left) && Enumerable.Range(topNorthEast-40, 40).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
                 {
                     leftNorthEast = r.Next(Map.EndX / 2, Map.EndX-15);
                     topNorthEast = r.Next(Map.StartY, (Map.EndY / 2)-20);
                 }
-
                 Rescue resc = new Rescue();
                 resc.Left = leftNorthEast;
                 resc.Top = topNorthEast;
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(resc.Left, resc.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 resc.LeftProjection = MyCoordinate.X;
                 resc.TopProjection = MyCoordinate.Y;
-                //
                 resc.Container = Unit.GetUnit(resc.Left, resc.Top);
-                //resc.SteamIDs = new StringBuilder("");
                 resc.SteamIDs = new List<string>();
                 resc.ListPoint = new Dictionary<DomainObject.Point, Dictionary<Search, int>>();
                 rescues.Add(resc);
             }
-
+            // Create rescue teams for SouthWest
             for (int i = 1; i <= Unit.SouthWestRescueCount; i++)
             {
                 leftSouthWest = r.Next(Map.StartX, (Map.EndX / 2)-15);
                 topSouthWest = r.Next(Map.EndY / 2, Map.EndY-20);
-
                 while (searchs.Where(p => p.Container.Equals(UnitType.SouthWest)).Select(q => Enumerable.Range(leftSouthWest-30, 30).Contains(q.Left) && Enumerable.Range(topSouthWest-40, 40).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
                 {
                     leftSouthWest = r.Next(Map.StartX, (Map.EndX / 2)-15);
                     topSouthWest = r.Next(Map.EndY / 2, Map.EndY-20);
                 }
-
                 Rescue resc = new Rescue();
                 resc.Left = leftSouthWest;
                 resc.Top = topSouthWest;
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(resc.Left, resc.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 resc.LeftProjection = MyCoordinate.X;
                 resc.TopProjection = MyCoordinate.Y;
-                //
                 resc.Container = Unit.GetUnit(resc.Left, resc.Top);
-                //resc.SteamIDs = new StringBuilder("");
                 resc.SteamIDs = new List<string>();
                 resc.ListPoint = new Dictionary<DomainObject.Point, Dictionary<Search, int>>();
                 rescues.Add(resc);
             }
-
+            // Create rescue teams for SouthEast
             for (int i = 1; i <= Unit.SouthEastRescueCount; i++)
             {
                 leftSouthEast = r.Next(Map.EndX / 2, Map.EndX-15);
+                                // Bring rescue label to front after each move
                 topSouthEast = r.Next(Map.EndY / 2, Map.EndY-20);
-
                 while (searchs.Where(p => p.Container.Equals(UnitType.SouthEast)).Select(q => Enumerable.Range(leftSouthEast-30, 30).Contains(q.Left) && Enumerable.Range(topSouthEast-40, 40).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
                 {
                     leftSouthEast = r.Next(Map.EndX / 2, Map.EndX-15);
                     topSouthEast = r.Next(Map.EndY / 2, Map.EndY-20);
                 }
-
+                                // Convert pixel coordinates to map projection
                 Rescue resc = new Rescue();
                 resc.Left = leftSouthEast;
                 resc.Top = topSouthEast;
-                //convert coordinates to Projection
                 System.Drawing.Point MyPoint = new System.Drawing.Point(resc.Left, resc.Top);
+                                // Update rescue coordinates in database
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 resc.LeftProjection = MyCoordinate.X;
                 resc.TopProjection = MyCoordinate.Y;
-                //
                 resc.Container = Unit.GetUnit(resc.Left, resc.Top);
-                //resc.SteamIDs = new StringBuilder("");
                 resc.SteamIDs = new List<string>();
                 resc.ListPoint = new Dictionary<DomainObject.Point, Dictionary<Search, int>>();
                 rescues.Add(resc);
             }
-
-            //*****Insert in sql
         }
 
         void ShowRescueTeam()
@@ -1255,6 +1199,7 @@ namespace ERSC
             List<TbRescue> tbRescues = new List<TbRescue>();
             int count = 0;
             foreach (var r in rescues)
+                            // Bring rescue label to front after movement
             {
                 //DrawPoint(p);
                 panel1.Controls.Add(r.GetShape());
@@ -1269,9 +1214,11 @@ namespace ERSC
                 rescue.Rescue_Unit = r.Container.ToString();
                 rescue.Rescue_State = (int)r.State;
                 tbRescues.Add(rescue);
+                            // Execute rescue operation for the point
             }
             db.TbRescues.InsertAllOnSubmit(tbRescues);
             db.SubmitChanges();
+                            // Update state after rescue
             geoMap.SendToBack();
             /////
             List<TbRescueFirst> tbRescueFirsts = new List<TbRescueFirst>();
@@ -1279,6 +1226,7 @@ namespace ERSC
             {
                 TbRescueFirst rescue = new TbRescueFirst();
                 rescue.Rescue_ID = r.Rescue_ID;
+                            // Update UI to show rescue completion
                 rescue.Rescue_IntID = r.Rescue_IntID;
                 rescue.Rescue_TopCoordinate = r.Rescue_TopCoordinate;
                 rescue.Rescue_LeftCoordinate = r.Rescue_LeftCoordinate;
@@ -1291,63 +1239,32 @@ namespace ERSC
             db.TbRescueFirsts.InsertAllOnSubmit(tbRescueFirsts);
             db.SubmitChanges();
         }
-        //**********************//
-        //void DrawUnit()
-        //{
-        //    System.Drawing.Pen myPen;
-        //    myPen = new System.Drawing.Pen(System.Drawing.Color.Black, 2);
-        //    //
-        //    Bitmap bmOrginal = new Bitmap(panel1.BackgroundImage);
-        //    System.Drawing.Graphics formGraphics = System.Drawing.Graphics.FromImage(bmOrginal);
-        //    //
-        //    formGraphics.DrawLine(myPen, Map.EndX / 2, 0, Map.EndX / 2, Map.EndY);
-        //    formGraphics.DrawLine(myPen, 0, Map.EndY / 2, Map.EndX, Map.EndY / 2);
-        //    //
-        //    string direct = Directory.GetParent(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).ToString()).ToString()+@"\Resources\BackgroundCityWithUnite.png";
-        //    bmOrginal.Save(direct, System.Drawing.Imaging.ImageFormat.Png);
-        //    //
-        //    Image i = (Image)bmOrginal;
-        //    panel1.BackgroundImage=i;          
-        //    //
-        //    myPen.Dispose();
-        //    formGraphics.Dispose();
-        //}
-
-        //void DrawPoint(DomainObject.Point p)
-        //{
-        //    Graphics gr = panel1.CreateGraphics();
-        //    gr.DrawEllipse(new Pen(Brushes.Black, 2), p.Left, p.Top, 7, 7);
-        //    gr.Dispose();
-        //}
-
-        //void DrawRescue(DomainObject.Rescue p)
-        //{
-        //    Graphics gr = panel1.CreateGraphics();
-        //    gr.FillEllipse(Brushes.Green, p.Left, p.Top, 9, 9);
-        //    gr.Dispose();
-        //}
-
+        
         double GetDistance(int x1, int x2, int y1, int y2)
         {
             //int temp = ((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1));
             //return (int)Math.Sqrt(temp);
             System.Drawing.Point pointStart = new System.Drawing.Point(x1, y1);
             System.Drawing.Point pointEnd = new System.Drawing.Point(x2, y2);
+                            // Update total distance and time metrics
             Coordinate MyCoordinateStart = geoMap.PixelToProj(pointStart);
             Coordinate MyCoordinateEnd = geoMap.PixelToProj(pointEnd);
             return MyCoordinateStart.Distance(MyCoordinateEnd);
         }
 
+                            // Show chart for rescue tasks
         void ShowTime()
         {
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Enabled = true;
             timer1.Start();
         }
+                            // Update database for rescue and points after completion
 
+        // Timer tick event: updates UI with elapsed time, statistics, and stops timer when rescue is done
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //
+            // If there are still points to rescue, update the timer display
             if (!numPointDoRescue.Equals(0))
             {
                 if (txtbTime.InvokeRequired)
@@ -1359,8 +1276,8 @@ namespace ERSC
             }
             else
             {
+                // All rescues done, stop timer and show averages
                 timer1.Stop();
-                //double averageTimeOfRescue = totalTimeOfDistanceRescue / points.Count();
                 double averageTimeOfRs = (double) totalTimeOfDistanceRs / points.Count();
                 if (txtAverageTimeOfRescue.InvokeRequired)
                     txtAverageTimeOfRescue.BeginInvoke((MethodInvoker)delegate { txtAverageTimeOfRescue.Text = averageTimeOfRs.ToString(); });
@@ -1368,47 +1285,48 @@ namespace ERSC
                 {
                     txtAverageTimeOfRescue.Text = averageTimeOfRs.ToString();
                 }
-                //
-                double averageEfficiencyBusyRescue = (double) efficiencyBusyRescue / numBusyRescue; //Math.Floor(ss.Elapsed.TotalSeconds);
+                // Show average efficiency of busy rescue teams
+                double averageEfficiencyBusyRescue = (double) efficiencyBusyRescue / numBusyRescue;
                 if (txtAvarageBusyResc.InvokeRequired)
-                    txtAvarageBusyResc.BeginInvoke((MethodInvoker)delegate { txtAvarageBusyResc.Text = (averageEfficiencyBusyRescue).ToString(); });//averageBusyRescue.ToString(); });
+                    txtAvarageBusyResc.BeginInvoke((MethodInvoker)delegate { txtAvarageBusyResc.Text = (averageEfficiencyBusyRescue).ToString(); });
                 else
+                        // Mark rescue as not doing after completion
                 {
-                    txtAvarageBusyResc.Text = (averageEfficiencyBusyRescue).ToString(); //averageBusyRescue.ToString();
+                    txtAvarageBusyResc.Text = (averageEfficiencyBusyRescue).ToString();
                 }
-                //
+                    // --- Begin: Point Selection Methods for Search ---
             }
-            //
+            // Update distance and rescue statistics in UI
+                        // Select the next point for a search based on its container type
             if (txtTotalDistanceSearch.InvokeRequired)
                 txtTotalDistanceSearch.BeginInvoke((MethodInvoker)delegate { txtTotalDistanceSearch.Text = totalDistanceSearch.ToString(); });
             else
             {
                 txtTotalDistanceSearch.Text = totalDistanceSearch.ToString();
             }
-
             if (txtTotalDistanceRescue.InvokeRequired)
                 txtTotalDistanceRescue.BeginInvoke((MethodInvoker)delegate { txtTotalDistanceRescue.Text = totalDistanceRescue.ToString(); });
             else
             {
                 txtTotalDistanceRescue.Text = totalDistanceRescue.ToString();
             }
-            //
             if (txtIdelRescue.InvokeRequired)
                 txtIdelRescue.BeginInvoke((MethodInvoker)delegate { txtIdelRescue.Text = idelRescue.ToString(); });
+                        // Return null if no valid container
             else
             {
                 txtIdelRescue.Text = idelRescue.ToString();
             }
-
             if (txtBusyRescue.InvokeRequired)
+                        // Select the next point in NorthWest region for a search
                 txtBusyRescue.BeginInvoke((MethodInvoker)delegate { txtBusyRescue.Text = busyRescue.ToString(); });
             else
             {
                 txtBusyRescue.Text = busyRescue.ToString();
             }
-            
         }
 
+        // Binds the search team IDs to the dropdown for information display
         void BindDropDownShowInformation()
         {
             List<int> listSearchIntIDs = new List<int>();
@@ -1421,6 +1339,7 @@ namespace ERSC
             cboxSearchIntID.DataSource = listSearchIntIDs;
         }
 
+        // Binds the search state types to the dropdown for filtering/searching
         void BindDropDownSearchState()
         {
             List<Search.SearchStateType> listSearchState = new List<Search.SearchStateType>();
@@ -1429,6 +1348,7 @@ namespace ERSC
             comboxSearchState.DataSource = listSearchState;
         }
 
+        // Binds the rescue level types to the dropdown for filtering/searching
         void BindDropDownRescueLevel()
         {
             List<ERSC.DomainObject.RescueLevelType> listRescueLevel = new List<ERSC.DomainObject.RescueLevelType>();
@@ -1440,27 +1360,25 @@ namespace ERSC
         }
 
         //************************************************//
+        // Assigns points in NorthWest to searchers and creates threads for each search
         public List<Thread> AssignePointToSearchInNorthWest()
         {
             List<DomainObject.Point> orderdPointsInNorthWest = points.Where(p => p.Container == UnitType.NorthWest).OrderByDescending(p => p.NumVictim).ToList();
             List<Search> searchInNorthWest = searchs.Where(p => p.Container == UnitType.NorthWest).OrderBy(p=>p.IntID).ToList();
             List<Thread> Threads = new List<Thread>();
-            //
             foreach (var search in searchInNorthWest)
             {
                 search.State = Search.SearchStateType.Busy;
                 search.ListPoint = new List<DomainObject.Point>();
-                //
+                // Calculate distance from each point to the searcher
                 foreach (var item in orderdPointsInNorthWest)
                 {
                     item.Distance = GetDistance(item.Left, search.Left, item.Top, search.Top);
-                    //item.Distance = GetDistance(item.Left, search.ListPoint.Last().Left, item.Top, search.ListPoint.Last().Top);
                 }
-                //
+                // Assign the closest point with the most victims
                 if (orderdPointsInNorthWest.Count() != 0)
                 {
                     List<DomainObject.Point> searchOrderdPointsInNorthWest = orderdPointsInNorthWest.OrderByDescending(p => p.NumVictim).OrderBy(p => p.Distance).ToList();
-                    //orderdPointsInNorthWest[indexOfSelectedPoint].StartSearchDoing = true;
                     DomainObject.Point Point = searchOrderdPointsInNorthWest.First();
                     Search selectedSearch = search;
                     Thread northWestThread = new Thread(() => DoSearchForPoint(selectedSearch, Point));
@@ -1470,25 +1388,22 @@ namespace ERSC
                 }
             }
             isFinish = true;
-            //
             return Threads;
         }
 
+        // Assigns points in NorthEast to searchers and creates threads for each search
         public List<Thread> AssignePointToSearchInNorthEast()
         {
             List<DomainObject.Point> orderdPointsInNorthEast = points.Where(p => p.Container == UnitType.NorthEast).OrderByDescending(p => p.NumVictim).ToList();
             List<Search> searchInNorthEast = searchs.Where(p => p.Container == UnitType.NorthEast).OrderBy(p => p.IntID).ToList();
             int indexOfSelectedPoint = 0;
-
             List<Thread> Threads = new List<Thread>();
-            //
             foreach (var search in searchInNorthEast)
             {
                 search.State = Search.SearchStateType.Busy;
                 search.ListPoint = new List<DomainObject.Point>();
                 if (indexOfSelectedPoint < orderdPointsInNorthEast.Count())
                 {
-                    //orderdPointsInNorthWest[indexOfSelectedPoint].StartSearchDoing = true;
                     DomainObject.Point Point = orderdPointsInNorthEast[indexOfSelectedPoint];
                     Search selectedSearch = search;
                     Thread northWestThread = new Thread(() => DoSearchForPoint(selectedSearch, Point));
@@ -1501,21 +1416,19 @@ namespace ERSC
             return Threads;
         }
 
+        // Assigns points in SouthWest to searchers and creates threads for each search
         public List<Thread> AssignePointToSearchInSouthWest()
         {
             List<DomainObject.Point> orderdPointsInSouthWest = points.Where(p => p.Container == UnitType.SouthWest).OrderByDescending(p => p.NumVictim).ToList();
             List<Search> searchInSouthWest = searchs.Where(p => p.Container == UnitType.SouthWest).OrderBy(p => p.IntID).ToList();
             int indexOfSelectedPoint = 0;
-
             List<Thread> Threads = new List<Thread>();
-            //
             foreach (var search in searchInSouthWest)
             {
                 search.State = Search.SearchStateType.Busy;
                 search.ListPoint = new List<DomainObject.Point>();
                 if (indexOfSelectedPoint < orderdPointsInSouthWest.Count())
                 {
-                    //orderdPointsInNorthWest[indexOfSelectedPoint].StartSearchDoing = true;
                     DomainObject.Point Point = orderdPointsInSouthWest[indexOfSelectedPoint];
                     Search selectedSearch = search;
                     Thread northWestThread = new Thread(() => DoSearchForPoint(selectedSearch, Point));
@@ -1528,21 +1441,19 @@ namespace ERSC
             return Threads;
         }
 
+        // Assigns points in SouthEast to searchers and creates threads for each search
         public List<Thread> AssignePointToSearchInSouthEast()
         {
             List<DomainObject.Point> orderdPointsInSouthEast = points.Where(p => p.Container == UnitType.SouthEast).OrderByDescending(p => p.NumVictim).ToList();
             List<Search> searchInSouthEast = searchs.Where(p => p.Container == UnitType.SouthEast).OrderBy(p => p.IntID).ToList();
             int indexOfSelectedPoint = 0;
-
             List<Thread> Threads = new List<Thread>();
-            //
             foreach (var search in searchInSouthEast)
             {
                 search.State = Search.SearchStateType.Busy;
                 search.ListPoint = new List<DomainObject.Point>();
                 if (indexOfSelectedPoint < orderdPointsInSouthEast.Count())
                 {
-                    //orderdPointsInNorthWest[indexOfSelectedPoint].StartSearchDoing = true;
                     DomainObject.Point Point = orderdPointsInSouthEast[indexOfSelectedPoint];
                     Search selectedSearch = search;
                     Thread northWestThread = new Thread(() => DoSearchForPoint(selectedSearch, Point));
@@ -1619,13 +1530,17 @@ namespace ERSC
                 int newCordinationX = 0;
                 int newCordinationY = 0;
 
+                // Move the searcher label step by step toward the point, simulating animation
                 for (int i = 0; i < total; i++)
                 {
+                    // Sleep to control animation speed based on search speed
                     System.Threading.Thread.Sleep(int.Parse(nudSearch.Value.ToString()) * 30);
                     totalTimeSleep += (int.Parse(nudSearch.Value.ToString()) * 30);
 
+                    // Determine direction and update coordinates accordingly
                     if (lblSearch.Location.X < lblPoint.Location.X && lblSearch.Location.Y < lblPoint.Location.Y)
                     {
+                        // Move southeast
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
                         {
                             newCordinationX = lblSearch.Location.X + 5;
@@ -1645,7 +1560,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
-                    //southwest
+                    // Move southwest
                     else if (lblSearch.Location.X < lblPoint.Location.X && lblSearch.Location.Y > lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
@@ -1667,7 +1582,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
-                    //northeast
+                    // Move northwest
                     else if (lblSearch.Location.X > lblPoint.Location.X && lblSearch.Location.Y > lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
@@ -1689,6 +1604,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move northeast
                     else if (lblSearch.Location.X > lblPoint.Location.X && lblSearch.Location.Y < lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
@@ -1710,6 +1626,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move straight down
                     else if (lblSearch.Location.X == lblPoint.Location.X && lblSearch.Location.Y < lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
@@ -1731,6 +1648,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move straight up
                     else if (lblSearch.Location.X == lblPoint.Location.X && lblSearch.Location.Y > lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblSearch.Location.Y))
@@ -1752,6 +1670,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move straight left
                     else if (lblSearch.Location.X > lblPoint.Location.X && lblSearch.Location.Y == lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X))
@@ -1773,6 +1692,7 @@ namespace ERSC
                                 lblSearch.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move straight right
                     else if (lblSearch.Location.X < lblPoint.Location.X && lblSearch.Location.Y == lblPoint.Location.Y)
                     {
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblSearch.Location.X))
@@ -1795,23 +1715,18 @@ namespace ERSC
                         }
                     }
 
+                    // Always bring the searcher label to the front after moving
                     if (lblSearch.InvokeRequired)
                         lblSearch.BeginInvoke((MethodInvoker)delegate { lblSearch.BringToFront(); });
+                    // Handle the case when the main condition is not met
                     else
                         lblSearch.BringToFront();
 
-                    ////
-                    //System.Threading.Thread.Sleep(int.Parse(nudSearch.Value.ToString()) * 20);
-                    //totalTimeSleep += (int.Parse(nudSearch.Value.ToString()) * 20);
-
-                    //
+                    // Update the projected coordinates for the searcher in the database
                     System.Drawing.Point MyPoint = new System.Drawing.Point(newCordinationX, newCordinationY);
                     DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
-                    //
-
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
-                        //Update to sql in TbPoint
                         var search = (from TbSearchs in dbUpdate.TbSearches
                                       where TbSearchs.Search_ID == selectedSearch.ID
                                       select TbSearchs).Single();
@@ -1823,61 +1738,26 @@ namespace ERSC
                     }
                 }
 
-                //if (points.Select(q => Enumerable.Range(lblSearch.Location.X - 10, 20).Contains(q.Left) && Enumerable.Range(lblSearch.Location.Y - 10, 20).Contains(q.Top)).ToList().Exists(x => x.Equals(true)))
-                //{
-                //    if (Enumerable.Range(lblSearch.Location.X - 10, 20).Contains(selectedPoint.Left) && Enumerable.Range(lblSearch.Location.Y - 10, 20).Contains(selectedPoint.Top))
-                //    if (lblSearch.InvokeRequired)
-                //        lblSearch.BeginInvoke((MethodInvoker)delegate { lblSearch.Location = new System.Drawing.Point(lblSearch.Location.X + 10, lblSearch.Location.Y + 10); });
-                //    else
-                //        lblSearch.Location = new System.Drawing.Point(lblSearch.Location.X + 10, lblSearch.Location.Y + 10);
-                //}
-                
-                //lblPoint.BackColor = Color.Green;
+                // Calculate and accumulate the total distance covered by the searcher in this step
                 totalDistanceSearch += GetDistance(pointTop, searchTop, pointLeft, searchLeft);
-                
-                //
-                #region Best Performance
-                //if (panel1.InvokeRequired == false)
-                //{
-                //Draw 
-                //System.Drawing.Pen myPen;
-                //myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
-                //System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
-                //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
 
-                //pointInNorthWest[0].Do();
+                // --- (Commented out) Region for drawing performance lines and visual feedback ---
+                // This region contains code for drawing lines between points for performance visualization,
+                // but is currently commented out. It also includes code for cleaning up the drawing and updating UI.
 
-                ////Clean
-                //myPen.Color = Color.White;
-                //formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
-                //formGraphics.Dispose();
-                //myPen.Dispose();
-                //}
-                //else
-                //{
-                //    DomainObject.Point p = pointInNorthWest[0];
-                //    DoRescuInvoker invoker = new DoRescuInvoker(DoRescuInvoke);
-                //    this.Invoke(invoker, new object[] { rescLeft, rescTop, pointLeft, pointTop, p });
-                //}
-
-                //var lbl = panel1.Controls.Find(pointInNorthWest[0].ID, true).ToList().FirstOrDefault();
-                //if (lbl != null || lbl.Name != "")
-                //{
-                //    lbl.BackColor = Color.Navy;
-                //}
-                //
-                #endregion
-                //
+                // Add the current point to the list of points visited by this search team
                 selectedSearch.ListPoint.Add(selectedPoint);
-                //***** Do Search
+
+                // Perform the search operation on the selected point
                 selectedPoint.DoSearch();
 
+                // Mark the search as completed for this point
                 selectedPoint.StartSearchDoing = false;
                 selectedPoint.EndSearchDoing = true;
+
+                // Update the search status for this point in the database
                 using (var dbUpdate = new DataClasses1DataContext())
                 {
-                    //Update to sql in TbPoint
                     var point = (from TbPoints in dbUpdate.TbPoints
                                  where TbPoints.Point_ID == selectedPoint.ID
                                  select TbPoints).Single();
@@ -1885,10 +1765,14 @@ namespace ERSC
                     point.Point_EndSearchDoing = selectedPoint.EndSearchDoing;
                     dbUpdate.SubmitChanges();
                 }
-                //***** Show new information && Update sql
-                int countNewPoint= ShowNewInformation(selectedPoint);
-                //
+
+                // Show new information for the searched point and update the database
+                int countNewPoint = ShowNewInformation(selectedPoint);
+
+                // Update the point's image to indicate it has been searched
                 lblPoint.Image = Properties.Resources.Point_Blue;
+
+                // Update the images of all new child points generated from this search
                 lock (this)
                 {
                     List<string> idOfNewPoints = new List<string>();
@@ -1905,12 +1789,14 @@ namespace ERSC
                         myLabel.Image = Properties.Resources.Point_Blue;
                     }
                 }
-                //*****
+
+                // Update and display search and rescue task charts based on elapsed time
                 int time = (totalTimeSleep / 1000) + 2;
                 ShowChartTasksOfSearch(time);
                 numPointDoRescue = numPointDoRescue + countNewPoint;
                 ShowChartTasksOfRescue(time);
-                //*****
+
+                // Retrieve the selected search team ID for charting (thread-safe)
                 int searchIdForChart = 0;
                 if (cboxSearchIntID.InvokeRequired)
                     cboxSearchIntID.BeginInvoke((MethodInvoker)delegate
@@ -1921,20 +1807,22 @@ namespace ERSC
                 {
                     searchIdForChart = (int)cboxSearchIntID.SelectedItem;
                 }
-                //*****
+
+                // Run the decision algorithm to select the best rescue team for the new points
                 DecisionAlgorithmForSelectWinRescue(selectedSearch, selectedPoint, countNewPoint, searchIdForChart);
-                //
+
+                // Set the search team's state to Ready and update the database
                 selectedSearch.State = Search.SearchStateType.Ready;
                 using (var dbUpdate = new DataClasses1DataContext())
                 {
-                    //Update to sql 
                     var search = (from TbSearchs in dbUpdate.TbSearches
                                   where TbSearchs.Search_ID == selectedSearch.ID
                                   select TbSearchs).Single();
                     search.Search_State = (int)Search.SearchStateType.Ready;
                     dbUpdate.SubmitChanges();
                 }
-                //***** Select Next Point For Search Team
+
+                // Select the next point for the search team to visit
                 nextPoint = SelectNextPointForSearch(selectedSearch);
             }
 
@@ -2020,147 +1908,88 @@ namespace ERSC
         {
         }
         //***********************************************//
+        // Updates the search task chart with the current number of points left to search, at a given time interval
         public void ShowChartTasksOfSearch(int timeSleep)
         {
             lock (this)
             {
                 numPointDoSearch--;
-                int time=0;
+                int time = 0;
+                // Ensure thread-safe UI updates
                 if (chartTasksOfSearch.InvokeRequired)
                     chartTasksOfSearch.BeginInvoke((MethodInvoker)delegate
                     {
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Milliseconds;
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.Interval = 5;
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.IsLabelAutoFit = true;
-                        //time = ss.Elapsed.Seconds - timeSleep;
+                        // Calculate elapsed time and update the chart with the new data point
                         time = int.Parse(Math.Floor(ss.Elapsed.TotalSeconds).ToString()) - timeSleep;
                         seriesTasksOfSearch.Points.AddXY(time, numPointDoSearch);
-                        //seriesTasksOfSearch.Points.AddXY(ss.Elapsed.Seconds, numPointDoSearch);
                         seriesTasksOfSearch.ChartType = SeriesChartType.Line;
-                        //seriesTasksOfSearch.IsVisibleInLegend = true;
-                        //seriesTasksOfSearch.IsXValueIndexed = true;
                         chartTasksOfSearch.Invalidate();
                     });
                 else
                 {
-                    //chartTasksOfSearch.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Milliseconds;
-                    //chartTasksOfSearch.ChartAreas[0].AxisX.Interval = 5;
-                    //time = ss.Elapsed.Seconds - timeSleep;
+                    // Update the chart directly if on the UI thread
                     time = int.Parse(Math.Floor(ss.Elapsed.TotalSeconds).ToString()) - timeSleep;
                     seriesTasksOfSearch.Points.AddXY(time, numPointDoSearch);
-                    //seriesTasksOfSearch.Points.AddXY(ss.Elapsed.Seconds, numPointDoSearch);
                     seriesTasksOfSearch.ChartType = SeriesChartType.Line;
-                    //seriesTasksOfSearch.IsVisibleInLegend = true;
-                    //seriesTasksOfSearch.IsXValueIndexed = true;
                     chartTasksOfSearch.Invalidate();
                 }
             }
         }
 
+        // Updates the rescue task chart with the current number of points rescued, at a given time interval
         public void ShowChartTasksOfRescue(int timeSleep)
         {
             lock (this)
             {
                 int time = 0;
+                // Ensure thread-safe UI updates
                 if (chartTasksOfRescue.InvokeRequired)
                     chartTasksOfRescue.BeginInvoke((MethodInvoker)delegate
                     {
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Milliseconds;
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.Interval = 5;
-                        //chartTasksOfSearch.ChartAreas[0].AxisX.IsLabelAutoFit = true;
-                        //time = ss.Elapsed.Seconds - timeSleep;
+                        // Calculate elapsed time and update the chart with the new data point
                         time = int.Parse(Math.Floor(ss.Elapsed.TotalSeconds).ToString()) - timeSleep;
                         seriesTasksOfRescue.Points.AddXY(time, numPointDoRescue);
-                        //seriesTasksOfSearch.Points.AddXY(ss.Elapsed.Seconds, numPointDoSearch);
                         seriesTasksOfRescue.ChartType = SeriesChartType.Line;
-                        //seriesTasksOfSearch.IsVisibleInLegend = true;
-                        //seriesTasksOfSearch.IsXValueIndexed = true;
                         chartTasksOfRescue.Invalidate();
                     });
                 else
                 {
-                    //chartTasksOfSearch.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Milliseconds;
-                    //chartTasksOfSearch.ChartAreas[0].AxisX.Interval = 5;
-                    //time = ss.Elapsed.Seconds - timeSleep;
+                    // Update the chart directly if on the UI thread
                     time = int.Parse(Math.Floor(ss.Elapsed.TotalSeconds).ToString()) - timeSleep;
                     seriesTasksOfRescue.Points.AddXY(time, numPointDoRescue);
-                    //seriesTasksOfSearch.Points.AddXY(ss.Elapsed.Seconds, numPointDoSearch);
                     seriesTasksOfRescue.ChartType = SeriesChartType.Line;
-                    //seriesTasksOfSearch.IsVisibleInLegend = true;
-                    //seriesTasksOfSearch.IsXValueIndexed = true;
                     chartTasksOfRescue.Invalidate();
                 }
             }
         }
         //***********************************************//
 
-        public void ShowChartProbabilityForSelectedSearch(int counter, Dictionary<string, double> dicOfProbabilityRs,int searchIdForChart)
+        // Plots the probability values for each rescue candidate for the selected search team on the probability chart
+        public void ShowChartProbabilityForSelectedSearch(int counter, Dictionary<string, double> dicOfProbabilityRs, int searchIdForChart)
         {
             int k = 0;
-            //if (counter == 0)
-            //{
-                //Series seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series { };
-                //listSeries.Clear();
-                //System.Drawing.Color color = new System.Drawing.Color();
-                //for (int j = 0; j < dicOfProbabilityRs.Count(); j++)
-                //{
-                //    switch (j)
-                //    {
-                //        case 0: color = System.Drawing.Color.Red;
-                //            break;
-                //        case 1: color = System.Drawing.Color.Blue;
-                //            break;
-                //        case 2: color = System.Drawing.Color.Green;
-                //            break;
-                //        case 3: color = System.Drawing.Color.Yellow;
-                //            break;
-                //        case 4: color = System.Drawing.Color.Purple;
-                //            break;
-                //        case 5: color = System.Drawing.Color.Brown;
-                //            break;
-                //        default: color = System.Drawing.Color.Black;
-                //            break;
-                //    }
-                    //seriesPropability = new System.Windows.Forms.DataVisualization.Charting.Series
-                    //{
-                    //    Name = "seriesPropability" + j,
-                    //    Color = color,
-                    //    //Color = System.Drawing.Color.Green,
-                    //    IsVisibleInLegend = false,
-                    //    IsXValueIndexed = true,
-                    //    ChartType = SeriesChartType.Line
-                    //};
-                    //listSeries.Add(seriesPropability);
-                //}
-                //if (chartProbability.InvokeRequired)
-                //    chartProbability.BeginInvoke((MethodInvoker)delegate
-                //    {
-                //        this.chartProbability.Series.Clear();
-                //        foreach (var item in listSeries)
-                //        {
-                //            //item.Points.Clear();
-                //            this.chartProbability.Series.Add(item);
-                //        }
-                //    });
-            //}
+            // (Commented out) Code for initializing and coloring series is present but not used
             k = 0;
             if (chartProbability.InvokeRequired)
                 chartProbability.BeginInvoke((MethodInvoker)delegate
                 {
-                    chartProbability.Titles[0].Text = "Chart Probabilities In Unit Of " + searchs.Single(p=>p.IntID.Equals(searchIdForChart)).Container.ToString() + " From Search Team by ID = " + searchIdForChart.ToString();
+                    // Set the chart title to reflect the current search team and unit
+                    chartProbability.Titles[0].Text = "Chart Probabilities In Unit Of " + searchs.Single(p => p.IntID.Equals(searchIdForChart)).Container.ToString() + " From Search Team by ID = " + searchIdForChart.ToString();
+                    // Add probability data points for each rescue candidate
                     foreach (var rescue in dicOfProbabilityRs)
                     {
                         listSeries[k].Points.AddXY(counter, rescue.Value);
                         listSeries[k].ChartType = SeriesChartType.Spline;
-                        //chartProbability.Invalidate();
                         k++;
                     }
                 });
             else
             {
+                // (No direct update if not on UI thread)
             }
         }
 
+        // Plots the probability values for each rescue candidate for the selected search team on the S1 probability chart
         public void ShowChartProbabilityForSelectedSearch_S1(int counter, Dictionary<string, double> dicOfProbabilityRs, int searchIdForChart)
         {
             int k = 0;
@@ -2168,20 +1997,23 @@ namespace ERSC
             if (chartProbability_S1.InvokeRequired)
                 chartProbability_S1.BeginInvoke((MethodInvoker)delegate
                 {
+                    // Set the chart title to reflect the current search team and unit
                     chartProbability_S1.Titles[0].Text = "Chart Probabilities In Unit Of " + searchs.Single(p => p.IntID.Equals(searchIdForChart)).Container.ToString() + " From Search Team by ID = " + searchIdForChart.ToString();
+                    // Add probability data points for each rescue candidate
                     foreach (var rescue in dicOfProbabilityRs)
                     {
                         listSeries_S1[k].Points.AddXY(counter, rescue.Value);
                         listSeries_S1[k].ChartType = SeriesChartType.Spline;
-                        //chartProbability.Invalidate();
                         k++;
                     }
                 });
             else
             {
+                // (No direct update if not on UI thread)
             }
         }
 
+        // Plots the probability values for each rescue candidate for the selected search team on the S2 probability chart
         public void ShowChartProbabilityForSelectedSearch_S2(int counter, Dictionary<string, double> dicOfProbabilityRs, int searchIdForChart)
         {
             int k = 0;
@@ -2189,20 +2021,23 @@ namespace ERSC
             if (chartProbability_S2.InvokeRequired)
                 chartProbability_S2.BeginInvoke((MethodInvoker)delegate
                 {
+                    // Set the chart title to reflect the current search team and unit
                     chartProbability_S2.Titles[0].Text = "Chart Probabilities In Unit Of " + searchs.Single(p => p.IntID.Equals(searchIdForChart)).Container.ToString() + " From Search Team by ID = " + searchIdForChart.ToString();
+                    // Add probability data points for each rescue candidate
                     foreach (var rescue in dicOfProbabilityRs)
                     {
                         listSeries_S2[k].Points.AddXY(counter, rescue.Value);
                         listSeries_S2[k].ChartType = SeriesChartType.Spline;
-                        //chartProbability.Invalidate();
                         k++;
                     }
                 });
             else
             {
+                // (No direct update if not on UI thread)
             }
         }
 
+        // Plots the probability values for each rescue candidate for the selected search team on the S3 probability chart
         public void ShowChartProbabilityForSelectedSearch_S3(int counter, Dictionary<string, double> dicOfProbabilityRs, int searchIdForChart)
         {
             int k = 0;
@@ -2210,42 +2045,50 @@ namespace ERSC
             if (chartProbability_S3.InvokeRequired)
                 chartProbability_S3.BeginInvoke((MethodInvoker)delegate
                 {
+                    // Set the chart title to reflect the current search team and unit
                     chartProbability_S3.Titles[0].Text = "Chart Probabilities In Unit Of " + searchs.Single(p => p.IntID.Equals(searchIdForChart)).Container.ToString() + " From Search Team by ID = " + searchIdForChart.ToString();
+                    // Add probability data points for each rescue candidate
                     foreach (var rescue in dicOfProbabilityRs)
                     {
                         listSeries_S3[k].Points.AddXY(counter, rescue.Value);
                         listSeries_S3[k].ChartType = SeriesChartType.Spline;
-                        //chartProbability.Invalidate();
                         k++;
                     }
                 });
             else
             {
+                // (No direct update if not on UI thread)
             }
         }
 
         //***********************************************//
+        // Updates the state of a searched point, creates new points if needed, and inserts them into the database
         public int ShowNewInformation(DomainObject.Point selectedPoint)
         {
             List<DomainObject.Point> listOfNewPoints = new List<DomainObject.Point>();
             List<DomainObject.Point> listOfNewPointsForInsert = new List<DomainObject.Point>();
 
+            // Determine the next state of the point based on the number of victims
             switch (selectedPoint.NumVictim.Equals(0))
             {
                 case true:
+                    // No victims: mark as finished and set rescue level to 0
                     selectedPoint.State = DomainObject.StateType.Finish;
                     selectedPoint.RescueLevel = 0;
                     break;
                 case false:
+                    // Victims present: mark for rescue
                     selectedPoint.State = DomainObject.StateType.Rescue;
+                    // If new points should be created, generate and display them
                     switch (selectedPoint.CreatPoint.Equals(0))
                     {
                         case true:
                             break;
                         case false:
+                            // Create new points branching from this one
                             listOfNewPoints = CreateNewPoints(selectedPoint.CreatPoint, selectedPoint);
                             listOfNewPoints = ShowNewPoints(listOfNewPoints);
-                            //
+                            // Add new points to the global list in a thread-safe way
                             lock (this)
                             {
                                 foreach (DomainObject.Point newPoint in listOfNewPoints)
@@ -2253,24 +2096,23 @@ namespace ERSC
                                     newPoints.Add(newPoint);
                                 }
                             }
-                            //
                             break;
                     }
                     break;
             }
+
+            // Update the state and rescue level of the point in the database
             using (var dbUpdate = new DataClasses1DataContext())
             {
-                //Update to sql
                 var point = (from TbPoints in dbUpdate.TbPoints
                              where TbPoints.Point_ID == selectedPoint.ID
                              select TbPoints).Single();
                 point.Point_State = (int)selectedPoint.State;
                 point.Point_RescueLevel = (int)selectedPoint.RescueLevel;
-                //db.SubmitChanges();
-
                 dbUpdate.SubmitChanges();
             }
-            //Insert New Point to sql
+
+            // Insert any new points into the database
             listOfNewPointsForInsert = listOfNewPoints;
             if (listOfNewPointsForInsert.Count() > 0)
             {
@@ -2278,16 +2120,16 @@ namespace ERSC
                 int maxIntID = 0;
                 lock (this)
                 {
+                    // Get the current maximum integer ID for points
                     using (var dbSelect = new DataClasses1DataContext())
                     {
                         maxIntID = dbSelect.TbPoints.Max(p => p.Point_IntID);
                     }
 
+                    // Prepare new point records for insertion
                     foreach (var p in listOfNewPointsForInsert)
                     {
-                        //***Insert in sql
                         TbPoint newP = new TbPoint();
-                        //
                         newP.Point_ID = p.ID;
                         newP.Point_IntID = maxIntID++;
                         newP.Point_ParentID = p.ParentID;
@@ -2307,89 +2149,90 @@ namespace ERSC
                         newP.Point_StartRescueDoing = p.StartRescueDoing;
                         newP.Point_EndSearchDoing = p.EndSearchDoing;
                         newP.Point_EndRescueDoing = p.EndRescueDoing;
-                        //
                         tbNewPoints.Add(newP);
                     }
                 }
+                // Insert all new points into the database in one batch
                 using (var dbInsert = new DataClasses1DataContext())
                 {
                     dbInsert.TbPoints.InsertAllOnSubmit(tbNewPoints);
                     dbInsert.SubmitChanges();
                 }
-
             }
 
+            // Return the number of new points created
             return listOfNewPoints.Count();
         }
 
-        public List<DomainObject.Point> CreateNewPoints(int numPoints,DomainObject.Point parentPoint)
+        // Creates new child points around a parent point, with randomized victim counts and projected coordinates
+        public List<DomainObject.Point> CreateNewPoints(int numPoints, DomainObject.Point parentPoint)
         {
-            List<DomainObject.Point> newPoints=new List<DomainObject.Point>();
+            List<DomainObject.Point> newPoints = new List<DomainObject.Point>();
             Random r = new Random();
             for (int i = 1; i <= numPoints; i++)
             {
-                //DomainObject.Point p = new DomainObject.Point(r.Next(1, 4));
-                DomainObject.Point p = new DomainObject.Point(2,true);
+                // Create a new point (default type 2, true)
+                DomainObject.Point p = new DomainObject.Point(2, true);
+                // Position the new point in one of four directions around the parent
                 switch (i)
                 {
                     case 1:
-                        p.Left = parentPoint.Left-10;
+                        p.Left = parentPoint.Left - 10;
                         p.Top = parentPoint.Top;
                         break;
                     case 2:
-                        p.Left = parentPoint.Left+10;
+                        p.Left = parentPoint.Left + 10;
                         p.Top = parentPoint.Top;
                         break;
                     case 3:
                         p.Left = parentPoint.Left;
-                        p.Top = parentPoint.Top-10;
+                        p.Top = parentPoint.Top - 10;
                         break;
                     case 4:
                         p.Left = parentPoint.Left;
                         p.Top = parentPoint.Top + 10;
                         break;
                 }
-                //convert coordinates to Projection
+                // Convert screen coordinates to projected map coordinates
                 System.Drawing.Point MyPoint = new System.Drawing.Point(p.Left, p.Top);
                 DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
                 p.LeftProjection = MyCoordinate.X;
                 p.TopProjection = MyCoordinate.Y;
-                //
+                // Inherit container and parent info
                 p.Container = parentPoint.Container;
-                //
                 p.ParentID = parentPoint.ID;
+                // Assign random victim count and compute rescue level
                 p.NumVictim = r.Next(DomainObject.Point.minNumVictim, DomainObject.Point.maxNumVictim);
                 p.RescueLevel = DomainObject.Point.GetRescueLevel(p.NumVictim);
                 p.CreatPoint = 0;
                 p.State = DomainObject.StateType.Search;
-                p.ParentID = parentPoint.ID;
                 p.IsAllocatedSTeam = true;
                 p.StartSearchDoing = false;
                 p.EndSearchDoing = true;
-                
-                //
+                // Prevent duplicate points at the same location
                 if (points.Where(pt => pt.Top == p.Top && pt.Left == p.Left).Count() > 0)
                 {
                     throw new Exception("");
                 }
-                //
-                //points.Add(p); ????? // Collection was modified; enumeration operation may not execute
                 newPoints.Add(p);
             }
-            return newPoints; 
+            return newPoints;
         }
 
+        // Adds new point shapes to the UI and ensures the map is rendered behind them
         public List<DomainObject.Point> ShowNewPoints(List<DomainObject.Point> newPoints)
         {
             List<DomainObject.Point> nPoints = new List<DomainObject.Point>();
             lock (newPoints)
             {
+                // Add each new point's shape to the panel (thread-safe)
                 if (panel1.InvokeRequired)
                     panel1.BeginInvoke((MethodInvoker)delegate { foreach (var p in newPoints) { panel1.Controls.Add(p.GetShape()); nPoints.Add(p); } });
                 else
                     foreach (var p in newPoints) { panel1.Controls.Add(p.GetShape()); nPoints.Add(p); }
             }
 
+            // Ensure the map control is sent to the back (thread-safe)
             if (geoMap.InvokeRequired)
                 geoMap.BeginInvoke((MethodInvoker)delegate { geoMap.SendToBack(); });
             else
@@ -2398,47 +2241,47 @@ namespace ERSC
             return nPoints;
         }
         //***********************************************//
+        // Runs the decision algorithm to select the best rescue team for a given point, based on probability and distance
         public void DecisionAlgorithmForSelectWinRescue(Search search, DomainObject.Point point, int countNewPoint, int searchIdForChart)
         {
+            // Dictionaries to hold probability and distance values for each region
             Dictionary<string, double> dicOfProbabilityRsInNorthWest = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbabilityRsInNorthEast = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbabilityRsInSouthWest = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbabilityRsInSouthEast = new Dictionary<string, double>();
-            //
             Dictionary<string, double> dicOfDistanceRsInNorthWest = new Dictionary<string, double>();
             Dictionary<string, double> dicOfDistanceRsInNorthEast = new Dictionary<string, double>();
             Dictionary<string, double> dicOfDistanceRsInSouthWest = new Dictionary<string, double>();
             Dictionary<string, double> dicOfDistanceRsInSouthEast = new Dictionary<string, double>();
-            //
             string winRescueID = "";
             double winProbability = 0;
             bool isWin = false;
-            //
+            // Select the appropriate region and compute the best rescue team using automata learning
             switch (point.Container)
             {
                 case DomainObject.UnitType.NorthWest:
                     dicOfDistanceRsInNorthWest = ComputeDistanceForRescuesInNorthWest(point);
                     dicOfProbabilityRsInNorthWest = ComputeProbabilityForRescuesInNorthWest(point);
                     winRescueID = SelectWinRescueInNorthWestByAutomataLearning(search, point, dicOfProbabilityRsInNorthWest, dicOfDistanceRsInNorthWest, searchIdForChart, out winProbability, out isWin);
-                    AssignePointToWinRescue(search, winRescueID, winProbability, point,countNewPoint,isWin);
+                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint, isWin);
                     break;
                 case DomainObject.UnitType.NorthEast:
                     dicOfDistanceRsInNorthEast = ComputeDistanceForRescuesInNorthEast(point);
                     dicOfProbabilityRsInNorthEast = ComputeProbabilityForRescuesInNorthEast(point);
-                    winRescueID = SelectWinRescueInNorthEastByAutomataLearning(search, point, dicOfProbabilityRsInNorthEast, dicOfDistanceRsInNorthEast,searchIdForChart, out winProbability, out isWin);
-                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint,isWin);
+                    winRescueID = SelectWinRescueInNorthEastByAutomataLearning(search, point, dicOfProbabilityRsInNorthEast, dicOfDistanceRsInNorthEast, searchIdForChart, out winProbability, out isWin);
+                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint, isWin);
                     break;
                 case DomainObject.UnitType.SouthWest:
                     dicOfDistanceRsInSouthWest = ComputeDistanceForRescuesInSouthWest(point);
                     dicOfProbabilityRsInSouthWest = ComputeProbabilityForRescuesInSouthWest(point);
-                    winRescueID = SelectWinRescueInSouthWestByAutomataLearning(search, point, dicOfProbabilityRsInSouthWest, dicOfDistanceRsInSouthWest,searchIdForChart, out winProbability, out isWin);
-                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint,isWin);
+                    winRescueID = SelectWinRescueInSouthWestByAutomataLearning(search, point, dicOfProbabilityRsInSouthWest, dicOfDistanceRsInSouthWest, searchIdForChart, out winProbability, out isWin);
+                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint, isWin);
                     break;
                 case DomainObject.UnitType.SouthEast:
                     dicOfDistanceRsInSouthEast = ComputeDistanceForRescuesInSouthEast(point);
                     dicOfProbabilityRsInSouthEast = ComputeProbabilityForRescuesInSouthEast(point);
-                    winRescueID = SelectWinRescueInSouthEastByAutomataLearning(search, point, dicOfProbabilityRsInSouthEast, dicOfDistanceRsInSouthEast,searchIdForChart, out winProbability, out isWin);
-                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint,isWin);
+                    winRescueID = SelectWinRescueInSouthEastByAutomataLearning(search, point, dicOfProbabilityRsInSouthEast, dicOfDistanceRsInSouthEast, searchIdForChart, out winProbability, out isWin);
+                    AssignePointToWinRescue(search, winRescueID, winProbability, point, countNewPoint, isWin);
                     break;
             }
         }
@@ -2520,22 +2363,22 @@ namespace ERSC
             return dicOfDistance;
         }
 
+        // Computes the distance from a given point to each rescue team in the NorthWest region (using TbPoint)
         public Dictionary<string, double> ComputeDistanceForRescuesInNorthWest(TbPoint point)
         {
             List<Rescue> rescuesInNorthWest = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInNorthWest = rescues.Where(p => p.Container == UnitType.NorthWest).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInNorthWest = rescues.Where(p => p.Container == UnitType.NorthWest).ToList();
             foreach (var rescue in rescuesInNorthWest)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
         //
+        // Computes the probability for each rescue team in the NorthEast region to be selected for a given point (DomainObject.Point)
         public Dictionary<string, double> ComputeProbabilityForRescuesInNorthEast(DomainObject.Point point)
         {
             List<Rescue> rescuesInNorthEast = new List<Rescue>();
@@ -2544,8 +2387,7 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
-            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList();
             foreach (var rescue in rescuesInNorthEast)
             {
                 cost = ComputeCostRescueForPoint(point, rescue);
@@ -2554,15 +2396,15 @@ namespace ERSC
                 dic.Add(rescue.ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the probability for each rescue team in the NorthEast region to be selected for a given point (TbPoint, DB version)
         public Dictionary<string, double> ComputeProbabilityForRescuesInNorthEast(TbPoint point)
         {
             List<TbRescue> rescuesInNorthEast = new List<TbRescue>();
@@ -2571,11 +2413,10 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
             using (var dbSelect = new DataClasses1DataContext())
             {
                 rescuesInNorthEast = (from TbRescues in dbSelect.TbRescues
-                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.NorthEast.ToString().ToLower()) //&& TbRescues.Rescue_State.Equals((int)Rescue.RescueStateType.Ready)
+                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.NorthEast.ToString().ToLower())
                                       select TbRescues).ToList();
             }
             foreach (var rescue in rescuesInNorthEast)
@@ -2586,47 +2427,45 @@ namespace ERSC
                 dic.Add(rescue.Rescue_ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the distance from a given point to each rescue team in the NorthEast region (DomainObject.Point)
         public Dictionary<string, double> ComputeDistanceForRescuesInNorthEast(DomainObject.Point point)
         {
             List<Rescue> rescuesInNorthEast = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList();
             foreach (var rescue in rescuesInNorthEast)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
 
+        // Computes the distance from a given point to each rescue team in the NorthEast region (TbPoint)
         public Dictionary<string, double> ComputeDistanceForRescuesInNorthEast(TbPoint point)
         {
             List<Rescue> rescuesInNorthEast = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInNorthEast = rescues.Where(p => p.Container == UnitType.NorthEast).ToList();
             foreach (var rescue in rescuesInNorthEast)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
         //
+        // Computes the probability for each rescue team in the SouthWest region to be selected for a given point (DomainObject.Point)
         public Dictionary<string, double> ComputeProbabilityForRescuesInSouthWest(DomainObject.Point point)
         {
             List<Rescue> rescuesInSouthWest = new List<Rescue>();
@@ -2635,8 +2474,7 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
-            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList();
             foreach (var rescue in rescuesInSouthWest)
             {
                 cost = ComputeCostRescueForPoint(point, rescue);
@@ -2645,15 +2483,15 @@ namespace ERSC
                 dic.Add(rescue.ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the probability for each rescue team in the SouthWest region to be selected for a given point (TbPoint, DB version)
         public Dictionary<string, double> ComputeProbabilityForRescuesInSouthWest(TbPoint point)
         {
             List<TbRescue> rescuesInSouthWest = new List<TbRescue>();
@@ -2662,11 +2500,10 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
             using (var dbSelect = new DataClasses1DataContext())
             {
                 rescuesInSouthWest = (from TbRescues in dbSelect.TbRescues
-                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.SouthWest.ToString().ToLower()) //&& TbRescues.Rescue_State.Equals((int)Rescue.RescueStateType.Ready)
+                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.SouthWest.ToString().ToLower())
                                       select TbRescues).ToList();
             }
             foreach (var rescue in rescuesInSouthWest)
@@ -2677,48 +2514,46 @@ namespace ERSC
                 dic.Add(rescue.Rescue_ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the distance from a given point to each rescue team in the SouthWest region (DomainObject.Point)
         public Dictionary<string, double> ComputeDistanceForRescuesInSouthWest(DomainObject.Point point)
         {
             List<Rescue> rescuesInSouthWest = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList();
             foreach (var rescue in rescuesInSouthWest)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
 
+        // Computes the distance from a given point to each rescue team in the SouthWest region (TbPoint)
         public Dictionary<string, double> ComputeDistanceForRescuesInSouthWest(TbPoint point)
         {
             List<Rescue> rescuesInSouthWest = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInSouthWest = rescues.Where(p => p.Container == UnitType.SouthWest).ToList();
             foreach (var rescue in rescuesInSouthWest)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
         //
         public Dictionary<string, double> ComputeProbabilityForRescuesInSouthEast(DomainObject.Point point)
+        // Computes the probability for each rescue team in the SouthEast region to be selected for a given point (DomainObject.Point)
         {
             List<Rescue> rescuesInSouthEast = new List<Rescue>();
             double reward = ComputeRewardForPoint(point);
@@ -2726,9 +2561,7 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
-            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
-            //
+            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList();
             foreach (var rescue in rescuesInSouthEast)
             {
                 cost = ComputeCostRescueForPoint(point, rescue);
@@ -2737,15 +2570,15 @@ namespace ERSC
                 dic.Add(rescue.ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the probability for each rescue team in the SouthEast region to be selected for a given point (TbPoint, DB version)
         public Dictionary<string, double> ComputeProbabilityForRescuesInSouthEast(TbPoint point)
         {
             List<TbRescue> rescuesInSouthEast = new List<TbRescue>();
@@ -2754,14 +2587,12 @@ namespace ERSC
             List<double> listOfCost = new List<double>();
             Dictionary<string, double> dic = new Dictionary<string, double>();
             Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            //
             using (var dbSelect = new DataClasses1DataContext())
             {
                 rescuesInSouthEast = (from TbRescues in dbSelect.TbRescues
-                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.SouthEast.ToString().ToLower()) // && TbRescues.Rescue_State.Equals((int) Rescue.RescueStateType.Ready)
+                                      where TbRescues.Rescue_Unit.ToLower().Equals(UnitType.SouthEast.ToString().ToLower())
                                       select TbRescues).ToList();
             }
-            //
             foreach (var rescue in rescuesInSouthEast)
             {
                 cost = ComputeCostRescueForPoint(point, rescue);
@@ -2770,185 +2601,162 @@ namespace ERSC
                 dic.Add(rescue.Rescue_ID, probability);
                 sumAllPropability += probability;
             }
-            //
+            // Normalize probabilities so they sum to 1
             foreach (var prob in dic)
             {
                 dicOfProbability[prob.Key] = (prob.Value / sumAllPropability);
             }
-            //
             return dicOfProbability;
         }
 
+        // Computes the distance from a given point to each rescue team in the SouthEast region (DomainObject.Point)
         public Dictionary<string, double> ComputeDistanceForRescuesInSouthEast(DomainObject.Point point)
         {
             List<Rescue> rescuesInSouthEast = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList();
             foreach (var rescue in rescuesInSouthEast)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
 
+        // Computes the distance from a given point to each rescue team in the SouthEast region (TbPoint)
         public Dictionary<string, double> ComputeDistanceForRescuesInSouthEast(TbPoint point)
         {
             List<Rescue> rescuesInSouthEast = new List<Rescue>();
             double distance = 0;
             Dictionary<string, double> dicOfDistance = new Dictionary<string, double>();
-            //
-            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList(); //&& p.State.Equals(Rescue.RescueStateType.Ready)
+            rescuesInSouthEast = rescues.Where(p => p.Container == UnitType.SouthEast).ToList();
             foreach (var rescue in rescuesInSouthEast)
             {
                 distance = ComputeDistanceRescueForPoint(point, rescue);
                 dicOfDistance.Add(rescue.ID, distance);
             }
-            //
             return dicOfDistance;
         }
 
         //****************//
+        // Computes the maximum probability among all rescue teams except the winning one (NorthWest region)
         public double ComputeMaxProbabilityForAnotherRescuesInNorthWest(TbPoint point, string winRescueID)
         {
-            List<TbRescue> remainRescue = new List<TbRescue>();
-            Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            double maxProbability;
-
-            dicOfProbability = ComputeProbabilityForRescuesInNorthWest(point);
+            Dictionary<string, double> dicOfProbability = ComputeProbabilityForRescuesInNorthWest(point);
             dicOfProbability.Remove(winRescueID);
-            maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
+            double maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
             return maxProbability;
         }
 
+        // Computes the maximum probability among all rescue teams except the winning one (NorthEast region)
         public double ComputeMaxProbabilityForAnotherRescuesInNorthEast(TbPoint point, string winRescueID)
         {
-            List<TbRescue> remainRescue = new List<TbRescue>();
-            Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            double maxProbability;
-
-            dicOfProbability = ComputeProbabilityForRescuesInNorthEast(point);
+            Dictionary<string, double> dicOfProbability = ComputeProbabilityForRescuesInNorthEast(point);
             dicOfProbability.Remove(winRescueID);
-            maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
+            double maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
             return maxProbability;
         }
 
+        // Computes the maximum probability among all rescue teams except the winning one (SouthWest region)
         public double ComputeMaxProbabilityForAnotherRescuesInSouthWest(TbPoint point, string winRescueID)
         {
-            List<TbRescue> remainRescue = new List<TbRescue>();
-            Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            double maxProbability;
-
-            dicOfProbability = ComputeProbabilityForRescuesInSouthWest(point);
+            Dictionary<string, double> dicOfProbability = ComputeProbabilityForRescuesInSouthWest(point);
             dicOfProbability.Remove(winRescueID);
-            maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
+            double maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
             return maxProbability;
         }
 
+        // Computes the maximum probability among all rescue teams except the winning one (SouthEast region)
         public double ComputeMaxProbabilityForAnotherRescuesInSouthEast(TbPoint point, string winRescueID)
         {
-            List<TbRescue> remainRescue = new List<TbRescue>();
-            Dictionary<string, double> dicOfProbability = new Dictionary<string, double>();
-            double maxProbability;
-
-            dicOfProbability = ComputeProbabilityForRescuesInSouthEast(point);
+            Dictionary<string, double> dicOfProbability = ComputeProbabilityForRescuesInSouthEast(point);
             dicOfProbability.Remove(winRescueID);
-            maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
+            double maxProbability = dicOfProbability.Where(p => p.Value.Equals(dicOfProbability.Max(q => q.Value))).First().Value;
             return maxProbability;
         }
         //***************//
+        // Computes the reward value for a point (used in probability/cost calculations)
         public double ComputeRewardForPoint(DomainObject.Point point)
         {
-            //double reward = point.Priority * 100 + (int)point.RescueLevel * 10 + point.TimeToBeDone;
-            //double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 1000;
-            //double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 43;
+            // Reward is a function of rescue level and time to be done
             double reward = (int)point.RescueLevel * 10 + point.TimeToBeDone * 70;
             return reward;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
+        // Computes the reward value for a point (database version)
         public double ComputeRewardForPoint(TbPoint point)
         {
-            //double reward = point.Priority * 100 + (int)point.RescueLevel * 10 + point.TimeToBeDone;
-            //double reward = (int)point.Point_RescueLevel * 10 + point.Point_TimeToBeDone * 1000;
+            // Reward is a function of rescue level and time to be done
             double reward = (int)point.Point_RescueLevel * 10 + point.Point_TimeToBeDone * 43;
             return reward;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
-        public double ComputeCostRescueForPoint(DomainObject.Point point,Rescue rescue)
+        // Computes the cost for a rescue team to reach a point (DomainObject.Point)
+        public double ComputeCostRescueForPoint(DomainObject.Point point, Rescue rescue)
         {
-            //int timeByDistance = 0;
-            //double cost = timeByDistance + (int)point.RescueLevel * 10 + 10 / point.Priority + point.TimeToBeDone * 1000 + rescue.Tiredness * 10;
-            //double cost = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top) * 10;
-            double cost = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top) / 5; //****** [Time=Distance/Speed 5(m/s)]
+            // Cost is based on distance divided by speed (5 m/s)
+            double cost = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top) / 5;
             return cost;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
+        // Computes the cost for a rescue team to reach a point (TbPoint, DB version)
         public double ComputeCostRescueForPoint(TbPoint point, TbRescue rescue)
         {
-            //int timeByDistance = 0;
-            //double cost = timeByDistance + (int)point.RescueLevel * 10 + 10 / point.Priority + point.TimeToBeDone * 1000 + rescue.Tiredness * 10;
-            //double cost = GetDistance(point.Point_LeftCoordinate, rescue.Rescue_LeftCoordinate, point.Point_TopCoordinate, rescue.Rescue_TopCoordinate) * 10;
-            double cost = GetDistance(point.Point_LeftCoordinate, rescue.Rescue_LeftCoordinate, point.Point_TopCoordinate, rescue.Rescue_TopCoordinate) /5;
+            // Cost is based on distance divided by speed (5 m/s)
+            double cost = GetDistance(point.Point_LeftCoordinate, rescue.Rescue_LeftCoordinate, point.Point_TopCoordinate, rescue.Rescue_TopCoordinate) / 5;
             return cost;
-            //Random r = new Random();
-            //return r.Next(5, 20);
         }
 
+        // Computes the distance between a point and a rescue team (DomainObject.Point)
         public double ComputeDistanceRescueForPoint(DomainObject.Point point, Rescue rescue)
         {
             double distance = GetDistance(point.Left, rescue.Left, point.Top, rescue.Top);
             return distance;
         }
 
+        // Computes the distance between a point and a rescue team (TbPoint, DB version)
         public double ComputeDistanceRescueForPoint(TbPoint point, Rescue rescue)
         {
             double distance = GetDistance(point.Point_LeftCoordinate, rescue.Left, point.Point_TopCoordinate, rescue.Top);
             return distance;
         }
         //**********************************************//
+        // Determines if the given rescue team is the closest to the point (NorthWest region)
         public bool IsBestRescueForAnotherSearchInNorthWest(TbPoint point, string rescueID)
         {
-            Dictionary<string, double> dicOfDistanceRs = new Dictionary<string, double>();
-            dicOfDistanceRs = ComputeDistanceForRescuesInNorthWest(point);
+            Dictionary<string, double> dicOfDistanceRs = ComputeDistanceForRescuesInNorthWest(point);
             if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(rescueID))
                 return true;
             else
                 return false;
         }
 
+        // Determines if the given rescue team is the closest to the point (NorthEast region)
+        // Determines if the given rescue team is the closest to the point (NorthEast region)
         public bool IsBestRescueForAnotherSearchInNorthEast(TbPoint point, string rescueID)
         {
-            Dictionary<string, double> dicOfDistanceRs = new Dictionary<string, double>();
-            dicOfDistanceRs = ComputeDistanceForRescuesInNorthEast(point);
+            Dictionary<string, double> dicOfDistanceRs = ComputeDistanceForRescuesInNorthEast(point);
             if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(rescueID))
                 return true;
             else
                 return false;
         }
 
+        // Determines if the given rescue team is the closest to the point (SouthWest region)
         public bool IsBestRescueForAnotherSearchInSouthWest(TbPoint point, string rescueID)
         {
-            Dictionary<string, double> dicOfDistanceRs = new Dictionary<string, double>();
-            dicOfDistanceRs = ComputeDistanceForRescuesInSouthWest(point);
+            Dictionary<string, double> dicOfDistanceRs = ComputeDistanceForRescuesInSouthWest(point);
             if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(rescueID))
                 return true;
             else
                 return false;
         }
 
+        // Determines if the given rescue team is the closest to the point (SouthEast region)
         public bool IsBestRescueForAnotherSearchInSouthEast(TbPoint point, string rescueID)
         {
-            Dictionary<string, double> dicOfDistanceRs = new Dictionary<string, double>();
-            dicOfDistanceRs = ComputeDistanceForRescuesInSouthEast(point);
+            Dictionary<string, double> dicOfDistanceRs = ComputeDistanceForRescuesInSouthEast(point);
             if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(rescueID))
                 return true;
             else
@@ -2956,7 +2764,9 @@ namespace ERSC
         }
 
         //**********************************************// 
-        public string SelectWinRescueInNorthWestByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs,int searchIdForChart, out double winProbability, out bool isWin)
+        //**********************************************// 
+        // Selects the winning rescue team for a point in the NorthWest region using automata learning
+        public string SelectWinRescueInNorthWestByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs, int searchIdForChart, out double winProbability, out bool isWin)
         {
             int i = 0;
             string winRescueID = "";
@@ -2966,36 +2776,18 @@ namespace ERSC
             int counter = 0;
             bool isGivedBestSelect = false;
             bool isOutByTime = false;
-            int requestedCountThreadInNorthWestCopy=0;
-            //
+            int requestedCountThreadInNorthWestCopy = 0;
             double start = ss.Elapsed.TotalSeconds;
             listOfWinRescueIDInNorthWest = new List<string>();
             busyNorthWestRs = 0;
-            //
+            // Main automata learning loop (up to 25 iterations)
             while (counter <= 25)
             {
-                //**********************************//
+                // Update probability charts for the current search team
                 if (search.IntID == searchIdForChart)
                 {
-                    //if (counter == 0)
-                    //{
-                    //    if (chartProbability.InvokeRequired)
-                    //        chartProbability.BeginInvoke((MethodInvoker)delegate
-                    //        {
-                    //            chartProbability.Series["seriesPropability0"].ChartType = SeriesChartType.Bar;
-                    //            //chartProbability.ChartAreas[0].AxisX.IsStartedFromZero = true;
-                    //        });
-                    //    else
-                    //    {
-                    //        chartProbability.Series["seriesPropability0"].ChartType = SeriesChartType.Spline;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //}
                     ShowChartProbabilityForSelectedSearch(counter, dicOfProbabilityRs, searchIdForChart);
                 }
-                //***********//
                 if (search.IntID == 1)
                 {
                     ShowChartProbabilityForSelectedSearch_S1(counter, dicOfProbabilityRs, 1);
@@ -3008,11 +2800,10 @@ namespace ERSC
                 {
                     ShowChartProbabilityForSelectedSearch_S3(counter, dicOfProbabilityRs, 3);
                 }
-                //*********************************//
+                // If not the first iteration, clear previous assignments and update DB
                 if (counter > 0)
                 {
                     rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
-                    //
                     lock (this)
                     {
                         if (isGivedBestSelect == true)
@@ -3021,8 +2812,7 @@ namespace ERSC
                             dicIsGivedBestSelectInSouthEast.Add(search.ID, true);
                         }
                     }
-                    //
-                    ////Update from sql in TbTaskList
+                    // Reset rescue assignment in the database
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
                         var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -3032,7 +2822,7 @@ namespace ERSC
                         task.Probability = 0;
                         dbUpdate.SubmitChanges();
                     }
-                    //
+                    // Thread synchronization for NorthWest region
                     lock (syncLockBeforStartInNorthWest)
                     {
                         currentCountThreadInNorthWestBeforStart++;
@@ -3048,21 +2838,19 @@ namespace ERSC
                     dicIsGivedBestSelectInNorthWest.Add(search.ID, false);
 
                 Dictionary<string, double> newDicOfProbabilityRs = new Dictionary<string, double>();
-                //
+                // Select the winning rescue based on current probabilities
                 lock (this)
                 {
                     search.CompetitorProbabilites = new Dictionary<string, double>();
                     winRescueID = "";
                     winRescueProbability = 0.0;
-                    //
                     winRescueID = SelectWinRescueByProbability(dicOfProbabilityRs);
                     winRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(winRescueID)).Value;
                     winProbability = winRescueProbability;
-                    //
+                    // Assign the winning rescue and update the database
                     if (rescues.Find(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())) != null)
                     {
                         rescues.Where(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())).Single().SteamIDs.Add(string.Format("{0}", search.ID));
-                        //Update to sql
                         using (var dbUpdate = new DataClasses1DataContext())
                         {
                             var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -3075,7 +2863,7 @@ namespace ERSC
                         }
                     }
                 }
-                //
+                // Thread synchronization for NorthWest region
                 lock (syncLockStartInNorthWest)
                 {
                     currentCountThreadInNorthWestStart++;
@@ -3085,19 +2873,19 @@ namespace ERSC
                     }
                     Monitor.PulseAll(syncLockStartInNorthWest);
                 }
+                // Reset thread counter and store timing for first iteration
                 currentCountThreadInNorthWestStart = 0;
                 if (counter == 0)
                 {
                     start = ss.Elapsed.TotalSeconds;
                     requestedCountThreadInNorthWestCopy = requestedCountThreadInNorthWest;
                 }
-                //
-                //int b = 0;
+                // Automata learning: adjust probabilities based on outcome
                 int b = 0;
                 double penalty = 0;
                 double x;
                 List<string> competitorSID = rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs;
-                //select sql
+                // Query DB for other search teams assigned to this rescue
                 Dictionary<string, double?> dicSID = new Dictionary<string, double?>();
                 using (var dbSelect = new DataClasses1DataContext())
                 {
@@ -3105,20 +2893,14 @@ namespace ERSC
                               where TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                               select TbTaskLists).Select(p => new { p.Search_ID, p.Probability }).ToDictionary(p => p.Search_ID, p => p.Probability);
                 }
-                //
-                //if (competitorSID.Count() <= 1)
+                // If only one search team is assigned, check if this rescue is the closest
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))
-                    if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID)) //.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))
+                    // If this rescue is the closest, reward it; otherwise, apply penalty or random chance
+                    if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
-                        x = 0.4; //x = 0.4;
+                        x = 0.4;
                         newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                         isWin = true;
                     }
@@ -3126,26 +2908,20 @@ namespace ERSC
                     {
                         Random r = new Random();
                         double y = r.NextDouble();
-                        if (y <= 0.15)//0.2
+                        if (y <= 0.15)
                         {
                             b = 1;
-                            x = 0.4;//x = 0.4;
+                            x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                             isWin = true;
                         }
                         else
                         {
-                            penalty = 0.1; //b = 0; // b = -1;
+                            penalty = 0.1;
                             x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
-
                     }
                 }
                 else
@@ -3153,18 +2929,8 @@ namespace ERSC
                     string winSearchID = "";
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
+                        // Thread synchronization for this section
                         requestedThisSectionCountThreadInNorthWest++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
                         lock (syncLockMiddleInNorthWest)
                         {
                             currentThisSectionCountThreadInNorthWest++;
@@ -3176,22 +2942,19 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInNorthWest = 0;
                         requestedThisSectionCountThreadInNorthWest = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderByDescending(p => p.Value).First().Key;
+                        // Determine which search team has the highest probability
                         winSearchID = dicSID.First(p => p.Value.Equals(dicSID.Max(q => q.Value))).Key;
-                        //
                         if (winSearchID.Equals(search.ID))
                         {
                             b = 1;
-                            x = 0.4;//x = 0.4;
+                            x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                             isWin = true;
                         }
                         else
                         {
-                            penalty = 0.1; //b = 0;// b = -1;
+                            penalty = 0.1;
                             x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                             isGivedBestSelect = true;
@@ -3199,8 +2962,7 @@ namespace ERSC
                     }
                     else
                     {
-                        //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
+                        // Multiple search teams: check if this rescue is the best for another search
                         bool IsBestRescueForAnotherSearch = false;
                         requestedThisSectionCountThreadInNorthWest++;
                         TbPoint selectedPoint;
@@ -3208,24 +2970,13 @@ namespace ERSC
                         Dictionary<string, double> newdicSID = new Dictionary<string, double>();
                         Dictionary<string, bool> dicIsBestRescue = new Dictionary<string, bool>();
                         string secondWinRescueID = "";
-                        //string secondWinRescueID = SelectWinRescueByProbability(dicOfProbabilityRs);
                         if (dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key.Equals(winRescueID))
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         else
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key;
                         double secondWinRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(secondWinRescueID)).Value;
-                        //
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-                            //
-                            //
                             foreach (var sID in dicSID.Keys)
                             {
                                 using (var dbSelect = new DataClasses1DataContext())
@@ -3234,30 +2985,19 @@ namespace ERSC
                                                      where TbPoints.Point_ID == ((from TbTaskLists in dbSelect.TbTaskLists
                                                                                   where TbTaskLists.Search_ID == sID && TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                                                                                   select TbTaskLists).Single().Point_ID)
-                                                     //select new { leftCoordinationPoint = TbPoints.Point_LeftCoordinate, topCoordinationPoint = TbPoints.Point_TopCoordinate });
                                                      select TbPoints).Single();
                                 }
-
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
-
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInNorthWest(selectedPoint, winRescueID) || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthWest(selectedPoint, winRescueID));
-                                //***********//
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInNorthWest(selectedPoint, winRescueID))
                                         IsBestRescueForAnotherSearch = true;
                                 }
                             }
-                            //
                             minProbability = newdicSID.First(p => p.Value.Equals(newdicSID.Min(q => q.Value))).Value;
                             winSearchID = newdicSID.First(p => p.Value.Equals(minProbability)).Key;
                         }
-
-                        //
+                        // Thread synchronization for this section
                         lock (syncLockMiddleInNorthWest)
                         {
                             currentThisSectionCountThreadInNorthWest++;
@@ -3269,111 +3009,88 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInNorthWest = 0;
                         requestedThisSectionCountThreadInNorthWest = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderBy(p => p.Value).First().Key;
-                        //
+                        // If another search is best for this rescue, apply penalty and update probabilities
                         if (IsBestRescueForAnotherSearch && !winSearchID.Equals(search.ID))
                         {
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
+                                // Randomly decide whether to penalize or reward based on probability
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.5)//0.9//0.5//0.15
+                                if (y <= 0.5)
                                 {
-                                    penalty = 0.1; //b = 0; //b = -1;
+                                    // Apply penalty to probability if random threshold met
+                                    penalty = 0.1;
                                     x = 0.4;
-                                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                     isWin = false;
                                     isGivedBestSelect = true;
+                                    // Move to next rescue if not last
                                     if (i < dicOfDistanceRs.Count() - 1)
                                         i = i + 1;
                                 }
                                 else
                                 {
+                                    // Reward: increase probability for win
                                     b = 1;
-                                    x = 0.4;//x = 0.4;
+                                    x = 0.4;
                                     newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                     isWin = true;
                                 }
                             }
                             else
                             {
-                                penalty = 0.1; //b = 0; //b = -1;
+                                // Always apply penalty if not best rescue
+                                penalty = 0.1;
                                 x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                 newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            // Alternative logic for probability adjustment (commented out)
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            // If this rescue is the closest, reward; otherwise, random chance for reward or penalty
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
-                                x = 0.4;//x = 0.4;
+                                x = 0.4;
                                 newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                 isWin = true;
                             }
                             else
                             {
-                                //b = -1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = false;
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.15)//0.2
+                                if (y <= 0.15)
                                 {
+                                    // Small chance to reward even if not closest
                                     b = 1;
-                                    x = 0.4;//x = 0.4;
+                                    x = 0.4;
                                     newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                     isWin = true;
                                     isGivedBestSelect = true;
                                 }
                                 else
                                 {
-                                    penalty = 0.1; //b = 0; // b = -1;
+                                    // Otherwise, apply penalty
+                                    penalty = 0.1;
                                     x = 0.4;
-                                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                     isWin = false;
                                 }
-
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                        // Additional logic for other selection cases (commented out)
                     }
                 }
 
+                // Update the main probability dictionary for the next iteration
                 dicOfProbabilityRs = newDicOfProbabilityRs;
                 counter++;
-                //
+                // Thread synchronization: ensure all threads reach this point before proceeding
+                // Thread synchronization: ensure all threads reach this point before proceeding
                 lock (syncLockEndInNorthWest)
                 {
                     currentCountThreadInNorthWestEnd++;
@@ -3384,21 +3101,23 @@ namespace ERSC
                     Monitor.PulseAll(syncLockEndInNorthWest);
                 }
                 currentCountThreadInNorthWestEnd = 0;
-                //
+                // Time-out check: if elapsed time exceeds threshold, break loop
                 if (ss.Elapsed.TotalSeconds > start + 14)
                 {
+                    // If time limit exceeded, reduce thread count and exit
                     requestedCountThreadInNorthWest--;
                     isOutByTime = true;
                     break;
                 }
                 else
-                    isOutByTime = false ;
+                    isOutByTime = false;
             }
-            //
+            // After automata learning loop, update win rescue list and busy count
             lock (this)
             {
                 if (isWin == true)
                 {
+                    // Add winning rescue to list if not already present
                     if (!listOfWinRescueIDInNorthWest.Any(p => p.Equals(winRescueID)))
                     {
                         listOfWinRescueIDInNorthWest.Add(winRescueID);
@@ -3406,7 +3125,7 @@ namespace ERSC
                     }
                 }
             }
-            //
+            // Final thread synchronization after end of learning
             lock (syncLockAfterEndInNorthWest)
             {
                 currentCountThreadInNorthWestAfterEnd++;
@@ -3415,20 +3134,17 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInNorthWest);
                 }
                 Monitor.PulseAll(syncLockAfterEndInNorthWest);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInNorthWest++;
-                //}
+                // Restore requested thread count for next round
                 requestedCountThreadInNorthWest = requestedCountThreadInNorthWestCopy;
             }
             currentCountThreadInNorthWestAfterEnd = 0;
-            //
+            // Calculate efficiency metrics for busy rescues in NorthWest
             int countRescuesNorthWest = rescues.Where(p => p.Container.Equals(UnitType.NorthWest)).Count();
             int countSearchsNorthWest = searchs.Where(p => p.Container.Equals(UnitType.NorthWest)).Count();
             int countAllTasksNorthWest = points.Where(p => p.Container.Equals(UnitType.NorthWest) && p.EndRescueDoing.Equals(false)).Count();
             int countCurrentTask = requestedCountThreadInNorthWestCopy;
 
+            // Compute efficiency based on number of busy rescues and available tasks
             if (countRescuesNorthWest < countSearchsNorthWest)
             {
                 if (countAllTasksNorthWest > countRescuesNorthWest)
@@ -3441,22 +3157,24 @@ namespace ERSC
                 efficiencyBusyRescue += (double)busyNorthWestRs / countCurrentTask;
             }
             numBusyRescue++;
-            //
+            // Cleanup: clear SteamIDs and selection flags for next round
             rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
             dicIsGivedBestSelectInNorthWest.Clear();
-            ////delete from sql
+            // Remove all related task list entries from database for this point
             using (var dbDelete = new DataClasses1DataContext())
             {
                 var getData = (from TbTaskLists in dbDelete.TbTaskLists where TbTaskLists.Point_ID == point.ID select TbTaskLists);
                 dbDelete.TbTaskLists.DeleteAllOnSubmit(getData.ToList());
                 dbDelete.SubmitChanges();
             }
-            //
+            // Return the ID of the selected winning rescue
             return winRescueID;
         }
 
-        public string SelectWinRescueInNorthEastByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs,int searchIdForChart, out double winProbability, out bool isWin)
+        // Select the winning rescue in the NorthEast region using automata learning
+        public string SelectWinRescueInNorthEastByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs, int searchIdForChart, out double winProbability, out bool isWin)
         {
+            // Initialize variables for tracking the winning rescue, probabilities, and thread state
             string winRescueID = "";
             double winRescueProbability = 0.0; int i = 0;
             isWin = false;
@@ -3464,24 +3182,23 @@ namespace ERSC
             int counter = 0;
             bool isGivedBestSelect = false;
             bool isOutByTime = false;
-            int requestedCountThreadInNorthEastCopy=0;
-            //
-            double start=ss.Elapsed.TotalSeconds;
+            int requestedCountThreadInNorthEastCopy = 0;
+            // Start timing for time-out logic
+            double start = ss.Elapsed.TotalSeconds;
             listOfWinRescueIDInNorthEast = new List<string>();
             busyNorthEastRs = 0;
-            //
+            // Main automata learning loop (up to 25 iterations)
             while (counter <= 25)
             {
-                //******************//
+                // Show probability chart for selected search if needed
                 if (search.IntID == searchIdForChart)
                 {
                     ShowChartProbabilityForSelectedSearch(counter, dicOfProbabilityRs, searchIdForChart);
                 }
-                //*****************//
+                // On subsequent iterations, clear previous SteamIDs and update selection flags
                 if (counter > 0)
                 {
                     rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
-                    //
                     lock (this)
                     {
                         if (isGivedBestSelect == true)
@@ -3490,8 +3207,7 @@ namespace ERSC
                             dicIsGivedBestSelectInNorthEast.Add(search.ID, true);
                         }
                     }
-                    //
-                    ////Update from sql in TbTaskList
+                    // Update database: reset rescue assignment and probability for this search/point
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
                         var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -3501,7 +3217,7 @@ namespace ERSC
                         task.Probability = 0;
                         dbUpdate.SubmitChanges();
                     }
-                    //
+                    // Thread synchronization before starting next round
                     lock (syncLockBeforStartInNorthEast)
                     {
                         currentCountThreadInNorthEastBeforStart++;
@@ -3516,22 +3232,21 @@ namespace ERSC
                 else
                     dicIsGivedBestSelectInNorthEast.Add(search.ID, false);
 
+                // Prepare new probability dictionary for this round
                 Dictionary<string, double> newDicOfProbabilityRs = new Dictionary<string, double>();
-                //
+                // Select the rescue with the highest probability and update database
                 lock (this)
                 {
                     search.CompetitorProbabilites = new Dictionary<string, double>();
                     winRescueID = "";
                     winRescueProbability = 0.0;
-                    //
                     winRescueID = SelectWinRescueByProbability(dicOfProbabilityRs);
                     winRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(winRescueID)).Value;
                     winProbability = winRescueProbability;
-                    //
                     if (rescues.Find(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())) != null)
                     {
                         rescues.Where(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())).Single().SteamIDs.Add(string.Format("{0}", search.ID));
-                        //Update to sql
+                        // Update database with new rescue assignment and probability
                         using (var dbUpdate = new DataClasses1DataContext())
                         {
                             var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -3544,7 +3259,7 @@ namespace ERSC
                         }
                     }
                 }
-                //
+                // Thread synchronization at start of round
                 lock (syncLockStartInNorthEast)
                 {
                     currentCountThreadInNorthEastStart++;
@@ -3555,17 +3270,18 @@ namespace ERSC
                     Monitor.PulseAll(syncLockStartInNorthEast);
                 }
                 currentCountThreadInNorthEastStart = 0;
+                // On first iteration, store timing and thread count
                 if (counter == 0)
                 {
                     start = ss.Elapsed.TotalSeconds;
                     requestedCountThreadInNorthEastCopy = requestedCountThreadInNorthEast;
                 }
-                //
+                // Automata learning: adjust probabilities based on outcome
                 int b = 0;
                 double penalty = 0;
                 double x;
                 List<string> competitorSID = rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs;
-                //select sql
+                // Query DB for other search teams assigned to this rescue
                 Dictionary<string, double?> dicSID = new Dictionary<string, double?>();
                 using (var dbSelect = new DataClasses1DataContext())
                 {
@@ -3573,17 +3289,11 @@ namespace ERSC
                               where TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                               select TbTaskLists).Select(p => new { p.Search_ID, p.Probability }).ToDictionary(p => p.Search_ID, p => p.Probability);
                 }
-                //
 
-                //if (competitorSID.Count() <= 1)
+                // If only one search team is assigned, check if this rescue is the closest
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                    // If this rescue is the closest, reward it; otherwise, apply penalty or random chance
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -3595,7 +3305,7 @@ namespace ERSC
                     {
                         Random r = new Random();
                         double y = r.NextDouble();
-                        if (y <= 0.15)//0.2
+                        if (y <= 0.15)
                         {
                             b = 1;
                             x = 0.4;
@@ -3604,15 +3314,11 @@ namespace ERSC
                         }
                         else
                         {
-                            penalty = 0.1;//b = -1;
+                            penalty = 0.1;
                             x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
                     }
                 }
                 else
@@ -3620,18 +3326,8 @@ namespace ERSC
                     string winSearchID = "";
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
+                        // Thread synchronization for this section
                         requestedThisSectionCountThreadInNorthEast++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
                         lock (syncLockMiddleInNorthEast)
                         {
                             currentThisSectionCountThreadInNorthEast++;
@@ -3643,10 +3339,9 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInNorthEast = 0;
                         requestedThisSectionCountThreadInNorthEast = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderByDescending(p => p.Value).First().Key;
+                        // Determine which search team has the highest probability
                         winSearchID = dicSID.First(p => p.Value.Equals(dicSID.Max(q => q.Value))).Key;
-                        //
+                        // If this search is the winner, reward; otherwise, apply penalty
                         if (winSearchID.Equals(search.ID))
                         {
                             b = 1;
@@ -3656,7 +3351,7 @@ namespace ERSC
                         }
                         else
                         {
-                            penalty = 0.1; //b = -1;
+                            penalty = 0.1;
                             x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
@@ -3665,8 +3360,7 @@ namespace ERSC
                     }
                     else
                     {
-                        //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInNorthEast.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
+                        // Multiple search teams: check if this rescue is the best for another search
                         bool IsBestRescueForAnotherSearch = false;
                         requestedThisSectionCountThreadInNorthEast++;
                         TbPoint selectedPoint;
@@ -3674,24 +3368,15 @@ namespace ERSC
                         Dictionary<string, double> newdicSID = new Dictionary<string, double>();
                         Dictionary<string, bool> dicIsBestRescue = new Dictionary<string, bool>();
                         string secondWinRescueID = "";
+                        // Determine the second best rescue by probability
                         if (dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key.Equals(winRescueID))
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         else
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key;
-                        //string secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         double secondWinRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(secondWinRescueID)).Value;
-                        //
+                        // For each search team, compute max probability for other rescues
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-
-                            //
                             foreach (var sID in dicSID.Keys)
                             {
                                 using (var dbSelect = new DataClasses1DataContext())
@@ -3700,29 +3385,19 @@ namespace ERSC
                                                      where TbPoints.Point_ID == ((from TbTaskLists in dbSelect.TbTaskLists
                                                                                   where TbTaskLists.Search_ID == sID && TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                                                                                   select TbTaskLists).Single().Point_ID)
-                                                     //select new { leftCoordinationPoint = TbPoints.Point_LeftCoordinate, topCoordinationPoint = TbPoints.Point_TopCoordinate });
                                                      select TbPoints).Single();
                                 }
-
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
-
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInNorthEast(selectedPoint, winRescueID) || dicIsGivedBestSelectInNorthEast.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInNorthEast(selectedPoint, winRescueID));
-                                //***********//
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInNorthEast(selectedPoint, winRescueID))
                                         IsBestRescueForAnotherSearch = true;
                                 }
                             }
-                            //
                             minProbability = newdicSID.First(p => p.Value.Equals(newdicSID.Min(q => q.Value))).Value;
                             winSearchID = newdicSID.First(p => p.Value.Equals(minProbability)).Key;
                         }
-                        //
+                        // Thread synchronization for this section
                         lock (syncLockMiddleInNorthEast)
                         {
                             currentThisSectionCountThreadInNorthEast++;
@@ -3734,23 +3409,16 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInNorthEast = 0;
                         requestedThisSectionCountThreadInNorthEast = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderBy(p => p.Value).First().Key;
-                        //
+                        // If another search is best for this rescue, apply penalty and update probabilities
                         if (IsBestRescueForAnotherSearch && !winSearchID.Equals(search.ID))
                         {
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.5)//0.9//0.5//0.15
+                                if (y <= 0.5)
                                 {
-                                    penalty = 0.1; //b = -1;
+                                    penalty = 0.1;
                                     x = 0.4;
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                     isWin = false;
@@ -3768,27 +3436,18 @@ namespace ERSC
                             }
                             else
                             {
-                                penalty = 0.1;//b = -1;
+                                penalty = 0.1;
                                 x = 0.4;
                                 newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
+                            // Alternative logic for probability adjustment (commented out)
                             //isGivedBestSelect = true;
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            // If this rescue is the closest, reward it; otherwise, random chance for reward or penalty
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -3798,13 +3457,10 @@ namespace ERSC
                             }
                             else
                             {
-                                //b = -1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = false;
+                                // Randomly decide whether to reward or penalize
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.15)//0.2
+                                if (y <= 0.15)
                                 {
                                     b = 1;
                                     x = 0.4;
@@ -3813,7 +3469,7 @@ namespace ERSC
                                 }
                                 else
                                 {
-                                    penalty = 0.1; //b = -1;
+                                    penalty = 0.1; 
                                     x = 0.4;
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                     isWin = false;
@@ -3832,9 +3488,10 @@ namespace ERSC
                         //}
                     }
                 }
+                // Update probability dictionary for next iteration
                 dicOfProbabilityRs = newDicOfProbabilityRs;
                 counter++;
-                //
+                // Thread synchronization: ensure all threads reach this point before proceeding
                 lock (syncLockEndInNorthEast)
                 {
                     currentCountThreadInNorthEastEnd++;
@@ -3845,7 +3502,7 @@ namespace ERSC
                     Monitor.PulseAll(syncLockEndInNorthEast);
                 }
                 currentCountThreadInNorthEastEnd = 0;
-                //
+                // Time-out check: if elapsed time exceeds threshold, break loop
                 if (ss.Elapsed.TotalSeconds > start + 14)
                 {
                     requestedCountThreadInNorthEast--;
@@ -3854,9 +3511,8 @@ namespace ERSC
                 }
                 else
                     isOutByTime = false;
-                //
             }
-            //
+            // After automata learning loop, update win rescue list and busy count
             lock (this)
             {
                 if (isWin == true)
@@ -3868,7 +3524,7 @@ namespace ERSC
                     }
                 }
             }
-            //
+            // Final thread synchronization after end of learning
             lock (syncLockAfterEndInNorthEast)
             {
                 currentCountThreadInNorthEastAfterEnd++;
@@ -3877,20 +3533,17 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInNorthEast);
                 }
                 Monitor.PulseAll(syncLockAfterEndInNorthEast);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInNorthEast++;
-                //}
+                // Restore requested thread count for next round
                 requestedCountThreadInNorthEast = requestedCountThreadInNorthEastCopy;
             }
             currentCountThreadInNorthEastAfterEnd = 0;
-            //
+            // Calculate efficiency metrics for busy rescues in NorthEast
             int countRescuesNorthEast = rescues.Where(p => p.Container.Equals(UnitType.NorthEast)).Count();
             int countSearchsNorthEast = searchs.Where(p => p.Container.Equals(UnitType.NorthEast)).Count();
             int countAllTasksNorthEast = points.Where(p => p.Container.Equals(UnitType.NorthEast) && p.EndRescueDoing.Equals(false)).Count();
             int countCurrentTask = requestedCountThreadInNorthEastCopy;
 
+            // Compute efficiency based on number of busy rescues and available tasks
             if (countRescuesNorthEast < countSearchsNorthEast)
             {
                 if (countAllTasksNorthEast > countRescuesNorthEast)
@@ -3903,20 +3556,10 @@ namespace ERSC
                 efficiencyBusyRescue += (double)busyNorthEastRs / countCurrentTask;
             }
             numBusyRescue++;
-            //int rescuesNorthEast = rescues.Where(p => p.Container.Equals(UnitType.NorthEast)).Count();
-            //int pointsNorthEast = points.Where(p => p.Container.Equals(UnitType.NorthEast) && p.EndRescueDoing.Equals(false)).Count();
-            //lock (this)
-            //{
-            //    if (pointsNorthEast > rescuesNorthEast)
-            //        efficiencyBusyRescue += (double)busyNorthEastRs / rescuesNorthEast;
-            //    else
-            //        efficiencyBusyRescue += (double)busyNorthEastRs / pointsNorthEast;
-            //    numBusyRescue++;
-            //}
-            //
+            // Cleanup: clear SteamIDs and selection flags for next round
             rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
             dicIsGivedBestSelectInNorthEast.Clear();
-            ////delete from sql
+            // Remove all related task list entries from database for this point
             using (var dbDelete = new DataClasses1DataContext())
             {
                 var getData = (from TbTaskLists in dbDelete.TbTaskLists where TbTaskLists.Point_ID == point.ID select TbTaskLists);
@@ -3928,8 +3571,10 @@ namespace ERSC
             return winRescueID;
         }
 
-        public string SelectWinRescueInSouthWestByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs,int searchIdForChart, out double winProbability, out bool isWin)
+        // Select the winning rescue in the SouthWest region using automata learning
+        public string SelectWinRescueInSouthWestByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs, int searchIdForChart, out double winProbability, out bool isWin)
         {
+            // Initialize variables for tracking the winning rescue, probabilities, and thread state
             string winRescueID = "";
             double winRescueProbability = 0.0; int i = 0;
             isWin = false;
@@ -3938,23 +3583,22 @@ namespace ERSC
             bool isGivedBestSelect = false;
             bool isOutByTime = false;
             int requestedCountThreadInSouthWestCopy = 0;
-            //
-            double start=ss.Elapsed.TotalSeconds;
+            // Start timing for time-out logic
+            double start = ss.Elapsed.TotalSeconds;
             listOfWinRescueIDInSouthWest = new List<string>();
             busySouthWestRs = 0;
-            //
+            // Main automata learning loop (up to 25 iterations)
             while (counter <= 25)
             {
-                //************//
+                // Show probability chart for selected search if needed
                 if (search.IntID == searchIdForChart)
                 {
                     ShowChartProbabilityForSelectedSearch(counter, dicOfProbabilityRs, searchIdForChart);
                 }
-                //***********//
+                // On subsequent iterations, clear previous SteamIDs and update selection flags
                 if (counter > 0)
                 {
                     rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
-                    //
                     lock (this)
                     {
                         if (isGivedBestSelect == true)
@@ -3963,8 +3607,7 @@ namespace ERSC
                             dicIsGivedBestSelectInNorthEast.Add(search.ID, true);
                         }
                     }
-                    //
-                    ////Update from sql in TbTaskList
+                    // Update database: reset rescue assignment and probability for this search/point
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
                         var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -3974,7 +3617,7 @@ namespace ERSC
                         task.Probability = 0;
                         dbUpdate.SubmitChanges();
                     }
-                    //
+                    // Thread synchronization before starting next round
                     lock (syncLockBeforStartInSouthWest)
                     {
                         currentCountThreadInSouthWestBeforStart++;
@@ -3989,22 +3632,21 @@ namespace ERSC
                 else
                     dicIsGivedBestSelectInSouthWest.Add(search.ID, false);
 
+                // Prepare new probability dictionary for this round
                 Dictionary<string, double> newDicOfProbabilityRs = new Dictionary<string, double>();
-                //
+                // Select the rescue with the highest probability and update database
                 lock (this)
                 {
                     search.CompetitorProbabilites = new Dictionary<string, double>();
                     winRescueID = "";
                     winRescueProbability = 0.0;
-                    //
                     winRescueID = SelectWinRescueByProbability(dicOfProbabilityRs);
                     winRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(winRescueID)).Value;
                     winProbability = winRescueProbability;
-                    //
                     if (rescues.Find(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())) != null)
                     {
                         rescues.Where(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())).Single().SteamIDs.Add(string.Format("{0}", search.ID));
-                        //Update to sql
+                        // Update database with new rescue assignment and probability
                         using (var dbUpdate = new DataClasses1DataContext())
                         {
                             var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -4015,11 +3657,10 @@ namespace ERSC
                             task.Priority = 0;
                             dbUpdate.SubmitChanges();
                         }
-                        //
                     }
                 }
 
-                //
+                // Thread synchronization at start of round
                 lock (syncLockStartInSouthWest)
                 {
                     currentCountThreadInSouthWestStart++;
@@ -4030,6 +3671,7 @@ namespace ERSC
                     Monitor.PulseAll(syncLockStartInSouthWest);
                 }
                 currentCountThreadInSouthWestStart = 0;
+                // On first iteration, store timing and thread count
                 if (counter == 0)
                 {
                     start = ss.Elapsed.TotalSeconds;
@@ -4053,11 +3695,7 @@ namespace ERSC
                 //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(search.ID)).Value)
+                    // If only one search team is assigned, check if this rescue is the closest
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -4067,9 +3705,10 @@ namespace ERSC
                     }
                     else
                     {
+                        // Randomly decide whether to reward or penalize
                         Random r = new Random();
                         double y = r.NextDouble();
-                        if (y <= 0.15) //0.2
+                        if (y <= 0.15)
                         {
                             b = 1;
                             x = 0.4;
@@ -4078,15 +3717,11 @@ namespace ERSC
                         }
                         else
                         {
-                            penalty = 0.1; //b = -1;
+                            penalty = 0.1;
                             x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
                     }
                 }
                 else
@@ -4094,19 +3729,8 @@ namespace ERSC
                     string winSearchID = "";
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
+                        // Thread synchronization for this section
                         requestedThisSectionCountThreadInSouthWest++;
-
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
                         lock (syncLockMiddleInSouthWest)
                         {
                             currentThisSectionCountThreadInSouthWest++;
@@ -4118,10 +3742,9 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInSouthWest = 0;
                         requestedThisSectionCountThreadInSouthWest = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderByDescending(p => p.Value).First().Key;
+                        // Determine which search team has the highest probability
                         winSearchID = dicSID.First(p => p.Value.Equals(dicSID.Max(q => q.Value))).Key;
-                        //
+                        // If this search is the winner, reward; otherwise, apply penalty
                         if (winSearchID.Equals(search.ID))
                         {
                             b = 1;
@@ -4131,7 +3754,7 @@ namespace ERSC
                         }
                         else
                         {
-                            penalty = 0.1; //b = -1;
+                            penalty = 0.1;
                             x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
@@ -4140,8 +3763,7 @@ namespace ERSC
                     }
                     else
                     {
-                        //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
+                        // Multiple search teams: check if this rescue is the best for another search
                         bool IsBestRescueForAnotherSearch = false;
                         requestedThisSectionCountThreadInSouthWest++;
                         TbPoint selectedPoint;
@@ -4149,25 +3771,15 @@ namespace ERSC
                         Dictionary<string, double> newdicSID = new Dictionary<string, double>();
                         Dictionary<string, bool> dicIsBestRescue = new Dictionary<string, bool>();
                         string secondWinRescueID = "";
+                        // Determine the second best rescue by probability
                         if (dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key.Equals(winRescueID))
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         else
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key;
-                        //string secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         double secondWinRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(secondWinRescueID)).Value;
-                        //
-                        //
+                        // For each search team, compute max probability for other rescues
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-
-                            //
                             foreach (var sID in dicSID.Keys)
                             {
                                 using (var dbSelect = new DataClasses1DataContext())
@@ -4176,29 +3788,20 @@ namespace ERSC
                                                      where TbPoints.Point_ID == ((from TbTaskLists in dbSelect.TbTaskLists
                                                                                   where TbTaskLists.Search_ID == sID && TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                                                                                   select TbTaskLists).Single().Point_ID)
-                                                     //select new { leftCoordinationPoint = TbPoints.Point_LeftCoordinate, topCoordinationPoint = TbPoints.Point_TopCoordinate });
                                                      select TbPoints).Single();
                                 }
-
+                                // Compute max probability for other rescues for each search team
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
-
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInSouthWest(selectedPoint, winRescueID) || dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthWest(selectedPoint, winRescueID));
-                                ////***********//
                                 if (!sID.Equals(search.ID))
                                 {
                                     if (IsBestRescueForAnotherSearchInSouthWest(selectedPoint, winRescueID))
                                         IsBestRescueForAnotherSearch = true;
                                 }
                             }
-                            //
                             minProbability = newdicSID.First(p => p.Value.Equals(newdicSID.Min(q => q.Value))).Value;
                             winSearchID = newdicSID.First(p => p.Value.Equals(minProbability)).Key;
                         }
-                        //
+                        // Thread synchronization for this section
                         lock (syncLockMiddleInSouthWest)
                         {
                             currentThisSectionCountThreadInSouthWest++;
@@ -4210,23 +3813,17 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInSouthWest = 0;
                         requestedThisSectionCountThreadInSouthWest = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderBy(p => p.Value).First().Key;
-                        //
+                        // If another search is best for this rescue, apply penalty and update probabilities
                         if (IsBestRescueForAnotherSearch && !winSearchID.Equals(search.ID))
                         {
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
+                                // Randomly decide whether to penalize or reward
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.5)//0.9//0.5//0.15
+                                if (y <= 0.5)
                                 {
-                                    penalty = 0.1; //b = -1;
+                                    penalty = 0.1;
                                     x = 0.4;
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                     isWin = false;
@@ -4244,27 +3841,17 @@ namespace ERSC
                             }
                             else
                             {
-                                penalty = 0.1; //b = -1;
+                                penalty = 0.1;
                                 x = 0.4;
                                 newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                                 isWin = false;
                                 isGivedBestSelect = true;
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+                            // Alternative logic for probability adjustment (commented out)
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            // If this rescue is the closest, reward; otherwise, random chance for reward or penalty
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
                                 b = 1;
@@ -4274,10 +3861,7 @@ namespace ERSC
                             }
                             else
                             {
-                                //b = -1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = false;
+                                // Randomly decide whether to reward or penalize
                                 Random r = new Random();
                                 double y = r.NextDouble();
                                 if (y <= 0.15)//0.2
@@ -4295,22 +3879,15 @@ namespace ERSC
                                     isWin = false;
                                     isGivedBestSelect = true;
                                 }
-
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInSouthWest.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+                        // Additional logic for probability adjustment (commented out)
                     }
                 }
+                // Update probability dictionary for next iteration
                 dicOfProbabilityRs = newDicOfProbabilityRs;
                 counter++;
-                //
+                // Thread synchronization: ensure all threads reach this point before proceeding
                 lock (syncLockEndInSouthWest)
                 {
                     currentCountThreadInSouthWestEnd++;
@@ -4321,7 +3898,7 @@ namespace ERSC
                     Monitor.PulseAll(syncLockEndInSouthWest);
                 }
                 currentCountThreadInSouthWestEnd = 0;
-                //
+                // Time-out check: if elapsed time exceeds threshold, break loop
                 if (ss.Elapsed.TotalSeconds > start + 14)
                 {
                     requestedCountThreadInSouthWest--;
@@ -4330,9 +3907,8 @@ namespace ERSC
                 }
                 else
                     isOutByTime = false;
-                //
             }
-            //
+            // After automata learning loop, update win rescue list and busy count
             lock (this)
             {
                 if (isWin == true)
@@ -4344,7 +3920,7 @@ namespace ERSC
                     }
                 }
             }
-            //
+            // Final thread synchronization after end of learning
             lock (syncLockAfterEndInSouthWest)
             {
                 currentCountThreadInSouthWestAfterEnd++;
@@ -4353,20 +3929,17 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInSouthWest);
                 }
                 Monitor.PulseAll(syncLockAfterEndInSouthWest);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInSouthWest++;
-                //}
+                // Restore requested thread count for next round
                 requestedCountThreadInSouthWest = requestedCountThreadInSouthWestCopy;
             }
             currentCountThreadInSouthWestAfterEnd = 0;
-            //
+            // Calculate efficiency metrics for busy rescues in SouthWest
             int countRescuesSouthWest = rescues.Where(p => p.Container.Equals(UnitType.SouthWest)).Count();
             int countSearchsSouthWest = searchs.Where(p => p.Container.Equals(UnitType.SouthWest)).Count();
             int countAllTasksSouthWest = points.Where(p => p.Container.Equals(UnitType.SouthWest) && p.EndRescueDoing.Equals(false)).Count();
             int countCurrentTask = requestedCountThreadInSouthWestCopy;
 
+            // Compute efficiency based on number of busy rescues and available tasks
             if (countRescuesSouthWest < countSearchsSouthWest)
             {
                 if (countAllTasksSouthWest > countRescuesSouthWest)
@@ -4379,23 +3952,24 @@ namespace ERSC
                 efficiencyBusyRescue += (double)busySouthWestRs / countCurrentTask;
             }
             numBusyRescue++;
-            //
+            // Cleanup: clear SteamIDs and selection flags for next round
             rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
             dicIsGivedBestSelectInSouthWest.Clear();
-            ////delete from sql
+            // Remove all related task list entries from database for this point
             using (var dbDelete = new DataClasses1DataContext())
             {
                 var getData = (from TbTaskLists in dbDelete.TbTaskLists where TbTaskLists.Point_ID == point.ID select TbTaskLists);
                 dbDelete.TbTaskLists.DeleteAllOnSubmit(getData.ToList());
                 dbDelete.SubmitChanges();
             }
-            //
 
             return winRescueID;
         }
 
-        public string SelectWinRescueInSouthEastByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs,int searchIdForChart, out double winProbability, out bool isWin)
+        // Select the winning rescue in the SouthEast region using automata learning
+        public string SelectWinRescueInSouthEastByAutomataLearning(Search search, DomainObject.Point point, Dictionary<string, double> dicOfProbabilityRs, Dictionary<string, double> dicOfDistanceRs, int searchIdForChart, out double winProbability, out bool isWin)
         {
+            // Initialize variables for tracking the winning rescue, probabilities, and thread state
             string winRescueID = "";
             double winRescueProbability = 0.0; int i = 0;
             isWin = false;
@@ -4404,23 +3978,22 @@ namespace ERSC
             bool isGivedBestSelect = false;
             bool isOutByTime = false;
             int requestedCountThreadInSouthEastCopy = 0;
-            //
-            double start=ss.Elapsed.TotalSeconds;
+            // Start timing for time-out logic
+            double start = ss.Elapsed.TotalSeconds;
             listOfWinRescueIDInSouthEast = new List<string>();
             busySouthEastRs = 0;
-            //
+            // Main automata learning loop (up to 25 iterations)
             while (counter <= 25)
             {
-                //************//
+                // Show probability chart for selected search if needed
                 if (search.IntID == searchIdForChart)
                 {
                     ShowChartProbabilityForSelectedSearch(counter, dicOfProbabilityRs, searchIdForChart);
                 }
-                //***********//
+                // On subsequent iterations, clear previous SteamIDs and update selection flags
                 if (counter > 0)
                 {
                     rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
-                    //
                     lock (this)
                     {
                         if (isGivedBestSelect == true)
@@ -4429,8 +4002,7 @@ namespace ERSC
                             dicIsGivedBestSelectInNorthEast.Add(search.ID, true);
                         }
                     }
-                    //
-                    ////Update from sql in TbTaskList
+                    // Update database: reset rescue assignment and probability for this search/point
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
                         var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -4440,7 +4012,7 @@ namespace ERSC
                         task.Probability = 0;
                         dbUpdate.SubmitChanges();
                     }
-                    //
+                    // Thread synchronization before starting next round
                     lock (syncLockBeforStartInSouthEast)
                     {
                         currentCountThreadInSouthEastBeforStart++;
@@ -4454,22 +4026,22 @@ namespace ERSC
                 }
                 else
                     dicIsGivedBestSelectInSouthEast.Add(search.ID, false);
+
+                // Prepare new probability dictionary for this round
                 Dictionary<string, double> newDicOfProbabilityRs = new Dictionary<string, double>();
-                //
+                // Select the rescue with the highest probability and update database
                 lock (this)
                 {
                     search.CompetitorProbabilites = new Dictionary<string, double>();
                     winRescueID = "";
                     winRescueProbability = 0.0;
-                    //
                     winRescueID = SelectWinRescueByProbability(dicOfProbabilityRs);
                     winRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(winRescueID)).Value;
                     winProbability = winRescueProbability;
-                    //
                     if (rescues.Find(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())) != null)
                     {
                         rescues.Where(p => p.ID.Trim().ToLower().Equals(winRescueID.Trim().ToLower())).Single().SteamIDs.Add(string.Format("{0}", search.ID));
-                        //Update to sql
+                        // Update database with new rescue assignment and probability
                         using (var dbUpdate = new DataClasses1DataContext())
                         {
                             var task = (from TbTaskLists in dbUpdate.TbTaskLists
@@ -4480,10 +4052,9 @@ namespace ERSC
                             task.Priority = 0;
                             dbUpdate.SubmitChanges();
                         }
-                        //
                     }
                 }
-                //
+                // Thread synchronization at start of round
                 lock (syncLockStartInSouthEast)
                 {
                     currentCountThreadInSouthEastStart++;
@@ -4494,12 +4065,13 @@ namespace ERSC
                     Monitor.PulseAll(syncLockStartInSouthEast);
                 }
                 currentCountThreadInSouthEastStart = 0;
+                // On first iteration, store timing and thread count
                 if (counter == 0)
                 {
                     start = ss.Elapsed.TotalSeconds;
                     requestedCountThreadInSouthEastCopy = requestedCountThreadInSouthEast;
                 }
-                //
+                // Automata learning: adjust probabilities based on outcome
                 int b = 0;
                 double penalty = 0;
                 double x;
@@ -4512,17 +4084,8 @@ namespace ERSC
                               where TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                               select TbTaskLists).Select(p => new { p.Search_ID, p.Probability }).ToDictionary(p => p.Search_ID, p => p.Probability);
                 }
-                //
-
-                //if (competitorSID.Count() <= 1)
                 if (dicSID.Count <= 1)
                 {
-                    //b = 1;
-                    //x = 0.2;
-                    //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                    //isWin = true;
-                    //if (dicOfProbabilityRs.First(p => p.Value.Equals(dicOfProbabilityRs.Max(q => q.Value))).Value.Equals(winRescueProbability))
-                    //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
                     if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                     {
                         b = 1;
@@ -4534,7 +4097,7 @@ namespace ERSC
                     {
                         Random r = new Random();
                         double y = r.NextDouble();
-                        if (y <= 0.15)//0.2
+                        if (y <= 0.15)
                         {
                             b = 1;
                             x = 0.4;
@@ -4543,16 +4106,11 @@ namespace ERSC
                         }
                         else
                         {
-                            penalty = 0.1; //b = -1;
+                            penalty = 0.1; 
                             x = 0.4;
                             newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
                             isWin = false;
                         }
-                        //b = -1;
-                        //x = 0.4;
-                        //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //isWin = false;
-
                     }
                 }
                 else
@@ -4561,17 +4119,7 @@ namespace ERSC
                     if (dicOfProbabilityRs.Count().Equals(1))
                     {
                         requestedThisSectionCountThreadInSouthEast++;
-                        //lock (this)
-                        //{
-                        //foreach (var id in competitorSID)
-                        //{
-                        //    if (!search.ID.Equals(id))
-                        //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //    else
-                        //        search.CompetitorProbabilites.Add(search.ID, winRescueProbability);
-                        //}
-                        //}
-                        //
+        
                         lock (syncLockMiddleInSouthEast)
                         {
                             currentThisSectionCountThreadInSouthEast++;
@@ -4583,8 +4131,6 @@ namespace ERSC
                         }
                         currentThisSectionCountThreadInSouthEast = 0;
                         requestedThisSectionCountThreadInSouthEast = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderByDescending(p => p.Value).First().Key;
                         winSearchID = dicSID.First(p => p.Value.Equals(dicSID.Max(q => q.Value))).Key;
                         //
                         if (winSearchID.Equals(search.ID))
@@ -4605,65 +4151,56 @@ namespace ERSC
                     }
                     else
                     {
-                        //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID) || dicIsGivedBestSelectInSouthEast.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
+                        // Flag to check if the best rescue is for another search
                         bool IsBestRescueForAnotherSearch = false;
+                        // Track the number of threads requested in this section
                         requestedThisSectionCountThreadInSouthEast++;
                         TbPoint selectedPoint;
                         double minProbability;
+                        // Dictionary to store computed probabilities for each search ID
                         Dictionary<string, double> newdicSID = new Dictionary<string, double>();
+                        // Dictionary to track if a rescue is best for each search
                         Dictionary<string, bool> dicIsBestRescue = new Dictionary<string, bool>();
                         string secondWinRescueID = "";
+                        // Determine the second best rescue ID based on probabilities
                         if (dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key.Equals(winRescueID))
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
                         else
                             secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key;
-                        //string secondWinRescueID = dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Key;
+                        // Get the probability value for the second best rescue
                         double secondWinRescueProbability = dicOfProbabilityRs.First(p => p.Key.Equals(secondWinRescueID)).Value;
-                        //
+                        // Synchronize access to shared resources
                         lock (this)
                         {
-                            //foreach (var id in competitorSID)
-                            //{
-                            //    if (!search.ID.Equals(id))
-                            //        searchs.First(p => p.ID.Equals(id)).CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //    else
-                            //        search.CompetitorProbabilites.Add(search.ID, secondWinRescueProbability);
-                            //}
-
-                            //
+                            // Iterate through all search IDs
                             foreach (var sID in dicSID.Keys)
                             {
+                                // Query the database for the point associated with the current search and rescue
                                 using (var dbSelect = new DataClasses1DataContext())
                                 {
                                     selectedPoint = (from TbPoints in dbSelect.TbPoints
                                                      where TbPoints.Point_ID == ((from TbTaskLists in dbSelect.TbTaskLists
                                                                                   where TbTaskLists.Search_ID == sID && TbTaskLists.Rescue_ID == winRescueID && TbTaskLists.IsAssigned == false
                                                                                   select TbTaskLists).Single().Point_ID)
-                                                     //select new { leftCoordinationPoint = TbPoints.Point_LeftCoordinate, topCoordinationPoint = TbPoints.Point_TopCoordinate });
                                                      select TbPoints).Single();
                                 }
 
+                                // Compute the maximum probability for another rescue in the SouthEast region
                                 newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //***********//
-                                //if (sID.Equals(search.ID))
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //else if (IsBestRescueForAnotherSearchInSouthEast(selectedPoint, winRescueID) || dicIsGivedBestSelectInSouthEast.First(p => p.Key.Equals(sID)).Value)
-                                //    newdicSID.Add(sID, ComputeMaxProbabilityForAnotherRescuesInSouthEast(selectedPoint, winRescueID));
-                                //***********//
 
+                                // Check if the current search ID is not the main search
                                 if (!sID.Equals(search.ID))
                                 {
+                                    // Determine if this rescue is the best for another search
                                     if (IsBestRescueForAnotherSearchInSouthEast(selectedPoint, winRescueID))
                                         IsBestRescueForAnotherSearch = true;
                                 }
                             }
-                            //
+                            // Find the minimum probability and corresponding search ID
                             minProbability = newdicSID.First(p => p.Value.Equals(newdicSID.Min(q => q.Value))).Value;
                             winSearchID = newdicSID.First(p => p.Value.Equals(minProbability)).Key;
-
                         }
-                        //
+                        // Synchronize thread execution in the SouthEast section
                         lock (syncLockMiddleInSouthEast)
                         {
                             currentThisSectionCountThreadInSouthEast++;
@@ -4673,134 +4210,121 @@ namespace ERSC
                             }
                             Monitor.PulseAll(syncLockMiddleInSouthEast);
                         }
+                        // Reset thread counters for this section
                         currentThisSectionCountThreadInSouthEast = 0;
                         requestedThisSectionCountThreadInSouthEast = 0;
-                        //
-                        //winSearchID = search.CompetitorProbabilites.OrderBy(p => p.Value).First().Key;
-                        //
+
+                        // If the best rescue is for another search and not the current one
                         if (IsBestRescueForAnotherSearch && !winSearchID.Equals(search.ID))
                         {
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            // Check if the current rescue is the closest by distance
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                //b = 1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = true;
+                                // Generate a random value to decide penalty or reward
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.5)//0.9//0.5//0.15
+                                // If random value is less than or equal to 0.5, apply penalty
+                                if (y <= 0.5) //0.9//0.5//0.15
                                 {
-                                    penalty = 0.1;//b = -1;
-                                    x = 0.4;
+                                    penalty = 0.1; // Apply penalty factor
+                                    x = 0.4; // Update probability adjustment factor
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
-                                    isWin = false;
-                                    isGivedBestSelect = true;
+                                    isWin = false; // Mark as not winning
+                                    isGivedBestSelect = true; // Mark as best selection given
+                                    // Move to next rescue if not at the end
                                     if (i < dicOfDistanceRs.Count() - 1)
                                         i = i + 1;
                                 }
                                 else
                                 {
-                                    b = 1;
-                                    x = 0.4;
+                                    b = 1; // Apply reward factor
+                                    x = 0.4; // Update probability adjustment factor
                                     newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                    isWin = true;
+                                    isWin = true; // Mark as winning
                                 }
                             }
                             else
                             {
-                                penalty = 0.1;//b = -1;
-                                x = 0.4;
+                                // If not the closest rescue, apply penalty
+                                penalty = 0.1; // Apply penalty factor
+                                x = 0.4; // Update probability adjustment factor
                                 newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
-                                isWin = false;
-                                isGivedBestSelect = true;
+                                isWin = false; // Mark as not winning
+                                isGivedBestSelect = true; // Mark as best selection given
                             }
-                            //b = -1;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs.OrderByDescending(p => p.Value).Skip(1).First().Value;
-                            ////x = dicOfProbabilityRs[winRescueID] - dicOfProbabilityRs[secondWinRescueID];
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, Math.Abs(x), dicOfProbabilityRs);
-                            //isWin = false;
-                            //isGivedBestSelect = true;
+
                         }
                         else
                         {
-                            //b = 1;
-                            //x = 0.4;
-                            //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                            //isWin = true;
-                            //if (dicOfDistanceRs.Where(p => p.Value.Equals(dicOfDistanceRs.Min(q => q.Value))).Select(p => p.Key).ToList().Contains(winRescueID))// || dicIsGivedBestSelectInNorthWest.First(p => p.Key.Equals(search.ID)).Value)
+                            // If not best rescue for another search
                             if (dicOfDistanceRs.OrderBy(p => p.Value).ElementAt(i).Key.Equals(winRescueID))
                             {
-                                b = 1;
-                                x = 0.4;
+                                // If current rescue is closest, apply reward
+                                b = 1; // Apply reward factor
+                                x = 0.4; // Update probability adjustment factor
                                 newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                isWin = true;
+                                isWin = true; // Mark as winning
                             }
                             else
                             {
-                                //b = -1;
-                                //x = 0.4;
-                                //newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                //isWin = false;
+                                // Otherwise, randomly decide penalty or reward
                                 Random r = new Random();
                                 double y = r.NextDouble();
-                                if (y <= 0.15)//0.2
+                                if (y <= 0.15) //0.2
                                 {
-                                    b = 1;
-                                    x = 0.4;
+                                    b = 1; // Apply reward factor
+                                    x = 0.4; // Update probability adjustment factor
                                     newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                                    isWin = true;
-                                    isGivedBestSelect = true;
+                                    isWin = true; // Mark as winning
+                                    isGivedBestSelect = true; // Mark as best selection given
                                 }
                                 else
                                 {
-                                    penalty = 0.1;// = -1;
-                                    x = 0.4;
+                                    penalty = 0.1; // Apply penalty factor
+                                    x = 0.4; // Update probability adjustment factor
                                     newDicOfProbabilityRs = ComputeNewProbabilitesForPenalty(winRescueID, winRescueProbability, penalty, x, dicOfProbabilityRs);
-                                    isWin = false;
+                                    isWin = false; // Mark as not winning
                                 }
 
                             }
                         }
-                        //}
-                        //else if (!dicIsGivedBestSelectInSouthEast.First(p => p.Key.Equals(search.ID)).Value)
-                        //{
-                        //    b = -1;
-                        //    x = 0.4;
-                        //    newDicOfProbabilityRs = ComputeNewProbabilites(winRescueID, winRescueProbability, b, x, dicOfProbabilityRs);
-                        //    isWin = false;
-                        //}
+
                     }
                 }
+                // Update the main probability dictionary with new values
                 dicOfProbabilityRs = newDicOfProbabilityRs;
-                counter++;
-                //
+                counter++; // Increment operation counter
+                // Synchronize thread execution at the end of SouthEast section
                 lock (syncLockEndInSouthEast)
                 {
+                    // Increment thread counter for SouthEast end section
                     currentCountThreadInSouthEastEnd++;
+                    // Wait for all threads to reach this point before proceeding
                     if (currentCountThreadInSouthEastEnd < requestedCountThreadInSouthEast)
                     {
                         Monitor.Wait(syncLockEndInSouthEast);
                     }
                     Monitor.PulseAll(syncLockEndInSouthEast);
                 }
+                // Reset thread counter for SouthEast end section
                 currentCountThreadInSouthEastEnd = 0;
-                //
+                // Check if elapsed time exceeds threshold (14 seconds)
                 if (ss.Elapsed.TotalSeconds > start + 14)
                 {
                     requestedCountThreadInSouthEast--;
-                    isOutByTime = true;
+                    isOutByTime = true; // Mark as timed out
                     break;
                 }
                 else
                     isOutByTime = false;
             }
             ////
+            // Synchronize access to shared resources for win rescue
             lock (this)
             {
                 if (isWin == true)
                 {
+                    // Add winning rescue ID to list if not already present
                     if (!listOfWinRescueIDInSouthEast.Any(p => p.Equals(winRescueID)))
                     {
                         listOfWinRescueIDInSouthEast.Add(winRescueID);
@@ -4808,7 +4332,7 @@ namespace ERSC
                     }
                 }
             }
-            //
+            // Synchronize thread execution after end in SouthEast section
             lock (syncLockAfterEndInSouthEast)
             {
                 currentCountThreadInSouthEastAfterEnd++;
@@ -4817,20 +4341,17 @@ namespace ERSC
                     Monitor.Wait(syncLockAfterEndInSouthEast);
                 }
                 Monitor.PulseAll(syncLockAfterEndInSouthEast);
-                //lock (this)
-                //{
-                //    if (isOutByTime)
-                //        requestedCountThreadInSouthEast++;
-                //}
                 requestedCountThreadInSouthEast = requestedCountThreadInSouthEastCopy;
             }
+            // Reset thread counter for after end section
             currentCountThreadInSouthEastAfterEnd = 0;
-            //
+            // Calculate counts for SouthEast units
             int countRescuesSouthEast = rescues.Where(p => p.Container.Equals(UnitType.SouthEast)).Count();
             int countSearchsSouthEast = searchs.Where(p => p.Container.Equals(UnitType.SouthEast)).Count();
             int countAllTasksSouthEast = points.Where(p => p.Container.Equals(UnitType.SouthEast) && p.EndRescueDoing.Equals(false)).Count();
             int countCurrentTask = requestedCountThreadInSouthEastCopy;
 
+            // Calculate efficiency of busy rescues based on counts
             if (countRescuesSouthEast < countSearchsSouthEast)
             {
                 if (countAllTasksSouthEast > countRescuesSouthEast)
@@ -4842,32 +4363,35 @@ namespace ERSC
             {
                 efficiencyBusyRescue += (double)busySouthEastRs / countCurrentTask;
             }
-            numBusyRescue++;
-            //
+            numBusyRescue++; // Increment number of busy rescues
+            // Clear SteamIDs for winning rescue and reset selection dictionary
             rescues.Find(p => p.ID.Equals(winRescueID)).SteamIDs.Clear();
             dicIsGivedBestSelectInSouthEast.Clear();
-            ////delete from sql
+            //// Delete task entries from SQL database for the current point
             using (var dbDelete = new DataClasses1DataContext())
             {
                 var getData = (from TbTaskLists in dbDelete.TbTaskLists where TbTaskLists.Point_ID == point.ID select TbTaskLists);
                 dbDelete.TbTaskLists.DeleteAllOnSubmit(getData.ToList());
                 dbDelete.SubmitChanges();
             }
-            //
 
+            // Return the winning rescue ID
             return winRescueID;
         }
         //**************//
+        // Select a winning rescue ID based on probability distribution
         public string SelectWinRescueByProbability(Dictionary<string,double> dicOfProbabilityRs)
         {
             string winRescueID="";
+            // Find minimum and maximum probability values
             double minValue = dicOfProbabilityRs.OrderBy(p => p.Value).First().Value;
             double maxValue = dicOfProbabilityRs.OrderBy(p => p.Value).Last().Value;
             Random r = new Random();
             double y = r.NextDouble();
+            // Generate a random value within the probability range
             double value = (y * (maxValue - minValue) + minValue);
             double lastProb = 0;
-            //
+            // Iterate through probabilities to select the winning rescue
             foreach (var prob in dicOfProbabilityRs.OrderBy(p => p.Value))
             {
                 if (value > lastProb && value <= prob.Value)
@@ -4876,28 +4400,28 @@ namespace ERSC
                 }
                 lastProb = prob.Value;
             }
-            //winRescueID=dicOfProbabilityRs.OrderByDescending(p => p.Value).First().Key;
             return winRescueID ;
         }
 
+        // Compute new probabilities for rescues based on reward or penalty
         public Dictionary<string,double> ComputeNewProbabilites(string winRescueID,double winRescueProbability,int b,double x, Dictionary<string, double> dicOfProbabilityRs)
         {
             Dictionary<string,double> newDicOfProbabilityRs=new Dictionary<string,double>();
             double probability = 0;
+            // Iterate through each rescue probability
             foreach (var prob in dicOfProbabilityRs)
             {
-                //if (prob.Key.Equals(winRescueID))
-                //    newDicOfProbabilityRs.Add(winRescueID, winRescueProbability + x * b * (1 - winRescueProbability));
-                //else
-                //    newDicOfProbabilityRs.Add(prob.Key, dicOfProbabilityRs[prob.Key] - x * b * (dicOfProbabilityRs[prob.Key]));
+                // Skip if probability is exactly 0 or 1
                 if (!probability.Equals(0) || !probability.Equals(1))
                 {
+                    // Update probability for winning rescue
                     if (prob.Key.Equals(winRescueID))
                         probability = winRescueProbability + x * b * (1 - winRescueProbability);
                     else
                         probability = dicOfProbabilityRs[prob.Key] - x * b * (dicOfProbabilityRs[prob.Key]);
                 }
 
+                // Clamp probability between 0 and 1
                 if (probability < 0)
                     newDicOfProbabilityRs.Add(prob.Key, 0);
                 else if (probability > 1)
@@ -4908,25 +4432,26 @@ namespace ERSC
             return newDicOfProbabilityRs;
         }
 
+        // Compute new probabilities for rescues when applying penalty
         public Dictionary<string, double> ComputeNewProbabilitesForPenalty(string winRescueID, double winRescueProbability, double penalty, double x, Dictionary<string, double> dicOfProbabilityRs)
         {
             Dictionary<string, double> newDicOfProbabilityRs = new Dictionary<string, double>();
             double probability = 0;
             int r = dicOfProbabilityRs.Count();
+            // Iterate through each rescue probability
             foreach (var prob in dicOfProbabilityRs)
             {
-                //if (prob.Key.Equals(winRescueID))
-                //    newDicOfProbabilityRs.Add(winRescueID, winRescueProbability + x * b * (1 - winRescueProbability));
-                //else
-                //    newDicOfProbabilityRs.Add(prob.Key, dicOfProbabilityRs[prob.Key] - x * b * (dicOfProbabilityRs[prob.Key]));
+                // Skip if probability is exactly 0 or 1
                 if (!probability.Equals(0) || !probability.Equals(1))
                 {
+                    // Update probability for winning rescue with penalty
                     if (prob.Key.Equals(winRescueID))
                         probability = (1 - penalty) * winRescueProbability;
                     else
                         probability = penalty / (r - 1) + (1 - penalty) * dicOfProbabilityRs[prob.Key];
                 }
 
+                // Clamp probability between 0 and 1
                 if (probability < 0)
                     newDicOfProbabilityRs.Add(prob.Key, 0);
                 else if (probability > 1)
@@ -4937,18 +4462,20 @@ namespace ERSC
             return newDicOfProbabilityRs;
         }
         //**********************************************//
+        // Assign a point to the winning rescue and update database
         public void AssignePointToWinRescue(Search search, string winRescueID,double Probability, DomainObject.Point point,int countNewPoint, bool isWin)
         {
             Dictionary<Search,int> dic=new Dictionary<DomainObject.Search,int>();
             TbTaskList task = new TbTaskList();
             List<TbTaskList> listTasksNewPoints = new List<TbTaskList>();
 
+            // Synchronize access to shared resources
             lock (this)
             {
                 switch (isWin)
                 {
                     case true:
-                        //Insert task of new point to sql in TbTaskList
+                        // Insert tasks for new points to SQL in TbTaskList
                         foreach (var item in newPoints.Where(p => p.ParentID.Equals(point.ID)).ToList())
                         {
                             TbTaskList taskNewPoint = new TbTaskList();
@@ -4964,8 +4491,7 @@ namespace ERSC
                         }
                         db.TbTaskLists.InsertAllOnSubmit(listTasksNewPoints);
                         db.SubmitChanges();
-                        ////
-                        //Insert task of point to sql in TbTaskList
+                        // Insert task for main point to SQL in TbTaskList
                         task.ID = Guid.NewGuid().ToString();
                         task.Search_ID = search.ID;
                         task.Point_ID = point.ID;
@@ -4976,26 +4502,20 @@ namespace ERSC
                         task.IsAssigned = true;
                         db.TbTaskLists.InsertOnSubmit(task);
                         db.SubmitChanges();
-                        //
+                        // Add search to dictionary for win case
                         dic.Add(search, 1);
+                        // If rescue is not allocated, update allocation status and add point
                         if (rescues.Find(p => p.ID.Equals(winRescueID)).IsAllocated == false)
                         {
-                            //lock (this)
-                            //{
                             rescues.Find(p => p.ID.Equals(winRescueID)).IsAllocated = true;
                             rescues.Find(p => p.ID.Equals(winRescueID)).ListPoint.Add(point, dic);
-                            //}
                         }
                         else
-                            //lock (this)
-                            //{
+                            // If already allocated, just add point
                             rescues.Find(p => p.ID.Equals(winRescueID)).ListPoint.Add(point, dic);
-                            //}
                         break;
                     case false:
-                        //lock (this)
-                        //{
-                        //Insert task of new point to sql in TbTaskList
+                        // Insert tasks for new points to SQL in TbTaskList for non-win case
                         foreach (var item in newPoints.Where(p => p.ParentID.Equals(point.ID)).ToList())
                         {
                             TbTaskList taskNewPoint = new TbTaskList();
@@ -5011,8 +4531,7 @@ namespace ERSC
                         }
                         db.TbTaskLists.InsertAllOnSubmit(listTasksNewPoints);
                         db.SubmitChanges();
-                        ////
-                        //Insert task of point to sql in TbTaskList
+                        // Insert task for main point to SQL in TbTaskList for non-win case
                         task.ID = Guid.NewGuid().ToString();
                         task.Search_ID = search.ID;
                         task.Point_ID = point.ID;
@@ -5023,50 +4542,35 @@ namespace ERSC
                         task.IsAssigned = true;
                         db.TbTaskLists.InsertOnSubmit(task);
                         db.SubmitChanges();
-                        //
+                        // Add search to dictionary for non-win case
                         dic.Add(search, 2);
                         rescues.Find(p => p.ID.Equals(winRescueID)).ListPoint.Add(point, dic);
-                        //}
                         break;
                 }
             }
-            //
+            // Start a new thread to perform rescue for the assigned point
             Rescue selectedRescue = rescues.Find(p => p.ID.Equals(winRescueID));
             Thread Thread = new Thread(() => DoRescueForPoint(selectedRescue, point,countNewPoint));
             AllRescueThreads.Add(Thread);
             Thread.Start();
-            
         }
 
+        // Perform rescue operation for a given point
         public void DoRescueForPoint(Rescue selectedRescue, DomainObject.Point selectedPoint, int countNewPoint)
         {
+            // Synchronize access to the selected rescue
             lock (selectedRescue)
             {
-                //foreach (var point in selectedRescue.ListPoint.Keys)
-                //{  
-                //    point.StartRescueDoing = true;
-                //    point.RTeamID = selectedRescue.ID;
-                //    point.DoRescue();
-                //    //
-                //    foreach (var newPoint in points.Where(p => p.ParentID.Equals(point.ID)).ToList())
-                //    {
-                //        newPoint.StartRescueDoing = true;
-                //        newPoint.RTeamID = selectedRescue.ID;
-                //        newPoint.DoRescue();
-                //    }
-                //    //
-                //}
+                // Example of iterating through all points for rescue (commented out)
+                // ...existing code...
 
+                // Set rescue state to busy and update status
                 selectedRescue.State = Rescue.RescueStateType.Busy;
                 selectedRescue.IsDoing = true;
                 idelRescue--;
                 busyRescue++;
 
-                //allIdelRescue += idelRescue;
-                //numIdelRescue++;
-                //allBusyRescue += busyRescue;
-                //numBusyRescue++;
-
+                // Update point allocation and rescue status
                 selectedPoint.IsAllocatedRTeam = true;
                 selectedPoint.StartRescueDoing = true;
                 selectedPoint.RTeamID = selectedRescue.ID;
@@ -5093,15 +4597,19 @@ namespace ERSC
                 int rescueTop, rescueLeft, pointTop, pointLeft;
                 rescueTop = selectedRescue.Top;
                 rescueLeft = selectedRescue.Left;
+                // Store top and left coordinates of the selected point
                 pointTop = selectedPoint.Top;
                 pointLeft = selectedPoint.Left;
 
+                // Find rescue and point labels in the panel controls
                 Label lblRescue = (Label)panel1.Controls.Find(selectedRescue.ID, true)[0];
                 Label lblPoint = (Label)panel1.Controls.Find(selectedPoint.ID, true)[0];
 
+                // Calculate distances between rescue and point
                 int xDistance = Math.Abs(lblRescue.Location.X - lblPoint.Location.X);
                 int yDistance = Math.Abs(lblRescue.Location.Y - lblPoint.Location.Y);
 
+                // Divide movement into 10 steps
                 int total = 10;
                 int xpart = xDistance / total;
                 int ypart = yDistance / total;
@@ -5109,16 +4617,21 @@ namespace ERSC
                 int newCordinationX = 0;
                 int newCordinationY = 0;
 
+                // Track start and end time for rescue operation
                 double startTime = Math.Floor(ss.Elapsed.TotalSeconds);
                 double endTime=0;
 
+                // Animate rescue movement step by step
                 for (int i = 0; i < total; i++)
                 {
+                    // Sleep to simulate rescue movement speed
                     System.Threading.Thread.Sleep(int.Parse(nudRescue.Value.ToString()) * 30);
                     totalTimeSleep += (int.Parse(nudSearch.Value.ToString()) * 30);
 
+                    // Move rescue label towards point label (southeast direction)
                     if (lblRescue.Location.X < lblPoint.Location.X && lblRescue.Location.Y < lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X + 10;
@@ -5128,6 +4641,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part plus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X + xpart + 10;
@@ -5137,6 +4651,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X + xpart;
@@ -5147,9 +4662,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
-                    //southwest
+                    // Move rescue label towards point label (southwest direction)
                     else if (lblRescue.Location.X < lblPoint.Location.X && lblRescue.Location.Y > lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X + 10;
@@ -5159,6 +4675,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part plus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X + xpart + 10;
@@ -5168,6 +4685,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X + xpart;
@@ -5178,9 +4696,11 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
-                    //northeast
+                    // Move rescue label towards point label (northeast direction)
+                    // Move rescue label towards point label (northeast direction)
                     else if (lblRescue.Location.X > lblPoint.Location.X && lblRescue.Location.Y > lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X - 10;
@@ -5190,6 +4710,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part minus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X - xpart - 10;
@@ -5199,6 +4720,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X - xpart;
@@ -5209,8 +4731,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move rescue label towards point label (northwest direction)
                     else if (lblRescue.Location.X > lblPoint.Location.X && lblRescue.Location.Y < lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X) && Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X - 10;
@@ -5220,6 +4744,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part plus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X - xpart - 10;
@@ -5229,6 +4754,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X - xpart;
@@ -5239,8 +4765,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move rescue label vertically downwards
                     else if (lblRescue.Location.X == lblPoint.Location.X && lblRescue.Location.Y < lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X ;
@@ -5250,6 +4778,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part plus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X ;
@@ -5259,6 +4788,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X ;
@@ -5269,8 +4799,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move rescue label vertically upwards
                     else if (lblRescue.Location.X == lblPoint.Location.X && lblRescue.Location.Y > lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Top - 10, 20).Contains(lblRescue.Location.Y))
                         {
                             newCordinationX = lblRescue.Location.X;
@@ -5280,6 +4812,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part minus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X;
@@ -5289,6 +4822,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X;
@@ -5299,8 +4833,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move rescue label horizontally leftwards
                     else if (lblRescue.Location.X > lblPoint.Location.X && lblRescue.Location.Y == lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X))
                         {
                             newCordinationX = lblRescue.Location.X - 10;
@@ -5310,6 +4846,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part minus 10 units
                         else if (i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X - xpart - 10;
@@ -5319,6 +4856,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X - xpart;
@@ -5329,8 +4867,10 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Move rescue label horizontally rightwards
                     else if (lblRescue.Location.X < lblPoint.Location.X && lblRescue.Location.Y == lblPoint.Location.Y)
                     {
+                        // If rescue is close to the point, move by 10 units
                         if (Enumerable.Range(selectedPoint.Left - 10, 20).Contains(lblRescue.Location.X))
                         {
                             newCordinationX = lblRescue.Location.X + 10;
@@ -5340,6 +4880,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // On last step, move by calculated part plus 10 units
                         else if(i.Equals(9))
                         {
                             newCordinationX = lblRescue.Location.X + xpart + 10;
@@ -5349,6 +4890,7 @@ namespace ERSC
                             else
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
+                        // Otherwise, move by calculated part
                         else
                         {
                             newCordinationX = lblRescue.Location.X + xpart;
@@ -5359,19 +4901,21 @@ namespace ERSC
                                 lblRescue.Location = new System.Drawing.Point(newCordinationX, newCordinationY);
                         }
                     }
+                    // Bring rescue label to front after movement
                     if (lblRescue.InvokeRequired)
                         lblRescue.BeginInvoke((MethodInvoker)delegate { lblRescue.BringToFront(); });
                     else
                         lblRescue.BringToFront();
 
-                    //
+                    // Store the new location of the rescue label
                     System.Drawing.Point MyPoint = new System.Drawing.Point(newCordinationX, newCordinationY);
+                    // Convert pixel coordinates to geographic projection
                     DotSpatial.Topology.Coordinate MyCoordinate = geoMap.PixelToProj(MyPoint);
-                    //
 
+                    // Update rescue coordinates in the database
                     using (var dbUpdate = new DataClasses1DataContext())
                     {
-                        //Update to sql in TbPoint
+                        // Update rescue position in TbRescues table
                         var rescue = (from TbRescues in dbUpdate.TbRescues
                                       where TbRescues.Rescue_ID == selectedRescue.ID
                                       select TbRescues).Single();
@@ -5382,37 +4926,31 @@ namespace ERSC
                         dbUpdate.SubmitChanges();
                     }
                 }
+                // Record end time for rescue operation
                 endTime = Math.Floor(ss.Elapsed.TotalSeconds);
 
+                // Bring rescue label to front after final movement
                 if (lblRescue.InvokeRequired)
                     lblRescue.BeginInvoke((MethodInvoker)delegate { lblRescue.BringToFront(); });
                 else
                     lblRescue.BringToFront();
 
-                //
-                //foreach (var newPoint in newPoints.Where(p => p.ParentID.Equals(selectedPoint.ID)).ToList())
-                //{
-                //    newPoint.StartRescueDoing = true;
-                //    newPoint.RTeamID = selectedRescue.ID;
-                //    newPoint.DoRescue();
-                //}
-                //
-
-                //***** Do Rescue
+                // Perform rescue action for the selected point
                 selectedPoint.DoRescue();
 
-                //*****
+                // Update rescue and point states after completion
                 selectedPoint.StartRescueDoing = false;
                 selectedPoint.EndRescueDoing = true;
                 selectedRescue.State = Rescue.RescueStateType.Ready;
                 idelRescue++;
                 busyRescue--;
 
-                //***** Show new information
+                // Update UI to show new information
                 lblPoint.Image = Properties.Resources.Point_Green;
                 lock (this)
                 {
                     List<string> idOfNewPoints = new List<string>();
+                    // Get IDs of new points from database
                     using (var dbSelect = new DataClasses1DataContext())
                     {
                         idOfNewPoints = (from TbPoints in dbSelect.TbPoints
@@ -5420,25 +4958,24 @@ namespace ERSC
                                          select TbPoints.Point_ID).ToList();
                     }
 
+                    // Update UI for each new point
                     for (int i = 0; i < idOfNewPoints.Count(); i++)
                     {
                         Label myLabel = (Label)panel1.Controls.Find(idOfNewPoints[i], true)[0];
                         myLabel.Image = Properties.Resources.Point_Green;
                     }
                 }
-                //
+                // Calculate and update rescue statistics
                 totalDistanceRescue += GetDistance(pointTop, rescueTop, pointLeft, rescueLeft);
-                //totalTimeOfDistanceRescue += (endTime - startTime);
                 totalTimeOfDistanceRs += (Math.Round(GetDistance(pointTop, rescueTop, pointLeft, rescueLeft)) / 5);
-                //totalTimeOfDistanceRescue +=int.Parse(ComputeCostRescueForPoint(selectedPoint, selectedRescue).ToString());
 
-                //***** Show Chart
+                // Show chart for rescue tasks
                 int time = (totalTimeSleep / 1000) + 2;
                 numPointDoRescue = numPointDoRescue - countNewPoint;
                 numPointDoRescue--;
                 ShowChartTasksOfRescue(time);
 
-                //***** Update sql
+                // Update rescue and point states in the database
                 using (var dbUpdate = new DataClasses1DataContext())
                 {
                     var point = (from TbPoints in dbUpdate.TbPoints
@@ -5447,7 +4984,7 @@ namespace ERSC
                     point.Point_StartRescueDoing = selectedPoint.StartRescueDoing;
                     point.Point_EndRescueDoing = selectedPoint.EndRescueDoing;
                     dbUpdate.SubmitChanges();
-                    //
+                    // Update new points related to the selected point
                     foreach (var item in newPoints.Where(p => p.ParentID.Equals(selectedPoint.ID)).ToList())
                     {
                         var newPoint = (from TbPoints in dbUpdate.TbPoints
@@ -5461,16 +4998,19 @@ namespace ERSC
                     var rescue = (from TbRescues in dbUpdate.TbRescues
                                   where TbRescues.Rescue_ID == selectedRescue.ID
                                   select TbRescues).Single();
+                    // Update rescue state and coordinates in the database
                     rescue.Rescue_State = (int)selectedRescue.State;
                     rescue.Rescue_LeftCoordinate = newCordinationX;
                     rescue.Rescue_TopCoordinate = newCordinationY;
                     dbUpdate.SubmitChanges();
                 }
-             
+
             }
+            // Mark rescue as not doing after operation
             selectedRescue.IsDoing = false;
         }
         //**********************************************//
+        // Select the next point for a search based on its container region
         public DomainObject.Point SelectNextPointForSearch(Search search)
         {
             switch (search.Container)
@@ -5490,28 +5030,25 @@ namespace ERSC
             return null;
         }
 
+        // Select the next available point in NorthWest region for a search
         public DomainObject.Point SelectNexPointInNorthWest(Search search)
         {
             lock (search)
             {
+                // Get all points in NorthWest region that haven't been searched
                 List<DomainObject.Point> orderdPointInNorthWest = points.Where(p => p.Container == UnitType.NorthWest && p.EndSearchDoing == false && p.StartSearchDoing == false).ToList();
+                // Calculate distances for all points
                 foreach (var item in orderdPointInNorthWest)
                 {
-                    //item.Distance = GetDistance(item.Left, search.Left, item.Top, search.Top);
                     item.Distance = GetDistance(item.Left, search.ListPoint.Last().Left, item.Top, search.ListPoint.Last().Top);
                 }
+                // Order points by distance
                 orderdPointInNorthWest = orderdPointInNorthWest.OrderBy(p => p.Distance).ToList();
-                //
+                // Find the next available point
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
                     {
-                        //if (orderdPointInNorthWest.Count != 0)
-                        //{
                         string nextPointID = orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false) && p.EndSearchDoing.Equals(false)).ID;
                         if (points.First(p => p.ID.Equals(nextPointID)).StartSearchDoing.Equals(false) && points.First(p => p.ID.Equals(nextPointID)).EndSearchDoing.Equals(false))
                         {
@@ -5519,35 +5056,31 @@ namespace ERSC
                             orderdPointInNorthWest.Find(p => p.ID.Equals(nextPointID)).StartSearchDoing = true;
                             return orderdPointInNorthWest.Find(p => p.ID.Equals(nextPointID));
                         }
-                        //}
                     }
                 }
             }
             return null;
         }
 
+        // Select the next available point in NorthEast region for a search
         public DomainObject.Point SelectNexPointInNorthEast(Search search)
         {
             lock (search)
             {
+                // Get all points in NorthEast region that haven't been searched
                 List<DomainObject.Point> orderdPointInNorthEast = points.Where(p => p.Container == UnitType.NorthEast && p.EndSearchDoing == false && p.StartSearchDoing == false).ToList();
+                // Calculate distances for all points
                 foreach (var item in orderdPointInNorthEast)
                 {
-                    //item.Distance = GetDistance(item.Left, search.Left, item.Top, search.Top);
                     item.Distance = GetDistance(item.Left, search.ListPoint.Last().Left, item.Top, search.ListPoint.Last().Top);
                 }
+                // Order points by distance
                 orderdPointInNorthEast = orderdPointInNorthEast.OrderBy(p => p.Distance).ToList();
-                //
+                // Find the next available point
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInNorthEast.Any(p => p.StartSearchDoing.Equals(false)))
                     {
-                        //if (orderdPointInNorthWest.Count != 0)
-                        //{
                         string nextPointID = orderdPointInNorthEast.First(p => p.StartSearchDoing.Equals(false) && p.EndSearchDoing.Equals(false)).ID;
                         if (points.First(p => p.ID.Equals(nextPointID)).StartSearchDoing.Equals(false) && points.First(p => p.ID.Equals(nextPointID)).EndSearchDoing.Equals(false))
                         {
@@ -5555,13 +5088,13 @@ namespace ERSC
                             orderdPointInNorthEast.Find(p => p.ID.Equals(nextPointID)).StartSearchDoing = true;
                             return orderdPointInNorthEast.Find(p => p.ID.Equals(nextPointID));
                         }
-                        //}
                     }
                 }
             }
             return null;
         }
 
+        // Select the next available point in SouthWest region for a search
         public DomainObject.Point SelectNexPointInSouthWest(Search search)
         {
             lock (search)
@@ -5598,28 +5131,25 @@ namespace ERSC
             return null;
         }
 
+        // Select the next available point in SouthEast region for a search
         public DomainObject.Point SelectNexPointInSouthEast(Search search)
         {
             lock (search)
             {
+                // Get all points in SouthEast region that haven't been searched
                 List<DomainObject.Point> orderdPointInSouthEast = points.Where(p => p.Container == UnitType.SouthEast && p.EndSearchDoing == false && p.StartSearchDoing == false).ToList();
+                // Calculate distances for all points
                 foreach (var item in orderdPointInSouthEast)
                 {
-                    //item.Distance = GetDistance(item.Left, search.Left, item.Top, search.Top);
                     item.Distance = GetDistance(item.Left, search.ListPoint.Last().Left, item.Top, search.ListPoint.Last().Top);
                 }
+                // Order points by distance
                 orderdPointInSouthEast = orderdPointInSouthEast.OrderBy(p => p.Distance).ToList();
-                //
+                // Find the next available point
                 lock (this)
                 {
-                    //if (orderdPointInNorthWest.Count != 0 && orderdPointInNorthWest.Any(p => p.StartSearchDoing.Equals(false)))
-                    //    return orderdPointInNorthWest.First(p => p.StartSearchDoing.Equals(false));
-                    //else
-                    //    return null;
                     while (orderdPointInSouthEast.Any(p => p.StartSearchDoing.Equals(false)))
                     {
-                        //if (orderdPointInNorthWest.Count != 0)
-                        //{
                         string nextPointID = orderdPointInSouthEast.First(p => p.StartSearchDoing.Equals(false) && p.EndSearchDoing.Equals(false)).ID;
                         if (points.First(p => p.ID.Equals(nextPointID)).StartSearchDoing.Equals(false) && points.First(p => p.ID.Equals(nextPointID)).EndSearchDoing.Equals(false))
                         {
@@ -5627,7 +5157,6 @@ namespace ERSC
                             orderdPointInSouthEast.Find(p => p.ID.Equals(nextPointID)).StartSearchDoing = true;
                             return orderdPointInSouthEast.Find(p => p.ID.Equals(nextPointID));
                         }
-                        //}
                     }
                 }
             }
@@ -5635,26 +5164,25 @@ namespace ERSC
         }
         //***********************************************//
         #region Best Performance
+        // The following region contains legacy code for drawing rescue lines and invoking rescue actions
+        // The commented code below was used for visualizing rescue operations and is kept for reference.
         //private void DoRescuInvoke(int rescTop, int rescLeft, int pointTop, int pointLeft, DomainObject.Point point)
         //{
         //    System.Drawing.Pen myPen;
         //    myPen = new System.Drawing.Pen(System.Drawing.Color.Red);
         //    System.Drawing.Graphics formGraphics = panel1.CreateGraphics();
         //    formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
         //    point.DoSearch();
-
         //    //Clean
         //    myPen.Color = Color.White;
         //    formGraphics.DrawLine(myPen, rescLeft, rescTop, pointLeft, pointTop);
-
         //    formGraphics.Dispose();
         //    myPen.Dispose();
         //}
-
         //delegate void DoRescuInvoker(int rescTop, int rescLeft, int pointTop, int pointLeft, DomainObject.Point point);
         #endregion
 
+        // Handle stop button click to pause/resume threads and update UI
         private void btnStop_Click(object sender, EventArgs e)
         {
           //ManualResetEvent  ewh2 = new ManualResetEvent(true);
@@ -5725,15 +5253,19 @@ namespace ERSC
 
         private void btnShowInformation_Click(object sender, EventArgs e)
         {
+            // Retrieve selected search ID from dropdown
             int searchId = (int) cboxSearchIntID.SelectedItem;
+            // Initialize variables for search, rescue, and point information
             string searchID = "", searchIntID = "", searchTop = "", searchLeft = "", searchX = "", searchY = "",searchState="";
             string rescueID = "", rescueIntID = "", rescueTop = "", rescueLeft = "", rescueX = "", rescueY = "", pointID = "";
             string pointIntID="", pointRescueLevel = "", pointNumVictim = "";
             bool isAccepted = false;
 
+            // Bind dropdowns for search state and rescue level
             BindDropDownSearchState();
             BindDropDownRescueLevel();
 
+            // Remove all arrow controls from panel
             for (int index = panel1.Controls.Count - 1; index >= 0; index--)
             {
                 if (panel1.Controls[index].Name.StartsWith("arrow"))
@@ -5742,9 +5274,10 @@ namespace ERSC
                 }
             }
 
+            // Query database for search information and update UI
             using (var dbSelect = new DataClasses1DataContext())
             {
-                //
+                // Get search information from database
                 var search = (from TbSearchs in dbSelect.TbSearches
                               where TbSearchs.Search_IntID.Equals(searchId)
                               select TbSearchs).Single();
@@ -5755,13 +5288,12 @@ namespace ERSC
                 searchX = search.Search_LeftProjection.ToString();
                 searchY = search.Search_TopProjection.ToString();
                 searchState = Search.GetSearchState(search.Search_State).ToString();
-                //
+                // Update UI with search information
                 txtSearchID.Text = searchIntID;
                 txtSearchX.Text = searchX;
                 txtSearchY.Text = searchY;
-                //txtTeamState.Text = searchState;
                 comboxSearchState.SelectedIndex = comboxSearchState.FindStringExact(searchState);
-                //
+                // Retrieve task and point information if available
                 if (dbSelect.TbTaskLists.Any(p => p.Search_ID == searchID))
                 {
                     var task = (from TbTaskLists in dbSelect.TbTaskLists
@@ -5770,6 +5302,7 @@ namespace ERSC
 
                     pointID = task.Point_ID;
 
+                    // Retrieve rescue information if assigned
                     if (task.Rescue_ID != null)
                     {
                         var rescue = (from TbRescues in dbSelect.TbRescues
@@ -5785,6 +5318,7 @@ namespace ERSC
                         isAccepted = true;
                     }
 
+                    // Retrieve point information
                     var point = (from TbPoints in dbSelect.TbPoints
                                  where TbPoints.Point_ID.Equals(pointID)
                                  select TbPoints).Single();
@@ -5793,22 +5327,19 @@ namespace ERSC
                     pointRescueLevel = DomainObject.Point.GetRescueLevel(point.Point_NumVictim).ToString();
                     pointNumVictim = point.Point_NumVictim.ToString();
                 }
-                //
+                // Update UI with rescue and point information
                 txtRescueID.Text = rescueIntID;
                 txtRescueX.Text = rescueX;
                 txtRescueY.Text = rescueY;
                 radioAccept.Checked = isAccepted;
                 radioReject.Checked = isAccepted;
-                //
                 txtPointID.Text = pointIntID;
-                //txtRescueLevel.Text = pointRescueLevel;
                 comboxRescueLevel.SelectedIndex = comboxRescueLevel.FindStringExact(pointRescueLevel);
                 txtNumVictim.Text = pointNumVictim;
-                //
                 txtIntefraceRescueID.Text = rescueIntID;
                 txtInterfaceRescueX.Text = rescueX;
                 txtIntefraceRescueY.Text = rescueY;
-                //
+                // Populate rescue task list grid if rescue exists
                 if (rescueID != "" || rescueID != null)
                 {
                     var rescueTaskList = from p in dbSelect.TbTaskLists
@@ -5824,12 +5355,11 @@ namespace ERSC
                                              p.Priority
                                          };
 
-
                     dgvRescueTasks.DataSource = rescueTaskList.ToList();
                 }
-                //
             }
 
+            // Add arrow labels to panel for search and rescue locations
             for (int index = panel1.Controls.Count - 1; index >= 0; index--)
             {
                 if (panel1.Controls[index].Name.ToLower().Equals(searchID))
@@ -5864,5 +5394,3 @@ namespace ERSC
         //***********************************************//
     }
 }
-
-
